@@ -51,10 +51,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: Life cycle
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
+
+        DomainGetSocket.shared.getWhoisDomainWith(searchDomain: BuildSettings.whoisSearchDomain, contentDomain: BuildSettings.whoisContentDomain, filterKey: BuildSettings.whoisFilterKey) { result in
+            switch result {
+            case .success(let domain):
+                let trim = domain.trimmingCharacters(in: .whitespacesAndNewlines)
+//                RiotSettings.defaults.set("https://" + trim, forKey: "whoisDomain")
+//                BuildSettings.serverConfigDefaultHomeserverUrlString = "https://" + trim
+//                MXLog.info("getDomainSuccess\(trim)")
+            
+            case .error:
+                MXLog.error("getUrlFail")
+            }
+        }
+
         return self.legacyAppDelegate.application(application, willFinishLaunchingWithOptions: launchOptions)
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+        // config Change
+//        if let string = RiotSettings.defaults.string(forKey: "whoisDomain") {
+//            let trim = string.trimmingCharacters(in: .whitespacesAndNewlines)
+//            BuildSettings.serverConfigDefaultHomeserverUrlString = trim
+//        }
+
         // Setup window
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window

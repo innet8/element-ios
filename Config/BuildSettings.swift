@@ -89,7 +89,6 @@ final class BuildSettings: NSObject {
     // Element-Web instance for the app
     static let applicationWebAppUrlString = "https://app.element.io"
     
-    
     // MARK: - Localization
     
     /// Whether to allow the app to use a right to left layout or force left to right for all languages
@@ -100,15 +99,13 @@ final class BuildSettings: NSObject {
     
     /// Force the user to set a homeserver instead of using the default one
     static let forceHomeserverSelection = false
+    // Default servers proposed on the authentication screen https://matrix.org
+    static var serverConfigDefaultHomeserverUrlString = "https://matrix.org"
 
-    /// Default server proposed on the authentication screen
-    static let serverConfigDefaultHomeserverUrlString = "https://matrix.org"
-    
     /// Default identity server
     static let serverConfigDefaultIdentityServerUrlString = "https://vector.im"
         
     static let serverConfigSygnalAPIUrlString = "https://matrix.org/_matrix/push/v1/notify"
-    
     
     // MARK: - Legal URLs
     

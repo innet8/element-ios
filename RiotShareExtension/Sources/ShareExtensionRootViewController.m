@@ -35,6 +35,7 @@
 {
     [super viewDidLoad];
     
+    
     _configuration = [[CommonConfiguration alloc] init];
     [_configuration setupSettings];
     
@@ -89,7 +90,9 @@
         }
     }];
     
-    [self.shareManager.mainViewController setModalInPopover:YES];
+    self.shareManager.mainViewController.modalInPresentation = YES;
+    
+//    [self.shareManager.mainViewController setModalInPopover:YES];
     [self presentViewController:self.shareManager.mainViewController animated:YES completion:nil];
 }
 
