@@ -43,7 +43,7 @@ class KeyVerificationIncomingRequestApprovalCell: KeyVerificationBaseCell {
         
         keyVerificationCellInnerContentView.isButtonsHidden = false
         keyVerificationCellInnerContentView.isRequestStatusHidden = true
-        keyVerificationCellInnerContentView.badgeImage = Asset.Images.encryptionNormal.image
+        keyVerificationCellInnerContentView.badgeImage = Asset.Images.encryptionNormalIcon.image
     }
     
     // MARK: - Overrides

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3Nb-ba-XcY">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3Nb-ba-XcY">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,13 +11,13 @@
         <!--Widget Permission View Controller-->
         <scene sceneID="hVk-V5-GY4">
             <objects>
-                <viewController id="3Nb-ba-XcY" customClass="WidgetPermissionViewController" customModule="Riot" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3Nb-ba-XcY" customClass="WidgetPermissionViewController" customModule="Element" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Z4L-Ka-Saj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yPm-GN-iNf">
-                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="848"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vsY-4j-uQz">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="421.5"/>
@@ -31,7 +29,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="qvd-zA-8uA"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <state key="normal" image="close_button"/>
+                                                <state key="normal" image="common_close_button"/>
                                                 <connections>
                                                     <action selector="closeButtonAction:" destination="3Nb-ba-XcY" eventType="touchUpInside" id="qJ1-fx-suE"/>
                                                 </connections>
@@ -105,7 +103,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0mL-Yj-ueq">
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0mL-Yj-ueq">
                                                 <rect key="frame" x="20" y="357.5" width="374" height="44"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="AuthenticationVCLoginButton"/>
                                                 <constraints>
@@ -157,6 +155,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="0Vv-Fe-78X"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="yPm-GN-iNf" secondAttribute="bottom" id="AVK-pe-mSa"/>
@@ -164,7 +163,6 @@
                             <constraint firstItem="yPm-GN-iNf" firstAttribute="leading" secondItem="Z4L-Ka-Saj" secondAttribute="leading" id="Spn-UK-HMu"/>
                             <constraint firstItem="yPm-GN-iNf" firstAttribute="top" secondItem="0Vv-Fe-78X" secondAttribute="top" id="qkB-1D-obj"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="0Vv-Fe-78X"/>
                     </view>
                     <connections>
                         <outlet property="closeButton" destination="F2c-As-8Ce" id="dJz-ii-CtQ"/>
@@ -184,6 +182,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="close_button" width="16" height="16"/>
+        <image name="common_close_button" width="16" height="16"/>
     </resources>
 </document>

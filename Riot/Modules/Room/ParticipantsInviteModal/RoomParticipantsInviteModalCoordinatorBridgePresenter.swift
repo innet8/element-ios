@@ -104,7 +104,7 @@ final class RoomParticipantsInviteCoordinatorBridgePresenter: NSObject {
              detail: String? = nil,
              image: UIImage? = nil,
              room: MXRoom,
-             accessoryImage: UIImage? = Asset.Images.chevron.image,
+             accessoryImage: UIImage? = Asset.Images.commonChevron.image,
              enabled: Bool = true) {
             self.room = room
             super.init(title: title, detail: detail, image: image, accessoryImage: accessoryImage, enabled: enabled)
@@ -119,11 +119,11 @@ final class RoomParticipantsInviteCoordinatorBridgePresenter: NSObject {
             RoomOptionListItemViewData(title: VectorL10n.roomInviteToSpaceOptionTitle(spaceName),
                                        detail: VectorL10n.roomInviteToSpaceOptionDetail(spaceName, roomName),
                                        image: Asset.Images.addParticipants.image, room: spaceRoom,
-                                       accessoryImage: Asset.Images.chevron.image),
+                                       accessoryImage: Asset.Images.commonChevron.image),
             RoomOptionListItemViewData(title: VectorL10n.roomInviteToRoomOptionTitle,
                                        detail: VectorL10n.roomInviteToRoomOptionDetail(spaceName),
                                        image: Asset.Images.addParticipants.image, room: room,
-                                       accessoryImage: Asset.Images.chevron.image)
+                                       accessoryImage: Asset.Images.commonChevron.image)
         ]
         
         let coordinator = OptionListCoordinator(parameters: OptionListCoordinatorParameters(title: VectorL10n.roomIntroCellAddParticipantsAction, options: self.roomOptions, navigationRouter: self.navigationRouter))

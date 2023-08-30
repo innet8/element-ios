@@ -1,6 +1,6 @@
-name: Riot
+name: PrivateTalk
 attributes:
-  ORGANIZATIONNAME: matrix.org
+  ORGANIZATIONNAME: ittable.net
 
 configs:
   Debug: debug
@@ -43,6 +43,9 @@ include:
   # - path: SiriIntents/target.yml
 
 packages:
+  Alamofire:
+    url: https://github.com/Alamofire/Alamofire
+    exactVersion: 5.7.1
   AnalyticsEvents:
     url: https://github.com/matrix-org/matrix-analytics-events
     exactVersion: 0.5.0

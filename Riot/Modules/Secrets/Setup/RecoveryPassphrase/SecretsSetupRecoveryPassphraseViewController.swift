@@ -140,7 +140,7 @@ final class SecretsSetupRecoveryPassphraseViewController: UIViewController {
         self.passphraseTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         self.passphraseAdditionalInfoView.isHidden = true
         
-        let visibilityImage = Asset.Images.revealPasswordButton.image.withRenderingMode(.alwaysTemplate)
+        let visibilityImage = Asset.Images.commonRevealPasswordButton.image.withRenderingMode(.alwaysTemplate)
         self.passphraseVisibilityButton.setImage(visibilityImage, for: .normal)
         
         self.additionalInformationLabel.text = VectorL10n.secretsSetupRecoveryPassphraseAdditionalInformation

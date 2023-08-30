@@ -28,9 +28,9 @@ NSString *const kRoomEncryptedDataBubbleCellTapOnEncryptionIcon = @"kRoomEncrypt
         case EventEncryptionDecorationNone:
             return nil;
         case EventEncryptionDecorationGrey:
-            return AssetImages.encryptionUntrusted.image;
+            return AssetImages.encryptionUntrustedIcon.image;
         case EventEncryptionDecorationRed:
-            return AssetImages.encryptionWarning.image;
+            return AssetImages.encryptionWarningIcon.image;
         default:
             return nil;
     }

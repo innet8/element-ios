@@ -38,7 +38,7 @@ struct UserSessionListItem: View {
                 }
                 HStack {
                     if isEditModeEnabled {
-                        Image(viewData.isSelected ? Asset.Images.userSessionListItemSelected.name : Asset.Images.userSessionListItemNotSelected.name)
+                        Image(viewData.isSelected ? Asset.Images.userSessionListItemSelectedIcon.name : Asset.Images.userSessionListItemNotSelectedIcon.name)
                     }
                     DeviceAvatarView(viewData: viewData.deviceAvatarViewData, isSelected: viewData.isSelected)
                     VStack(alignment: .leading, spacing: 0) {

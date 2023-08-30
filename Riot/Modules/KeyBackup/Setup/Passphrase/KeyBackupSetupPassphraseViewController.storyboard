@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="V8j-Lb-PgC">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="V8j-Lb-PgC">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,7 +11,7 @@
         <!--Key Backup Setup Passphrase View Controller-->
         <scene sceneID="mt5-wz-YKA">
             <objects>
-                <viewController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="V8j-Lb-PgC" customClass="KeyBackupSetupPassphraseViewController" customModule="Riot" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="V8j-Lb-PgC" customClass="KeyBackupSetupPassphraseViewController" customModule="Element" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EL9-GA-lwo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -62,7 +60,6 @@ For maximum security, this should be different from your account password.</stri
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="50" id="85g-2l-RZB"/>
                                                                                 </constraints>
-                                                                                <nil key="textColor"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" secureTextEntry="YES"/>
                                                                                 <connections>
@@ -75,7 +72,7 @@ For maximum security, this should be different from your account password.</stri
                                                                                     <constraint firstAttribute="width" constant="44" id="B2V-ki-5ds"/>
                                                                                     <constraint firstAttribute="height" constant="44" id="QVT-oC-sIM"/>
                                                                                 </constraints>
-                                                                                <state key="normal" image="reveal_password_button"/>
+                                                                                <state key="normal" image="common_reveal_password_button"/>
                                                                                 <connections>
                                                                                     <action selector="passphraseVisibilityButtonAction:" destination="V8j-Lb-PgC" eventType="touchUpInside" id="7Xw-if-TRP"/>
                                                                                 </connections>
@@ -100,7 +97,7 @@ For maximum security, this should be different from your account password.</stri
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RCF-wt-i5I">
                                                                         <rect key="frame" x="0.0" y="78.5" width="375" height="67.5"/>
                                                                         <subviews>
-                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G2S-Kn-gi7" customClass="PasswordStrengthView" customModule="Riot" customModuleProvider="target">
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G2S-Kn-gi7" customClass="PasswordStrengthView" customModule="Element" customModuleProvider="target">
                                                                                 <rect key="frame" x="20" y="5" width="335" height="5"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <constraints>
@@ -156,7 +153,6 @@ For maximum security, this should be different from your account password.</stri
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="50" id="8qv-7N-hum"/>
                                                                                 </constraints>
-                                                                                <nil key="textColor"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" secureTextEntry="YES"/>
                                                                                 <connections>
@@ -216,7 +212,7 @@ For maximum security, this should be different from your account password.</stri
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oxZ-I4-CTh">
                                                         <rect key="frame" x="0.0" y="556" width="375" height="50"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xXL-d6-V7f">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xXL-d6-V7f">
                                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="50" id="6k5-t4-uPs"/>
@@ -247,7 +243,7 @@ For maximum security, this should be different from your account password.</stri
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tBD-dv-RTe">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tBD-dv-RTe">
                                                         <rect key="frame" x="0.0" y="697" width="375" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="88Y-vG-lXl"/>
@@ -308,6 +304,7 @@ For maximum security, this should be different from your account password.</stri
                                 </constraints>
                             </scrollView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="bFg-jh-JZB"/>
                         <color key="backgroundColor" red="0.94509803921568625" green="0.96078431372549022" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="9U2-KL-ZVA" secondAttribute="bottom" id="7Cb-nY-CsO"/>
@@ -315,7 +312,6 @@ For maximum security, this should be different from your account password.</stri
                             <constraint firstItem="bFg-jh-JZB" firstAttribute="trailing" secondItem="9U2-KL-ZVA" secondAttribute="trailing" id="sbD-ek-vGJ"/>
                             <constraint firstItem="bFg-jh-JZB" firstAttribute="top" secondItem="9U2-KL-ZVA" secondAttribute="top" id="wTB-V6-IHV"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="bFg-jh-JZB"/>
                     </view>
                     <connections>
                         <outlet property="confirmPassphraseAdditionalInfoView" destination="8in-A5-jGb" id="sc7-9K-rLl"/>
@@ -344,6 +340,6 @@ For maximum security, this should be different from your account password.</stri
         </scene>
     </scenes>
     <resources>
-        <image name="reveal_password_button" width="24" height="18"/>
+        <image name="common_reveal_password_button" width="24" height="18"/>
     </resources>
 </document>

@@ -185,7 +185,7 @@ final class TermsView: UIView, NibOwnerLoadable, UITableViewDelegate, UITableVie
         let webViewViewController: WebViewViewController = WebViewViewController(url: policy.url)
         webViewViewController.title = policy.name
 
-        let leftBarButtonItem: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "back_icon"), style: .plain, target: self, action: #selector(didTapCancelOnPolicyScreen))
+        let leftBarButtonItem: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "common_back_icon"), style: .plain, target: self, action: #selector(didTapCancelOnPolicyScreen))
         webViewViewController.navigationItem.leftBarButtonItem = leftBarButtonItem
 
         navigationController = RiotNavigationController()

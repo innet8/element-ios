@@ -72,7 +72,7 @@ struct UserOtherSessionsToolbar: ToolbarContent {
                 }
                 .labelsHidden()
             } label: {
-                Image(filter == .all ? Asset.Images.userOtherSessionsFilter.name : Asset.Images.userOtherSessionsFilterSelected.name)
+                Image(filter == .all ? Asset.Images.userOtherSessionsFilterIcon.name : Asset.Images.userOtherSessionsFilterSelectedIcon.name)
             }
             .accessibilityLabel(VectorL10n.userOtherSessionFilter)
         }

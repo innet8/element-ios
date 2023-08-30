@@ -118,7 +118,7 @@ final class MajorUpdateViewController: UIViewController {
         self.vc_removeBackTitle()
         
         self.oldLogoImageView.image = Asset.Images.oldLogo.image
-        self.disclosureImageView.image = Asset.Images.disclosureIcon.image
+        self.disclosureImageView.image = Asset.Images.commonDisclosureIcon.image
         self.newLogoImageView.image = Asset.Images.launchScreenLogo.image
         
         self.titleLabel.text = VectorL10n.majorUpdateTitle(AppInfo.current.displayName)

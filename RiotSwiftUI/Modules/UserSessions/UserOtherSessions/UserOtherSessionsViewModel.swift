@@ -140,15 +140,15 @@ private extension UserOtherSessionsFilter {
         case .inactive:
             return UserOtherSessionsHeaderViewData(title: VectorL10n.userOtherSessionFilterMenuInactive,
                                                    subtitle: VectorL10n.userSessionsOverviewSecurityRecommendationsInactiveInfo + " %@",
-                                                   iconName: Asset.Images.userOtherSessionsInactive.name)
+                                                   iconName: Asset.Images.userOtherSessionsInactiveIcon.name)
         case .unverified:
             return UserOtherSessionsHeaderViewData(title: VectorL10n.userSessionUnverifiedShort,
                                                    subtitle: VectorL10n.userOtherSessionUnverifiedSessionsHeaderSubtitle + " %@",
-                                                   iconName: Asset.Images.userOtherSessionsUnverified.name)
+                                                   iconName: Asset.Images.userOtherSessionsUnverifiedIcon.name)
         case .verified:
             return UserOtherSessionsHeaderViewData(title: VectorL10n.userOtherSessionFilterMenuVerified,
                                                    subtitle: VectorL10n.userOtherSessionVerifiedSessionsHeaderSubtitle + " %@",
-                                                   iconName: Asset.Images.userOtherSessionsVerified.name)
+                                                   iconName: Asset.Images.userOtherSessionsVerifiedIcon.name)
         }
     }
     

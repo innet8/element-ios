@@ -98,7 +98,7 @@ class CoachMarkView: UIView, NibLoadable, Themable {
     // MARK: Private
     
     private func setupView() {
-        let image: UIImage = Asset.Images.coachMark.image
+        let image: UIImage = Asset.Images.commonCoachMark.image
         let imageSize = image.size
         let center = CGPoint(x: ceil(imageSize.width / 2), y: ceil(imageSize.height / 2))
         

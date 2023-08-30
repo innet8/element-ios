@@ -83,11 +83,11 @@ class RoomDirectCallStatusCell: RoomCallBaseCell {
         switch viewState {
         case .missed:
             innerContentView.callIconView.image = isVideoCall ?
-                Asset.Images.callMissedVideo.image :
-                Asset.Images.callMissedVoice.image
+                Asset.Images.mobileMissedVideo.image :
+                Asset.Images.mobileMissedVoice.image
         default:
             innerContentView.callIconView.image = isVideoCall ?
-                Asset.Images.callVideoIcon.image :
+                Asset.Images.mobileVideoIcon.image :
                 Asset.Images.voiceCallHangonIcon.image
         }
     }
@@ -98,7 +98,7 @@ class RoomDirectCallStatusCell: RoomCallBaseCell {
     
     private var callButtonIcon: UIImage {
         if isVideoCall {
-            return Asset.Images.callVideoIcon.image
+            return Asset.Images.mobileVideoIcon.image
         } else {
             return Asset.Images.voiceCallHangonIcon.image
         }

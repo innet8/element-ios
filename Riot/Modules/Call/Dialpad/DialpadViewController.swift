@@ -241,10 +241,10 @@ class DialpadViewController: UIViewController {
         
         if theme.identifier == ThemeIdentifier.light.rawValue {
             titleLabel.textColor = theme.noticeSecondaryColor
-            closeButton.setBackgroundImage(Asset.Images.closeButton.image.vc_tintedImage(usingColor: theme.tabBarUnselectedItemTintColor), for: .normal)
+            closeButton.setBackgroundImage(Asset.Images.commonCloseButton.image.vc_tintedImage(usingColor: theme.tabBarUnselectedItemTintColor), for: .normal)
         } else {
             titleLabel.textColor = theme.baseTextSecondaryColor
-            closeButton.setBackgroundImage(Asset.Images.closeButton.image.vc_tintedImage(usingColor: theme.baseTextSecondaryColor), for: .normal)
+            closeButton.setBackgroundImage(Asset.Images.commonCloseButton.image.vc_tintedImage(usingColor: theme.baseTextSecondaryColor), for: .normal)
         }
         phoneNumberTextField.textColor = theme.textPrimaryColor
         lineView.backgroundColor = theme.lineBreakColor

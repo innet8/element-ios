@@ -97,7 +97,7 @@ final class KeyBackupRecoverFromPassphraseViewController: UIViewController {
         let shieldImage = Asset.Images.keyBackupLogo.image.withRenderingMode(.alwaysTemplate)
         self.shieldImageView.image = shieldImage
         
-        let visibilityImage = Asset.Images.revealPasswordButton.image.withRenderingMode(.alwaysTemplate)
+        let visibilityImage = Asset.Images.commonRevealPasswordButton.image.withRenderingMode(.alwaysTemplate)
         self.passphraseVisibilityButton.setImage(visibilityImage, for: .normal)
         
         self.informationLabel.text = VectorL10n.keyBackupRecoverFromPassphraseInfo

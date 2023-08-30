@@ -51,13 +51,13 @@ class CallAudioRouteView: UIView {
         
         switch route.routeType {
         case .builtIn:
-            iconImageView.image = Asset.Images.callAudioRouteBuiltin.image
+            iconImageView.image = Asset.Images.mobileAudioRouteBuiltin.image
             titleLabel.text = route.name
         case .loudSpeakers:
-            iconImageView.image = Asset.Images.callAudioRouteSpeakers.image
+            iconImageView.image = Asset.Images.mobileAudioRouteSpeakers.image
             titleLabel.text = VectorL10n.callMoreActionsAudioUseDevice
         case .externalWired, .externalBluetooth, .externalCar:
-            iconImageView.image = Asset.Images.callAudioRouteHeadphones.image
+            iconImageView.image = Asset.Images.mobileAudioRouteHeadphones.image
             titleLabel.text = route.name
         }
         

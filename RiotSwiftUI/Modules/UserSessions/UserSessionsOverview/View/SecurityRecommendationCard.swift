@@ -65,9 +65,9 @@ struct SecurityRecommendationCard: View {
     private var iconName: String {
         switch style {
         case .unverified:
-            return Asset.Images.userSessionsUnverified.name
+            return Asset.Images.userSessionsUnverifiedIcon.name
         case .inactive:
-            return Asset.Images.userSessionsInactive.name
+            return Asset.Images.userSessionsInactiveIcon.name
         }
     }
     

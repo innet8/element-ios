@@ -1728,7 +1728,7 @@ static CGSize kThreadListBarButtonItemImageSize;
 - (UIBarButtonItem *)joinJitsiBarButtonItem
 {
     CallTileActionButton *button = [CallTileActionButton new];
-    [button setImage:AssetImages.callVideoIcon.image
+    [button setImage:AssetImages.mobileVideoIcon.image
             forState:UIControlStateNormal];
     [button setTitle:[VectorL10n roomJoinGroupCall]
             forState:UIControlStateNormal];
@@ -3048,7 +3048,7 @@ static CGSize kThreadListBarButtonItemImageSize;
             }
             else
             {
-                previewHeader.roomAvatarPlaceholder = [MXKTools paintImage:AssetImages.placeholder.image
+                previewHeader.roomAvatarPlaceholder = [MXKTools paintImage:AssetImages.commonPlaceholder.image
                                                                  withColor:ThemeService.shared.theme.tintColor];
             }
         }

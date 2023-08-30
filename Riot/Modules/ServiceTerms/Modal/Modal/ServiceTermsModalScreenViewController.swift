@@ -151,7 +151,7 @@ final class ServiceTermsModalScreenViewController: UIViewController {
         if self.viewModel.serviceType == MXServiceTypeIdentityService {
             self.descriptionLabel.text = VectorL10n.serviceTermsModalDescriptionIdentityServer
             self.tableHeaderView.titleLabel.text = VectorL10n.serviceTermsModalTableHeaderIdentityServer
-            self.imageView.image = Asset.Images.findYourContactsFacepile.image
+            self.imageView.image = Asset.Images.findYourContactsFacepileIcon.image
         } else {
             self.descriptionLabel.text = VectorL10n.serviceTermsModalDescriptionIntegrationManager
             self.tableHeaderView.titleLabel.text = VectorL10n.serviceTermsModalTableHeaderIntegrationManager

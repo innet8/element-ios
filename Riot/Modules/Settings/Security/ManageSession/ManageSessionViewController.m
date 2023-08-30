@@ -378,12 +378,12 @@ enum {
     if (deviceInfo.trustLevel.isVerified)
     {
         cell.textLabel.text = [VectorL10n manageSessionTrusted];
-        cell.imageView.image = AssetImages.encryptionTrusted.image;
+        cell.imageView.image = AssetImages.encryptionTrustedIcon.image;
     }
     else
     {
         cell.textLabel.text = [VectorL10n manageSessionNotTrusted];
-        cell.imageView.image = AssetImages.encryptionWarning.image;
+        cell.imageView.image = AssetImages.encryptionWarningIcon.image;
     }
 
     return cell;

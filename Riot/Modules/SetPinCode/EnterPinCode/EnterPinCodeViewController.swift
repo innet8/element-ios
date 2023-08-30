@@ -174,7 +174,7 @@ final class EnterPinCodeViewController: UIViewController {
         
         placeholderStackView.vc_removeAllArrangedSubviews()
         for i in 0..<PinCodePreferences.shared.numberOfDigits {
-            let imageView = UIImageView(image: Asset.Images.selectionUntick.image)
+            let imageView = UIImageView(image: Asset.Images.commonSelectionUntick.image)
             imageView.heightAnchor.constraint(equalToConstant: 24).isActive = true
             imageView.widthAnchor.constraint(equalToConstant: 24).isActive = true
             imageView.tag = i
@@ -354,12 +354,12 @@ final class EnterPinCodeViewController: UIViewController {
             for case let imageView as UIImageView in self.placeholderStackView.arrangedSubviews {
                 if imageView.tag < count {
                     if error {
-                        imageView.image = Asset.Images.placeholder.image.vc_tintedImage(usingColor: self.theme.noticeColor)
+                        imageView.image = Asset.Images.commonPlaceholder.image.vc_tintedImage(usingColor: self.theme.noticeColor)
                     } else {
-                        imageView.image = Asset.Images.placeholder.image
+                        imageView.image = Asset.Images.commonPlaceholder.image
                     }
                 } else {
-                    imageView.image = Asset.Images.selectionUntick.image
+                    imageView.image = Asset.Images.commonSelectionUntick.image
                 }
             }
         }

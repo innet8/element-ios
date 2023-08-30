@@ -126,8 +126,8 @@ final class KeyVerificationSelfVerifyWaitViewController: UIViewController {
         self.titleLabel.text = VectorL10n.deviceVerificationSelfVerifyOpenOnOtherDeviceTitle(AppInfo.current.displayName)
         self.informationLabel.text = VectorL10n.deviceVerificationSelfVerifyOpenOnOtherDeviceInformation
         
-        self.desktopClientImageView.image = Asset.Images.monitor.image.withRenderingMode(.alwaysTemplate)
-        self.mobileClientImageView.image = Asset.Images.smartphone.image.withRenderingMode(.alwaysTemplate)
+        self.desktopClientImageView.image = Asset.Images.commonMonitor.image.withRenderingMode(.alwaysTemplate)
+        self.mobileClientImageView.image = Asset.Images.commonSmartphone.image.withRenderingMode(.alwaysTemplate)
                 
         self.recoverSecretsAdditionalInformationLabel.text = VectorL10n.deviceVerificationSelfVerifyWaitRecoverSecretsAdditionalHelp(AppInfo.current.displayName)
     }

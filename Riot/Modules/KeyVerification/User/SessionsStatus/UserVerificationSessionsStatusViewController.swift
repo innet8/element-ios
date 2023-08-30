@@ -177,13 +177,13 @@ final class UserVerificationSessionsStatusViewController: UIViewController {
         
         switch self.userEncryptionTrustLevel {
         case .trusted:
-            badgeImage = Asset.Images.encryptionTrusted.image
+            badgeImage = Asset.Images.encryptionTrustedIcon.image
             title = VectorL10n.userVerificationSessionsListUserTrustLevelTrustedTitle
         case .warning:
-            badgeImage = Asset.Images.encryptionWarning.image
+            badgeImage = Asset.Images.encryptionWarningIcon.image
             title = VectorL10n.userVerificationSessionsListUserTrustLevelWarningTitle
         default:
-            badgeImage = Asset.Images.encryptionNormal.image
+            badgeImage = Asset.Images.encryptionNormalIcon.image
             title = VectorL10n.userVerificationSessionsListUserTrustLevelUnknownTitle
         }
         

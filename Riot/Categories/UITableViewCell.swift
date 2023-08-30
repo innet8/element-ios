@@ -37,7 +37,7 @@ extension UITableViewCell {
     }
     
     @objc func vc_setAccessoryDisclosureIndicator(withTintColor tintColor: UIColor) {
-        let disclosureImage = Asset.Images.disclosureIcon.image.withRenderingMode(.alwaysTemplate)
+        let disclosureImage = Asset.Images.commonDisclosureIcon.image.withRenderingMode(.alwaysTemplate)
         let disclosureImageView = UIImageView(image: disclosureImage)
         disclosureImageView.tintColor = tintColor
         disclosureImageView.highlightedImage = disclosureImage.vc_withAlpha(AccessoryImageAlpha.highlighted)

@@ -46,11 +46,11 @@ struct UserSessionCardViewData {
     var verificationStatusImageName: String {
         switch verificationState {
         case .verified:
-            return Asset.Images.userSessionVerified.name
+            return Asset.Images.userSessionVerifiedIcon.name
         case .unverified, .permanentlyUnverified:
-            return Asset.Images.userSessionUnverified.name
+            return Asset.Images.userSessionUnverifiedIcon.name
         case .unknown:
-            return Asset.Images.userSessionVerificationUnknown.name
+            return Asset.Images.userSessionVerificationUnknownIcon.name
         }
     }
     
@@ -112,7 +112,7 @@ struct UserSessionCardViewData {
             } else {
                 let dateString = InactiveUserSessionLastActivityFormatter.lastActivityDateString(from: lastActivityTimestamp)
                 lastActivityDateString = VectorL10n.userInactiveSessionItemWithDate(dateString)
-                lastActivityIcon = Asset.Images.userSessionListItemInactiveSession.name
+                lastActivityIcon = Asset.Images.userSessionListItemInactiveSessionIcon.name
             }
         }
         self.lastActivityDateString = lastActivityDateString

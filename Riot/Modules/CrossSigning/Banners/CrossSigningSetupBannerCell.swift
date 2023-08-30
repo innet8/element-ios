@@ -59,7 +59,7 @@ final class CrossSigningSetupBannerCell: MXKTableViewCell, Themable {
         super.awakeFromNib()
         
         // TODO: Image size is too small, use an higher resolution one.
-        let shieldImage = Asset.Images.encryptionNormal.image.withRenderingMode(.alwaysTemplate)
+        let shieldImage = Asset.Images.encryptionNormalIcon.image.withRenderingMode(.alwaysTemplate)
         self.shieldImageView.image = shieldImage
         
         let closeImage = Asset.Images.closeBanner.image.withRenderingMode(.alwaysTemplate)

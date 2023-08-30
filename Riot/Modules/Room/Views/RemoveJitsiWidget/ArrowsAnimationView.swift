@@ -48,7 +48,7 @@ class ArrowsAnimationView: UIView {
     }
     
     private func setup() {
-        let arrowImage = Asset.Images.disclosureIcon.image
+        let arrowImage = Asset.Images.commonDisclosureIcon.image
         for i in 0..<Constants.numberOfArrows {
             let totalSpace = frame.width - CGFloat(Constants.numberOfArrows) * Constants.arrowSize.width
             let oneSpace = totalSpace / CGFloat(Constants.numberOfArrows - 1)

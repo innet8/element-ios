@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dBQ-CG-VDL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dBQ-CG-VDL">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -13,19 +13,19 @@
         <!--Dialpad View Controller-->
         <scene sceneID="EyC-m5-6uM">
             <objects>
-                <viewController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="dBQ-CG-VDL" customClass="DialpadViewController" customModule="Riot" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="dBQ-CG-VDL" customClass="DialpadViewController" customModule="Element" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ht4-fu-3rS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="751" text="Dial pad" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ObS-Bw-Z12">
-                                <rect key="frame" x="16" y="16" width="71.5" height="24"/>
+                                <rect key="frame" x="16" y="36" width="71.5" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="24" translatesAutoresizingMaskIntoConstraints="NO" id="iWR-Bv-qzs">
-                                <rect key="frame" x="16" y="90" width="343" height="41"/>
+                                <rect key="frame" x="16" y="110" width="343" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="8wN-Le-Iww"/>
                                 </constraints>
@@ -33,23 +33,23 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iak-30-PMd">
-                                <rect key="frame" x="0.0" y="146" width="375" height="1"/>
+                                <rect key="frame" x="0.0" y="166" width="375" height="1"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="CHU-Ka-X4d"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3Bl-zP-6pR">
-                                <rect key="frame" x="0.0" y="155" width="375" height="492"/>
+                                <rect key="frame" x="0.0" y="175" width="375" height="472"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="fnQ-jm-HT2">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="492"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="472"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="ruO-8N-EAb">
-                                                <rect key="frame" x="53.5" y="0.0" width="268" height="93.5"/>
+                                                <rect key="frame" x="53.5" y="0.0" width="268" height="89.5"/>
                                                 <subviews>
-                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dum-9Z-dKh" customClass="DialpadButton" customModule="Riot" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="13" width="68" height="68"/>
+                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dum-9Z-dKh" customClass="DialpadButton" customModule="Element" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="11" width="68" height="68"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="68" id="Z0y-aw-8sf"/>
                                                             <constraint firstAttribute="height" constant="68" id="q1C-9k-MLf"/>
@@ -60,8 +60,8 @@
                                                             <action selector="digitButtonAction:" destination="dBQ-CG-VDL" eventType="touchUpInside" id="MOx-7L-sps"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TIL-aL-5ij" customClass="DialpadButton" customModule="Riot" customModuleProvider="target">
-                                                        <rect key="frame" x="100" y="13" width="68" height="68"/>
+                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TIL-aL-5ij" customClass="DialpadButton" customModule="Element" customModuleProvider="target">
+                                                        <rect key="frame" x="100" y="11" width="68" height="68"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="68" id="GyZ-oW-RI3"/>
                                                             <constraint firstAttribute="height" constant="68" id="RQc-r6-iwY"/>
@@ -72,8 +72,8 @@
                                                             <action selector="digitButtonAction:" destination="dBQ-CG-VDL" eventType="touchUpInside" id="aJe-6Q-hie"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yrk-zC-XL5" customClass="DialpadButton" customModule="Riot" customModuleProvider="target">
-                                                        <rect key="frame" x="200" y="13" width="68" height="68"/>
+                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yrk-zC-XL5" customClass="DialpadButton" customModule="Element" customModuleProvider="target">
+                                                        <rect key="frame" x="200" y="11" width="68" height="68"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="68" id="4uz-EY-slt"/>
                                                             <constraint firstAttribute="width" constant="68" id="tcJ-0w-5pB"/>
@@ -87,10 +87,10 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="J6F-Bl-DOp">
-                                                <rect key="frame" x="53.5" y="99.5" width="268" height="93.5"/>
+                                                <rect key="frame" x="53.5" y="95.5" width="268" height="89.5"/>
                                                 <subviews>
-                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JfX-9z-x4y" customClass="DialpadButton" customModule="Riot" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="13" width="68" height="68"/>
+                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JfX-9z-x4y" customClass="DialpadButton" customModule="Element" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="11" width="68" height="68"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="68" id="HuW-Ng-AXr"/>
                                                             <constraint firstAttribute="height" constant="68" id="Wma-1J-joN"/>
@@ -101,8 +101,8 @@
                                                             <action selector="digitButtonAction:" destination="dBQ-CG-VDL" eventType="touchUpInside" id="BLa-fl-IIk"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hI1-sM-NT5" customClass="DialpadButton" customModule="Riot" customModuleProvider="target">
-                                                        <rect key="frame" x="100" y="13" width="68" height="68"/>
+                                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hI1-sM-NT5" customClass="DialpadButton" customModule="Element" customModuleProvider="target">
+                                                        <rect key="frame" x="100" y="11" width="68" height="68"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="68" id="UYB-Sq-cbi"/>
                                                             <constraint firstAttribute="width" constant="68" id="kLi-YK-Jr2"/>
@@ -113,8 +113,8 @@
                                                             <action selector="digitButtonAction:" destination="dBQ-CG-VDL" eventType="touchUpInside" id="9YX-l4-p9g"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cMg-az-Zgx" customClass="DialpadButton" customModule="Riot" customModuleProvider="target">
-                                                        <rect key="frame" x="200" y="13" width="68" height="68"/>
+                                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cMg-az-Zgx" customClass="DialpadButton" customModule="Element" customModuleProvider="target">
+                                                        <rect key="frame" x="200" y="11" width="68" height="68"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="68" id="NKt-Kb-snG"/>
                                                             <constraint firstAttribute="width" constant="68" id="OIm-Gk-qZf"/>
@@ -128,10 +128,10 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="ctg-KC-yPp">
-                                                <rect key="frame" x="53.5" y="199" width="268" height="94"/>
+                                                <rect key="frame" x="53.5" y="191" width="268" height="90"/>
                                                 <subviews>
-                                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EF6-7Y-DhC" customClass="DialpadButton" customModule="Riot" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="13" width="68" height="68"/>
+                                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EF6-7Y-DhC" customClass="DialpadButton" customModule="Element" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="11" width="68" height="68"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="68" id="pkn-IF-lwD"/>
                                                             <constraint firstAttribute="height" constant="68" id="qgq-Fm-ONP"/>
@@ -142,8 +142,8 @@
                                                             <action selector="digitButtonAction:" destination="dBQ-CG-VDL" eventType="touchUpInside" id="Rjb-WC-1k3"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Od-gu-C4x" customClass="DialpadButton" customModule="Riot" customModuleProvider="target">
-                                                        <rect key="frame" x="100" y="13" width="68" height="68"/>
+                                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Od-gu-C4x" customClass="DialpadButton" customModule="Element" customModuleProvider="target">
+                                                        <rect key="frame" x="100" y="11" width="68" height="68"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="68" id="2Xe-eX-quA"/>
                                                             <constraint firstAttribute="height" constant="68" id="qoK-7c-T0g"/>
@@ -154,8 +154,8 @@
                                                             <action selector="digitButtonAction:" destination="dBQ-CG-VDL" eventType="touchUpInside" id="Y0O-jU-b32"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rgd-Tt-xlI" customClass="DialpadButton" customModule="Riot" customModuleProvider="target">
-                                                        <rect key="frame" x="200" y="13" width="68" height="68"/>
+                                                    <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rgd-Tt-xlI" customClass="DialpadButton" customModule="Element" customModuleProvider="target">
+                                                        <rect key="frame" x="200" y="11" width="68" height="68"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="68" id="QoU-xy-26k"/>
                                                             <constraint firstAttribute="height" constant="68" id="g7r-y7-K9s"/>
@@ -169,10 +169,10 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="dvZ-XT-zLP">
-                                                <rect key="frame" x="53.5" y="299" width="268" height="93.5"/>
+                                                <rect key="frame" x="53.5" y="287" width="268" height="89.5"/>
                                                 <subviews>
-                                                    <button opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hh8-U6-dJT" customClass="DialpadButton" customModule="Riot" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="12.5" width="68" height="68"/>
+                                                    <button opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hh8-U6-dJT" customClass="DialpadButton" customModule="Element" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="10.5" width="68" height="68"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="68" id="4mU-dy-vEa"/>
                                                             <constraint firstAttribute="width" constant="68" id="xRx-S5-ATL"/>
@@ -184,8 +184,8 @@
                                                             <action selector="digitButtonAction:" destination="dBQ-CG-VDL" eventType="touchUpInside" id="V0v-hJ-Kgx"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Rc-ls-1wr" customClass="DialpadButton" customModule="Riot" customModuleProvider="target">
-                                                        <rect key="frame" x="100" y="12.5" width="68" height="68"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Rc-ls-1wr" customClass="DialpadButton" customModule="Element" customModuleProvider="target">
+                                                        <rect key="frame" x="100" y="10.5" width="68" height="68"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="68" id="0WC-Ri-gpT"/>
                                                             <constraint firstAttribute="width" constant="68" id="AU3-fm-wmC"/>
@@ -196,8 +196,8 @@
                                                             <action selector="digitButtonAction:" destination="dBQ-CG-VDL" eventType="touchUpInside" id="Irt-qu-feP"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" tag="-2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Izh-vM-Fao" customClass="DialpadButton" customModule="Riot" customModuleProvider="target">
-                                                        <rect key="frame" x="200" y="12.5" width="68" height="68"/>
+                                                    <button opaque="NO" tag="-2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Izh-vM-Fao" customClass="DialpadButton" customModule="Element" customModuleProvider="target">
+                                                        <rect key="frame" x="200" y="10.5" width="68" height="68"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="68" id="4J4-8u-YKL"/>
                                                             <constraint firstAttribute="height" constant="68" id="b4D-z5-eN2"/>
@@ -211,18 +211,18 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="xzj-PF-Bxu">
-                                                <rect key="frame" x="53.5" y="398.5" width="268" height="93.5"/>
+                                                <rect key="frame" x="53.5" y="382.5" width="268" height="89.5"/>
                                                 <subviews>
                                                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SVW-fH-Ey6">
-                                                        <rect key="frame" x="0.0" y="12.5" width="68" height="68"/>
+                                                        <rect key="frame" x="0.0" y="10.5" width="68" height="68"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="68" id="L2l-Qz-R8A"/>
                                                             <constraint firstAttribute="width" constant="68" id="nEw-2X-e3a"/>
                                                         </constraints>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B17-BJ-SiW" customClass="DialpadActionButton" customModule="Riot" customModuleProvider="target">
-                                                        <rect key="frame" x="100" y="12.5" width="68" height="68"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B17-BJ-SiW" customClass="DialpadActionButton" customModule="Element" customModuleProvider="target">
+                                                        <rect key="frame" x="100" y="10.5" width="68" height="68"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="68" id="Gdz-8i-Fag"/>
                                                             <constraint firstAttribute="width" constant="68" id="lZO-dC-UHo"/>
@@ -233,8 +233,8 @@
                                                             <action selector="callButtonAction:" destination="dBQ-CG-VDL" eventType="touchUpInside" id="TOV-1D-XQj"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xig-ln-gBC" customClass="DialpadActionButton" customModule="Riot" customModuleProvider="target">
-                                                        <rect key="frame" x="200" y="12.5" width="68" height="68"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xig-ln-gBC" customClass="DialpadActionButton" customModule="Element" customModuleProvider="target">
+                                                        <rect key="frame" x="200" y="10.5" width="68" height="68"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="68" id="WLJ-xL-89j"/>
                                                             <constraint firstAttribute="width" constant="68" id="afw-C4-e8i"/>
@@ -254,13 +254,13 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Yp-ue-lX3">
-                                <rect key="frame" x="337" y="14" width="24" height="24"/>
+                                <rect key="frame" x="337" y="34" width="24" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="24" id="4zP-zo-5wL"/>
                                     <constraint firstAttribute="height" constant="24" id="KQs-Fl-rbE"/>
                                 </constraints>
                                 <inset key="contentEdgeInsets" minX="8" minY="8" maxX="8" maxY="8"/>
-                                <state key="normal" backgroundImage="close_button"/>
+                                <state key="normal" backgroundImage="common_close_button"/>
                                 <connections>
                                     <action selector="closeButtonAction:" destination="dBQ-CG-VDL" eventType="touchUpInside" id="fL7-rx-hal"/>
                                 </connections>
@@ -317,7 +317,7 @@
     <resources>
         <image name="call_dialpad_backspace_icon" width="32" height="24.5"/>
         <image name="call_dialpad_call_icon" width="27" height="27"/>
-        <image name="close_button" width="16" height="16"/>
+        <image name="common_close_button" width="16" height="16"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

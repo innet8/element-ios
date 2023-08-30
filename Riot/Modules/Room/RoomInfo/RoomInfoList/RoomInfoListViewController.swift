@@ -346,7 +346,7 @@ extension RoomInfoListViewController: UITableViewDataSource {
             cell.detailTextLabel?.font = .systemFont(ofSize: 16)
             cell.textLabel?.text = row.text
             if row.accessoryType == .checkmark {
-                cell.accessoryView = UIImageView(image: Asset.Images.checkmark.image)
+                cell.accessoryView = UIImageView(image: Asset.Images.commonCheckmark.image)
             } else {
                 cell.accessoryView = nil
                 cell.accessoryType = row.accessoryType

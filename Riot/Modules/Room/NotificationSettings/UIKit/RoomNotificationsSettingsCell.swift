@@ -21,7 +21,7 @@ class RoomNotificationSettingsCell: UITableViewCell {
     func update(state: RoomNotificationSettingsCellViewData) {
         textLabel?.text = state.notificicationState.title
         if state.selected {
-            accessoryView = UIImageView(image: Asset.Images.checkmark.image)
+            accessoryView = UIImageView(image: Asset.Images.commonCheckmark.image)
         } else {
             accessoryView = nil
         }

@@ -38,7 +38,7 @@ extension TemplateSimpleScreenPromptType: Identifiable, CaseIterable {
     var image: ImageAsset {
         switch self {
         case .regular:
-            return Asset.Images.appSymbol
+            return Asset.Images.commonAppSymbol
         case .upgrade:
             return Asset.Images.keyVerificationSuccessShield
         }

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="le3-e8-C1h">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="le3-e8-C1h">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,7 +11,7 @@
         <!--User Verification Sessions Status View Controller-->
         <scene sceneID="G1j-dD-ArC">
             <objects>
-                <viewController id="le3-e8-C1h" customClass="UserVerificationSessionsStatusViewController" customModule="Riot" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="le3-e8-C1h" customClass="UserVerificationSessionsStatusViewController" customModule="Element" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IXd-J2-Vex">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -33,7 +31,7 @@
                                             <action selector="closeButtonAction:" destination="le3-e8-C1h" eventType="touchUpInside" id="4JW-Rl-hIk"/>
                                         </connections>
                                     </button>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="encryption_warning" translatesAutoresizingMaskIntoConstraints="NO" id="rZH-h1-WTw">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="encryption_warning_icon" translatesAutoresizingMaskIntoConstraints="NO" id="rZH-h1-WTw">
                                         <rect key="frame" x="20" y="23" width="24" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="rZH-h1-WTw" secondAttribute="height" multiplier="1:1" id="RgU-aV-cmS"/>
@@ -83,6 +81,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="Eud-3V-Vqw"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="drr-Gd-5wA" firstAttribute="leading" secondItem="IXd-J2-Vex" secondAttribute="leading" id="52r-4B-JdK"/>
@@ -96,7 +95,6 @@
                             <constraint firstItem="uMA-Dt-xTz" firstAttribute="top" secondItem="Kfr-Ho-krK" secondAttribute="bottom" constant="5" id="wok-Oq-W0z"/>
                             <constraint firstItem="Eud-3V-Vqw" firstAttribute="leading" secondItem="Kfr-Ho-krK" secondAttribute="leading" id="xjg-JA-ZUT"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Eud-3V-Vqw"/>
                     </view>
                     <connections>
                         <outlet property="badgeImageImageView" destination="rZH-h1-WTw" id="M2a-7i-OoW"/>
@@ -114,6 +112,6 @@
     </scenes>
     <resources>
         <image name="close_button" width="16" height="16"/>
-        <image name="encryption_warning" width="16" height="16"/>
+        <image name="encryption_warning_icon" width="12" height="12"/>
     </resources>
 </document>

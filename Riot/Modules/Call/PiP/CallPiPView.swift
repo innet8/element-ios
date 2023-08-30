@@ -163,7 +163,7 @@ class CallPiPView: UIView {
                                                   andFontSize: fontSize)
         }
         
-        return MXKTools.paint(Asset.Images.placeholder.image,
+        return MXKTools.paint(Asset.Images.commonPlaceholder.image,
                               with: theme.tintColor)
     }
     

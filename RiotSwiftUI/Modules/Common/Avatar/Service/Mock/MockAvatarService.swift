@@ -23,7 +23,7 @@ class MockAvatarService: AvatarServiceProtocol {
     static let example: AvatarServiceProtocol = MockAvatarService()
     func avatarImage(mxContentUri: String, avatarSize: AvatarSize) -> Future<UIImage, Error> {
         Future { promise in
-            promise(.success(Asset.Images.appSymbol.image))
+            promise(.success(Asset.Images.commonAppSymbol.image))
         }
     }
 }

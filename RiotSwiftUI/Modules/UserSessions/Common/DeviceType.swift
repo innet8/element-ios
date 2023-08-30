@@ -27,13 +27,13 @@ enum DeviceType {
     var image: Image {
         switch self {
         case .desktop:
-            return Image(Asset.Images.deviceTypeDesktop.name)
+            return Image(Asset.Images.deviceTypeDesktopIcon.name)
         case .web:
-            return Image(Asset.Images.deviceTypeWeb.name)
+            return Image(Asset.Images.deviceTypeWebIcon.name)
         case .mobile:
-            return Image(Asset.Images.deviceTypeMobile.name)
+            return Image(Asset.Images.deviceTypeMobileIcon.name)
         case .unknown:
-            return Image(Asset.Images.deviceTypeUnknown.name)
+            return Image(Asset.Images.deviceTypeUnknownIcon.name)
         }
     }
     

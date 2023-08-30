@@ -2555,7 +2555,7 @@ NSString *const kRoomSettingsAdvancedE2eEnabledCellViewIdentifier = @"kRoomSetti
             addAddressCell.mxkLabel.text = nil;
             
             addAddressCell.accessoryType = UITableViewCellAccessoryNone;
-            addAddressCell.accessoryView = [[UIImageView alloc] initWithImage:[AssetImages.plusIcon.image vc_tintedImageUsingColor:ThemeService.shared.theme.textPrimaryColor]];
+            addAddressCell.accessoryView = [[UIImageView alloc] initWithImage:[AssetImages.commonPlusIcon.image vc_tintedImageUsingColor:ThemeService.shared.theme.textPrimaryColor]];
             
             addAddressTextField = addAddressCell.mxkTextField;
             addAddressTextField.placeholder = [VectorL10n roomDetailsNewAddressPlaceholder:self.mainSession.matrixRestClient.homeserverSuffix];
@@ -3005,7 +3005,7 @@ NSString *const kRoomSettingsAdvancedE2eEnabledCellViewIdentifier = @"kRoomSetti
             completionHandler(YES);
         }];
         removeAddressAction.backgroundColor = ThemeService.shared.theme.headerBackgroundColor;
-        removeAddressAction.image = [AssetImages.removeIcon.image vc_notRenderedImage];
+        removeAddressAction.image = [AssetImages.commonRemoveIcon.image vc_notRenderedImage];
         
         // Create swipe action configuration
         

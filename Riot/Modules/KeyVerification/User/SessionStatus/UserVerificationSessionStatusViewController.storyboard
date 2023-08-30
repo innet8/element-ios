@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="edG-Ef-G5W">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="edG-Ef-G5W">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,7 +11,7 @@
         <!--User Verification Session Status View Controller-->
         <scene sceneID="yMy-34-3pS">
             <objects>
-                <viewController id="edG-Ef-G5W" customClass="UserVerificationSessionStatusViewController" customModule="Riot" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="edG-Ef-G5W" customClass="UserVerificationSessionStatusViewController" customModule="Element" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="G1A-RF-WrC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -34,12 +32,12 @@
                                                             <constraint firstAttribute="width" constant="30" id="qav-Na-EDh"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                        <state key="normal" image="close_button"/>
+                                                        <state key="normal" image="common_close_button"/>
                                                         <connections>
                                                             <action selector="closeButtonAction:" destination="edG-Ef-G5W" eventType="touchUpInside" id="0qe-Df-Nw1"/>
                                                         </connections>
                                                     </button>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="encryption_warning" translatesAutoresizingMaskIntoConstraints="NO" id="0d0-9z-5Ar">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="encryption_warning_icon" translatesAutoresizingMaskIntoConstraints="NO" id="0d0-9z-5Ar">
                                                         <rect key="frame" x="20" y="23" width="24" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="0d0-9z-5Ar" secondAttribute="height" multiplier="1:1" id="EYK-FL-Zx6"/>
@@ -77,7 +75,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Mu-7j-flw">
                                                 <rect key="frame" x="0.0" y="108" width="375" height="40.5"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="encryption_warning" translatesAutoresizingMaskIntoConstraints="NO" id="0ME-4K-MWA" customClass="encryption_warning">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="encryption_warning_icon" translatesAutoresizingMaskIntoConstraints="NO" id="0ME-4K-MWA" customClass="encryption_warning_icon">
                                                         <rect key="frame" x="20" y="13.5" width="14" height="14"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="0ME-4K-MWA" secondAttribute="height" multiplier="1:1" id="r0c-Ix-lm4"/>
@@ -114,7 +112,7 @@
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HiI-uV-Hjw">
+                                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HiI-uV-Hjw">
                                                                 <rect key="frame" x="20" y="84" width="335" height="44"/>
                                                                 <accessibility key="accessibilityConfiguration" identifier="AuthenticationVCLoginButton"/>
                                                                 <constraints>
@@ -131,7 +129,7 @@
                                                                     <action selector="verifyButtonAction:" destination="edG-Ef-G5W" eventType="touchUpInside" id="gGx-OT-X5w"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpI-gc-wUh">
+                                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpI-gc-wUh">
                                                                 <rect key="frame" x="76" y="136" width="223" height="44"/>
                                                                 <accessibility key="accessibilityConfiguration" identifier="AuthenticationVCLoginButton"/>
                                                                 <constraints>
@@ -197,6 +195,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="cZY-v6-GjO"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="16P-bA-3wP" secondAttribute="bottom" id="3Ak-zJ-1Ca"/>
@@ -204,7 +203,6 @@
                             <constraint firstItem="16P-bA-3wP" firstAttribute="leading" secondItem="cZY-v6-GjO" secondAttribute="leading" id="dlk-85-Zca"/>
                             <constraint firstItem="16P-bA-3wP" firstAttribute="trailing" secondItem="cZY-v6-GjO" secondAttribute="trailing" id="hFM-5p-Ne1"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="cZY-v6-GjO"/>
                     </view>
                     <connections>
                         <outlet property="badgeImageView" destination="0d0-9z-5Ar" id="M0i-8Q-Zal"/>
@@ -225,7 +223,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="close_button" width="16" height="16"/>
-        <image name="encryption_warning" width="16" height="16"/>
+        <image name="common_close_button" width="16" height="16"/>
+        <image name="encryption_warning_icon" width="12" height="12"/>
     </resources>
 </document>

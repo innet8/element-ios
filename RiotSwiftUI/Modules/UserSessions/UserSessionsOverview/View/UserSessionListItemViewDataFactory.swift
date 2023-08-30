@@ -87,6 +87,6 @@ struct UserSessionListItemViewDataFactory {
     }
     
     private func getSessionDetailsIcon(isActive: Bool) -> String? {
-        isActive ? nil : Asset.Images.userSessionListItemInactiveSession.name
+        isActive ? nil : Asset.Images.userSessionListItemInactiveSessionIcon.name
     }
 }

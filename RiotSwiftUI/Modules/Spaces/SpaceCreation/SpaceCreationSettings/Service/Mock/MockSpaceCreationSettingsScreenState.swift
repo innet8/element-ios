@@ -51,7 +51,7 @@ enum MockSpaceCreationSettingsScreenState: MockScreenState, CaseIterable {
             creationParameters.topic = "Some short description"
             creationParameters.userDefinedAddress = "fake-uri"
             service.simulateUpdate(addressValidationStatus: .alreadyExists("#fake-uri:fake-domain.org"))
-            creationParameters.userSelectedAvatar = Asset.Images.appSymbol.image
+            creationParameters.userSelectedAvatar = Asset.Images.commonAppSymbol.image
         }
 
         let viewModel = SpaceCreationSettingsViewModel(spaceCreationSettingsService: service, creationParameters: creationParameters)

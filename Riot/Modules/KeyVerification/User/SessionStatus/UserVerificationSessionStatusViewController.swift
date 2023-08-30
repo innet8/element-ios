@@ -157,10 +157,10 @@ final class UserVerificationSessionStatusViewController: UIViewController {
         self.manuallyVerifyButton.isHidden = !viewData.isCurrentUser
         
         if viewData.isDeviceTrusted {
-            badgeImage = Asset.Images.encryptionTrusted.image
+            badgeImage = Asset.Images.encryptionTrustedIcon.image
             title = VectorL10n.userVerificationSessionDetailsTrustedTitle
         } else {
-            badgeImage = Asset.Images.encryptionWarning.image
+            badgeImage = Asset.Images.encryptionWarningIcon.image
             title = VectorL10n.userVerificationSessionDetailsUntrustedTitle
         }
         

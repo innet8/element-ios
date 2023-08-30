@@ -78,10 +78,10 @@ class KeyVerificationConclusionCell: KeyVerificationBaseCell {
 
         switch event.eventType {
         case .keyVerificationDone:
-            badgeImage = Asset.Images.encryptionTrusted.image
+            badgeImage = Asset.Images.encryptionTrustedIcon.image
             title = VectorL10n.keyVerificationTileConclusionDoneTitle
         case .keyVerificationCancel:
-            badgeImage = Asset.Images.encryptionWarning.image
+            badgeImage = Asset.Images.encryptionWarningIcon.image
             title = VectorL10n.keyVerificationTileConclusionWarningTitle
         default:
             badgeImage = nil

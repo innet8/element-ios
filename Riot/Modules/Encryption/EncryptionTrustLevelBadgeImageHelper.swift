@@ -25,15 +25,15 @@ final class EncryptionTrustLevelBadgeImageHelper: NSObject {
         
         switch trustLevel {
         case .warning:
-            badgeImage = Asset.Images.encryptionWarning.image
+            badgeImage = Asset.Images.encryptionWarningIcon.image
         case .normal:
-            badgeImage = Asset.Images.encryptionNormal.image
+            badgeImage = Asset.Images.encryptionNormalIcon.image
         case .trusted:
-            badgeImage = Asset.Images.encryptionTrusted.image
+            badgeImage = Asset.Images.encryptionTrustedIcon.image
         case .unknown:
-            badgeImage = Asset.Images.encryptionNormal.image
+            badgeImage = Asset.Images.encryptionNormalIcon.image
         @unknown default:
-            badgeImage = Asset.Images.encryptionNormal.image
+            badgeImage = Asset.Images.encryptionNormalIcon.image
         }
         
         return badgeImage
@@ -45,11 +45,11 @@ final class EncryptionTrustLevelBadgeImageHelper: NSObject {
         
         switch trustLevel {
         case .warning:
-            badgeImage = Asset.Images.encryptionWarning.image
+            badgeImage = Asset.Images.encryptionWarningIcon.image
         case .notVerified, .noCrossSigning:
-            badgeImage = Asset.Images.encryptionNormal.image
+            badgeImage = Asset.Images.encryptionNormalIcon.image
         case .trusted:
-            badgeImage = Asset.Images.encryptionTrusted.image
+            badgeImage = Asset.Images.encryptionTrustedIcon.image
         default:
             badgeImage = nil
         }

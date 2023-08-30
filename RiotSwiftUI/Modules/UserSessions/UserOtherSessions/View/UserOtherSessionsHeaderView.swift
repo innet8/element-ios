@@ -66,7 +66,7 @@ struct UserOtherSessionsHeaderView: View {
 struct UserOtherSessionsHeaderView_Previews: PreviewProvider {
     private static let headerWithTitleSubtitleIcon = UserOtherSessionsHeaderViewData(title: VectorL10n.userSessionsOverviewSecurityRecommendationsInactiveTitle,
                                                                                      subtitle: VectorL10n.userSessionsOverviewSecurityRecommendationsInactiveInfo,
-                                                                                     iconName: Asset.Images.userOtherSessionsInactive.name)
+                                                                                     iconName: Asset.Images.userOtherSessionsInactiveIcon.name)
     
     private static let headerWithSubtitle = UserOtherSessionsHeaderViewData(title: nil,
                                                                             subtitle: VectorL10n.userSessionsOverviewOtherSessionsSectionInfo,
@@ -74,7 +74,7 @@ struct UserOtherSessionsHeaderView_Previews: PreviewProvider {
     
     private static let inactiveSessionViewData = UserOtherSessionsHeaderViewData(title: VectorL10n.userSessionsOverviewSecurityRecommendationsInactiveTitle,
                                                                                  subtitle: VectorL10n.userSessionsOverviewSecurityRecommendationsInactiveInfo,
-                                                                                 iconName: Asset.Images.userOtherSessionsInactive.name)
+                                                                                 iconName: Asset.Images.userOtherSessionsInactiveIcon.name)
     static var previews: some View {
         Group {
             VStack {

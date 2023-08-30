@@ -55,7 +55,7 @@ final class SecureBackupSetupIntroCell: UIView, NibOwnerLoadable, Themable {
     private func commonInit() {
         self.setupGestureRecognizer()
         
-        let accessoryTemplateImage = Asset.Images.disclosureIcon.image.withRenderingMode(.alwaysTemplate)
+        let accessoryTemplateImage = Asset.Images.commonDisclosureIcon.image.withRenderingMode(.alwaysTemplate)
         self.accessoryImageView.image = accessoryTemplateImage
         self.accessoryImageView.highlightedImage = accessoryTemplateImage.vc_withAlpha(ImageAlpha.highlighted)
     }

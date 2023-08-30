@@ -61,7 +61,7 @@ final class CloseButton: UIButton, Themable {
     
     private func setup() {
         self.backgroundColor = UIColor.clear
-        self.setImage(Asset.Images.closeButton.image, for: .normal)
+        self.setImage(Asset.Images.commonCloseButton.image, for: .normal)
         self.setupCircleView()
         
         self.update(theme: ThemeService.shared().theme)

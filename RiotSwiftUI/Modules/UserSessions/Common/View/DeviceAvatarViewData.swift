@@ -27,11 +27,11 @@ struct DeviceAvatarViewData: Hashable {
     var verificationImageName: String {
         switch verificationState {
         case .verified:
-            return Asset.Images.userSessionVerified.name
+            return Asset.Images.userSessionVerifiedIcon.name
         case .unverified, .permanentlyUnverified:
-            return Asset.Images.userSessionUnverified.name
+            return Asset.Images.userSessionUnverifiedIcon.name
         case .unknown:
-            return Asset.Images.userSessionVerificationUnknown.name
+            return Asset.Images.userSessionVerificationUnknownIcon.name
         }
     }
 }

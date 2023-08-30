@@ -73,7 +73,7 @@ CallAudioRouteMenuViewDelegate>
     
     // Back button
     
-    UIImage *backButtonImage = AssetImages.backIcon.image;
+    UIImage *backButtonImage = AssetImages.commonBackIcon.image;
     [self.backToAppButton setImage:backButtonImage forState:UIControlStateNormal];
     [self.backToAppButton setImage:backButtonImage forState:UIControlStateHighlighted];
     
@@ -85,8 +85,8 @@ CallAudioRouteMenuViewDelegate>
     
     // Audio mute
     
-    UIImage *audioMuteOffButtonImage = AssetImages.callAudioMuteOffIcon.image;
-    UIImage *audioMuteOnButtonImage = AssetImages.callAudioMuteOnIcon.image;
+    UIImage *audioMuteOffButtonImage = AssetImages.mobileAudioMuteOffIcon.image;
+    UIImage *audioMuteOnButtonImage = AssetImages.mobileAudioMuteOnIcon.image;
     
     [self.audioMuteButton setImage:audioMuteOffButtonImage forState:UIControlStateNormal];
     [self.audioMuteButton setImage:audioMuteOffButtonImage forState:UIControlStateHighlighted];
@@ -94,8 +94,8 @@ CallAudioRouteMenuViewDelegate>
     
     // Video mute
     
-    UIImage *videoOffButtonImage = AssetImages.callVideoMuteOffIcon.image;
-    UIImage *videoOnButtonImage = AssetImages.callVideoMuteOnIcon.image;
+    UIImage *videoOffButtonImage = AssetImages.mobileVideoMuteOffIcon.image;
+    UIImage *videoOnButtonImage = AssetImages.mobileVideoMuteOnIcon.image;
     
     [self.videoMuteButton setImage:videoOffButtonImage forState:UIControlStateNormal];
     [self.videoMuteButton setImage:videoOffButtonImage forState:UIControlStateHighlighted];
@@ -103,14 +103,14 @@ CallAudioRouteMenuViewDelegate>
     
     //  More
     
-    UIImage *moreButtonImage = AssetImages.callMoreIcon.image;
+    UIImage *moreButtonImage = AssetImages.mobileMoreIcon.image;
     
     [self.moreButtonForVoice setImage:moreButtonImage forState:UIControlStateNormal];
     [self.moreButtonForVideo setImage:moreButtonImage forState:UIControlStateNormal];
     
     // Hang up
     
-    UIImage *hangUpButtonImage = AssetImages.callHangupLarge.image;
+    UIImage *hangUpButtonImage = AssetImages.mobileHangupLarge.image;
     
     [self.endCallButton setTitle:nil forState:UIControlStateNormal];
     [self.endCallButton setTitle:nil forState:UIControlStateHighlighted];
@@ -269,17 +269,17 @@ CallAudioRouteMenuViewDelegate>
     switch (self.mxCall.audioOutputRouter.currentRoute.routeType)
     {
         case MXiOSAudioOutputRouteTypeBuiltIn:
-            [self.speakerButton setImage:AssetImages.callSpeakerOffIcon.image
+            [self.speakerButton setImage:AssetImages.mobileSpeakerOffIcon.image
                                 forState:UIControlStateNormal];
             break;
         case MXiOSAudioOutputRouteTypeLoudSpeakers:
-            [self.speakerButton setImage:AssetImages.callSpeakerOnIcon.image
+            [self.speakerButton setImage:AssetImages.mobileSpeakerOnIcon.image
                                 forState:UIControlStateNormal];
             break;
         case MXiOSAudioOutputRouteTypeExternalWired:
         case MXiOSAudioOutputRouteTypeExternalBluetooth:
         case MXiOSAudioOutputRouteTypeExternalCar:
-            [self.speakerButton setImage:AssetImages.callSpeakerExternalIcon.image
+            [self.speakerButton setImage:AssetImages.mobileSpeakerExternalIcon.image
                                 forState:UIControlStateNormal];
             break;
     }
@@ -477,7 +477,7 @@ CallAudioRouteMenuViewDelegate>
                                                 andFontSize:fontSize];
     }
     
-    return [MXKTools paintImage:AssetImages.placeholder.image
+    return [MXKTools paintImage:AssetImages.commonPlaceholder.image
                       withColor:self.overriddenTheme.tintColor];
 }
 

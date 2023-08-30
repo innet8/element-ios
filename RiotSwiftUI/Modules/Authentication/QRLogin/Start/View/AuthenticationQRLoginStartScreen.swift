@@ -53,7 +53,7 @@ struct AuthenticationQRLoginStartScreen: View {
             ZStack {
                 Circle()
                     .fill(theme.colors.accent)
-                Image(Asset.Images.camera.name)
+                Image(Asset.Images.commonCamera.name)
                     .resizable()
                     .renderingMode(.template)
                     .foregroundColor(.white)

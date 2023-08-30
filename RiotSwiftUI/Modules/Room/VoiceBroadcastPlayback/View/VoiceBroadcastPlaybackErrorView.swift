@@ -30,7 +30,7 @@ struct VoiceBroadcastPlaybackErrorView: View {
     var body: some View {
         ZStack {
             HStack {
-                Image(uiImage: Asset.Images.errorIcon.image)
+                Image(uiImage: Asset.Images.commonErrorIcon.image)
                     .frame(width: 40, height: 40)
                 Text(VectorL10n.voiceBroadcastPlaybackLoadingError)
                     .multilineTextAlignment(.center)

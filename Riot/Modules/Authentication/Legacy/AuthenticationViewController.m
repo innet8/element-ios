@@ -157,8 +157,8 @@ static const CGFloat kAuthInputContainerViewMinHeightConstraintConstant = 150.0;
     [self.skipButton setTitle:[VectorL10n authSkip] forState:UIControlStateHighlighted];
     self.skipButton.enabled = YES;
     
-    [self.customServersTickButton setImage:AssetImages.selectionUntick.image forState:UIControlStateNormal];
-    [self.customServersTickButton setImage:AssetImages.selectionUntick.image forState:UIControlStateHighlighted];
+    [self.customServersTickButton setImage:AssetImages.commonSelectionUntick.image forState:UIControlStateNormal];
+    [self.customServersTickButton setImage:AssetImages.commonSelectionUntick.image forState:UIControlStateHighlighted];
     
     if (!BuildSettings.authScreenShowRegister)
     {
@@ -1224,7 +1224,7 @@ static const CGFloat kAuthInputContainerViewMinHeightConstraintConstant = 150.0;
         }
         [self setIdentityServerTextFieldText:self.defaultIdentityServerUrl];
         
-        [self.customServersTickButton setImage:AssetImages.selectionUntick.image forState:UIControlStateNormal];
+        [self.customServersTickButton setImage:AssetImages.commonSelectionUntick.image forState:UIControlStateNormal];
         self.customServersContainer.hidden = YES;
         
         // Refresh content view height
@@ -1248,7 +1248,7 @@ static const CGFloat kAuthInputContainerViewMinHeightConstraintConstant = 150.0;
             [self setIdentityServerTextFieldText:customIdentityServerURL];
         }
         
-        [self.customServersTickButton setImage:AssetImages.selectionTick.image forState:UIControlStateNormal];
+        [self.customServersTickButton setImage:AssetImages.commonSelectionTick.image forState:UIControlStateNormal];
         self.customServersContainer.hidden = NO;
         
         // Refresh content view height

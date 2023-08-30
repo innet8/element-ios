@@ -26,7 +26,7 @@ class OptionListItemViewData {
     init(title: String? = nil,
          detail: String? = nil,
          image: UIImage? = nil,
-         accessoryImage: UIImage? = Asset.Images.chevron.image,
+         accessoryImage: UIImage? = Asset.Images.commonChevron.image,
          enabled: Bool = true) {
         self.title = title
         self.detail = detail

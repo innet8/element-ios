@@ -3,7 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,7 +20,7 @@
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1YE-D1-eHn">
                                 <rect key="frame" x="0.0" y="40" width="375" height="607"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_symbol" translatesAutoresizingMaskIntoConstraints="NO" id="8qz-Yk-9a4">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="common_app_symbol" translatesAutoresizingMaskIntoConstraints="NO" id="8qz-Yk-9a4">
                                         <rect key="frame" x="137.5" y="233.5" width="100" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="Ux9-pH-SW9"/>
@@ -37,7 +37,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="DMT-DS-IA8">
                                 <rect key="frame" x="0.0" y="28" width="375" height="631"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="app_symbol" translatesAutoresizingMaskIntoConstraints="NO" id="UHg-qE-anw">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="common_app_symbol" translatesAutoresizingMaskIntoConstraints="NO" id="UHg-qE-anw">
                                         <rect key="frame" x="167.5" y="0.0" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="5If-kl-LuA"/>
@@ -63,28 +63,28 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="xi9-P9-8WP">
                                                 <rect key="frame" x="101.5" y="0.0" width="168" height="24"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selection_untick" translatesAutoresizingMaskIntoConstraints="NO" id="Gwx-8X-ZWk">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="common_selection_untick" translatesAutoresizingMaskIntoConstraints="NO" id="Gwx-8X-ZWk">
                                                         <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="aek-t8-dK4"/>
                                                             <constraint firstAttribute="width" constant="24" id="cJN-ZQ-6aQ"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selection_untick" translatesAutoresizingMaskIntoConstraints="NO" id="qDY-R1-l5l">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="common_selection_untick" translatesAutoresizingMaskIntoConstraints="NO" id="qDY-R1-l5l">
                                                         <rect key="frame" x="48" y="0.0" width="24" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="24" id="QDg-LP-R4J"/>
                                                             <constraint firstAttribute="height" constant="24" id="f4G-d8-hoA"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selection_untick" translatesAutoresizingMaskIntoConstraints="NO" id="X0l-q3-fXm">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="common_selection_untick" translatesAutoresizingMaskIntoConstraints="NO" id="X0l-q3-fXm">
                                                         <rect key="frame" x="96" y="0.0" width="24" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="24" id="HQA-9R-8bC"/>
                                                             <constraint firstAttribute="height" constant="24" id="Zjd-RW-DiW"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selection_untick" translatesAutoresizingMaskIntoConstraints="NO" id="o1F-px-ZT5">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="common_selection_untick" translatesAutoresizingMaskIntoConstraints="NO" id="o1F-px-ZT5">
                                                         <rect key="frame" x="144" y="0.0" width="24" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="FA6-QR-ld2"/>
@@ -283,7 +283,7 @@
                                                             <constraint firstAttribute="height" constant="60" id="iDt-BW-fEz"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
-                                                        <state key="normal" image="back_icon"/>
+                                                        <state key="normal" image="common_back_icon"/>
                                                         <connections>
                                                             <action selector="digitButtonAction:" destination="V8j-Lb-PgC" eventType="touchUpInside" id="CVc-4x-WXb"/>
                                                         </connections>
@@ -351,9 +351,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="app_symbol" width="120" height="120"/>
-        <image name="back_icon" width="14" height="23"/>
-        <image name="selection_untick" width="22" height="22"/>
+        <image name="common_app_symbol" width="120" height="120"/>
+        <image name="common_back_icon" width="14" height="23"/>
+        <image name="common_selection_untick" width="22" height="22"/>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

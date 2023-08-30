@@ -64,7 +64,7 @@ final class ShareInviteLinkHeaderView: UIView, NibLoadable, Themable {
         button.setTitleColor(theme.tintColor.withAlphaComponent(Constants.buttonHighlightedAlpha), for: .highlighted)
         button.vc_setBackgroundColor(theme.baseColor, for: .normal)
         
-        let buttonImage = Asset.Images.shareActionButton.image.vc_tintedImage(usingColor: theme.tintColor)
+        let buttonImage = Asset.Images.commonShareActionButton.image.vc_tintedImage(usingColor: theme.tintColor)
         
         button.setImage(buttonImage, for: .normal)
     }

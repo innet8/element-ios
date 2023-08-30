@@ -51,7 +51,7 @@ enum MockOnboardingAvatarScreenState: MockScreenState, CaseIterable {
             viewModel = OnboardingAvatarViewModel(userId: userId, displayName: displayName, avatarColorCount: avatarColorCount)
         case .userSelectedAvatar(let userId, let displayName):
             viewModel = OnboardingAvatarViewModel(userId: userId, displayName: displayName, avatarColorCount: avatarColorCount)
-            viewModel.updateAvatarImage(with: Asset.Images.appSymbol.image)
+            viewModel.updateAvatarImage(with: Asset.Images.commonAppSymbol.image)
         }
         
         return (

@@ -28,7 +28,7 @@ struct VoiceBroadcastPlaybackDecryptionErrorView: View {
     var body: some View {
         ZStack {
             HStack(spacing: 0) {
-                Image(uiImage: Asset.Images.errorIcon.image)
+                Image(uiImage: Asset.Images.commonErrorIcon.image)
                     .frame(width: 40, height: 40)
                 Text(VectorL10n.voiceBroadcastPlaybackUnableToDecrypt)
                     .multilineTextAlignment(.center)

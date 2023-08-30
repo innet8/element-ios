@@ -340,7 +340,7 @@
         return [AvatarGenerator generateAvatarForMatrixItem:self.mxRoomMember.userId withDisplayName:self.mxRoomMember.displayname];
     }
     
-    return [MXKTools paintImage:AssetImages.placeholder.image
+    return [MXKTools paintImage:AssetImages.commonPlaceholder.image
                       withColor:ThemeService.shared.theme.tintColor];
 }
 
@@ -978,7 +978,7 @@
         }
         else
         {
-            roomCell.avatarImageView.image = AssetImages.startChat.image;
+            roomCell.avatarImageView.image = AssetImages.commonStartChat.image;
             roomCell.avatarImageView.defaultBackgroundColor = [UIColor clearColor];
             roomCell.avatarImageView.userInteractionEnabled = NO;
             roomCell.titleLabel.text = [VectorL10n roomParticipantsActionStartNewChat];

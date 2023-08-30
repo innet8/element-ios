@@ -86,7 +86,7 @@ class RoomGroupCallStatusCell: RoomCallBaseCell {
     
     private var callTypeIcon: UIImage {
         //  always return a video call icon
-        return Asset.Images.callVideoIcon.image
+        return Asset.Images.mobileVideoIcon.image
     }
     
     private var isJoined: Bool {
@@ -231,7 +231,7 @@ class RoomGroupCallStatusCell: RoomCallBaseCell {
         isIncoming = widgetEvent.sender != bubbleCellData.mxSession.myUserId
         self.widgetEvent = widgetEvent
         self.widgetId = widgetId
-        innerContentView.callIconView.image = Asset.Images.callVideoIcon.image
+        innerContentView.callIconView.image = Asset.Images.mobileVideoIcon.image
         
         if isIncoming && !isJoined &&
             TimeInterval(widgetEvent.age)/MSEC_PER_SEC < Constants.secondsToDisplayAnswerDeclineOptions {

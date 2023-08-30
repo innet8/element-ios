@@ -214,7 +214,7 @@ extension CallTransferSelectContactViewController: UITableViewDataSource {
         cell.contactInformationLabel.text = row.contact.matrixIdentifiers.first as? String
         
         if row.accessoryType == .checkmark {
-            cell.accessoryView = UIImageView(image: Asset.Images.checkmark.image)
+            cell.accessoryView = UIImageView(image: Asset.Images.commonCheckmark.image)
         } else {
             cell.accessoryView = nil
             cell.accessoryType = row.accessoryType

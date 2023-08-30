@@ -34,7 +34,7 @@ struct UserSessionsListViewAllView: View {
                             .font(theme.fonts.body)
                             .foregroundColor(theme.colors.accent)
                             .frame(maxWidth: .infinity, alignment: .leading)
-                        Image(Asset.Images.disclosureIcon.name)
+                        Image(Asset.Images.commonDisclosureIcon.name)
                             .foregroundColor(theme.colors.tertiaryContent)
                     }
                     .padding(.vertical, 15)

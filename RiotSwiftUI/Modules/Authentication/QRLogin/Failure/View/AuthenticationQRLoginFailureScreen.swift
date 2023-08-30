@@ -52,7 +52,7 @@ struct AuthenticationQRLoginFailureScreen: View {
             ZStack {
                 Circle()
                     .fill(theme.colors.alert)
-                Image(Asset.Images.exclamationCircle.name)
+                Image(Asset.Images.commonExclamationCircle.name)
                     .resizable()
                     .renderingMode(.template)
                     .foregroundColor(.white)

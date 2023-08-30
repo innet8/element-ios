@@ -216,9 +216,9 @@ final class PinCodePreferences: NSObject {
             _ = context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)
             switch context.biometryType {
             case .touchID:
-                return Asset.Images.touchidIcon.image
+                return Asset.Images.commonTouchidIcon.image
             case .faceID:
-                return Asset.Images.faceidIcon.image
+                return Asset.Images.commonFaceidIcon.image
             default:
                 return nil
             }
