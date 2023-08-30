@@ -341,9 +341,20 @@ class AllChatsCoordinator: NSObject, SplitViewMasterCoordinatorProtocol {
         
         var subMenuActions: [UIAction] = []
         if BuildSettings.sideMenuShowInviteFriends {
+            
             subMenuActions.append(UIAction(title: VectorL10n.sideMenuActionInviteFriends, image: UIImage(systemName: "square.and.arrow.up.fill")) { [weak self] action in
                 guard let self = self else { return }
-                self.showInviteFriends(from: self.avatarMenuButton)
+                // 自定义邀请
+                
+                InventHelper.getInventAction(callBack: { inventLink in
+                    guard let inventLink = inventLink else {
+                        self.showErroIndicator(with: NSError(domain: "get invent code error", code: 300))
+                        return
+                    }
+                    self.showQRCode(QRLink: inventLink)
+                })
+                
+                // self.showInviteFriends(from: self.avatarMenuButton)
             })
         }
 
@@ -611,6 +622,53 @@ class AllChatsCoordinator: NSObject, SplitViewMasterCoordinatorProtocol {
         
         let inviteFriendsPresenter = InviteFriendsPresenter()
         inviteFriendsPresenter.present(for: myUserId, from: self.navigationRouter.toPresentable(), sourceView: sourceView, animated: true)
+    }
+    
+    private func showQRCode(QRLink: String) {
+        guard let linkData = QRLink.data(using: .isoLatin1) else {
+            return
+        }
+        var image: UIImage?
+        
+        do {
+            image = try QRCodeGenerator().generateCode(from: linkData, with: CGSize(width: 82 * 3/UIScreen.main.scale, height: 82 * 3/UIScreen.main.scale))
+        } catch {
+            return
+        }
+        
+        guard let image = image else {
+            return
+        }
+        let originImage = image.withRenderingMode(.alwaysOriginal)
+        MXLog.debug("originImageSize:\(originImage.size)")
+        MXLog.debug("screenSize:\(UIScreen.main.bounds.size)")
+        MXLog.debug("screenScale:\(UIScreen.main.scale)")
+//        let imageView = UIImageView(image: image)
+        
+        let alertController = UIAlertController(title: "邀请码", message: QRLink, preferredStyle: .alert)
+        
+        let imageAction = UIAlertAction(title: "", style: .default) { action in
+            
+        }
+        imageAction.setValue(originImage, forKey: "image")
+        alertController.addAction(imageAction)
+        alertController.addAction(UIAlertAction(title: "复制链接", style: .default, handler: { action in
+            let pasteboard = UIPasteboard.general
+            pasteboard.string = QRLink
+            
+            self.indicators.append(self.indicatorPresenter.present(.success(label: "复制成功")))
+
+        }))
+        alertController.addAction(UIAlertAction(title: "保存图片", style: .default, handler: { action in
+            UIImageWriteToSavedPhotosAlbum(originImage, nil, nil, nil)
+            
+            self.indicators.append(self.indicatorPresenter.present(.success(label: "保存成功")))
+
+        }))
+        alertController.addAction(UIAlertAction(title: "确定", style: .cancel))
+        
+        self.navigationRouter.toPresentable().present(alertController, animated: true)
+        
     }
     
     private func showBugReport() {

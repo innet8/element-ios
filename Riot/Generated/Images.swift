@@ -44,6 +44,7 @@ internal class Asset: NSObject {
     internal static let authenticationSsoIconGoogle = ImageAsset(name: "authentication_sso_icon_google")
     internal static let authenticationSsoIconTwitter = ImageAsset(name: "authentication_sso_icon_twitter")
     internal static let authenticationTermsIcon = ImageAsset(name: "authentication_terms_icon")
+    internal static let registerScan = ImageAsset(name: "register_scan")
     internal static let callAudioMuteOffIcon = ImageAsset(name: "call_audio_mute_off_icon")
     internal static let callAudioMuteOnIcon = ImageAsset(name: "call_audio_mute_on_icon")
     internal static let callAudioRouteBuiltin = ImageAsset(name: "call_audio_route_builtin")
@@ -355,6 +356,7 @@ internal class Asset: NSObject {
     internal static let voiceBroadcastTileMic = ImageAsset(name: "voice_broadcast_tile_mic")
     internal static let voiceBroadcastTimeLeft = ImageAsset(name: "voice_broadcast_time_left")
     internal static let launchScreenLogo = ImageAsset(name: "launch_screen_logo")
+    internal static let launchScreenLogo1 = ImageAsset(name: "launch_screen_logo1")
   }
   @objcMembers
   @objc(AssetSharedImages) internal class SharedImages: NSObject {

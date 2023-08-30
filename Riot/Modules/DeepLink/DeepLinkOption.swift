@@ -21,4 +21,7 @@ enum DeepLinkOption {
     
     /// Used for SSO callback only when VoiceOver is enabled
     case connect(_ loginToken: String, _ transactionId: String)
+    
+    /// Used forAnalisyData
+    case analise(_ hostUrl: String, _ param: String)
 }

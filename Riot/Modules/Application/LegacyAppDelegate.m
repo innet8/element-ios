@@ -281,11 +281,15 @@ NSString *const AppDelegateUniversalLinkDidChangeNotification = @"AppDelegateUni
 
 + (instancetype)theDelegate
 {
-    static id sharedInstance = nil;
+    static LegacyAppDelegate * sharedInstance = nil;
     static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{
         sharedInstance = [[self alloc] init];
+        
+        sharedInstance.sysInventCode = @"";
+        sharedInstance.sysAddress = @"";
+        sharedInstance.isRegister = false;
     });
     
     return sharedInstance;

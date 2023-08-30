@@ -126,6 +126,12 @@ UINavigationControllerDelegate
  */
 @property (nonatomic, strong, readonly) CallPresenter *callPresenter;
 
+@property (nonatomic,   copy) NSString *sysAddress;
+
+@property (nonatomic,   copy) NSString *sysInventCode;
+
+@property (nonatomic, assign) BOOL isRegister;
+
 + (instancetype)theDelegate;
 
 #pragma mark - Push Notifications

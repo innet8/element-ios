@@ -54,7 +54,7 @@ class AuthenticationService: NSObject {
     /// The current state of the authentication flow.
     private(set) var state: AuthenticationState
     /// The rest client used to make authentication requests.
-    private(set) var client: AuthenticationRestClient
+    public var client: AuthenticationRestClient
     /// The current login wizard or `nil` if `startFlow` hasn't been called.
     private(set) var loginWizard: LoginWizard?
     /// The current registration wizard or `nil` if `startFlow` hasn't been called for `.registration`.

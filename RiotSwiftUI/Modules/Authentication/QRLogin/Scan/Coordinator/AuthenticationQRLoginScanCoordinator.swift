@@ -26,6 +26,8 @@ struct AuthenticationQRLoginScanCoordinatorParameters {
 enum AuthenticationQRLoginScanCoordinatorResult {
     /// Login with QR done
     case done
+    
+    case qrContent(content: String?)
 }
 
 final class AuthenticationQRLoginScanCoordinator: Coordinator, Presentable {
@@ -79,8 +81,12 @@ final class AuthenticationQRLoginScanCoordinator: Coordinator, Presentable {
                 self.showDisplayQRScreen()
             case .qrScanned(let data):
                 self.qrLoginService.stopScanning(destroy: false)
-                self.qrLoginService.processScannedQR(data)
+//                self.qrLoginService.processScannedQR(data)
+                let qrContent = String(data: data, encoding: .utf8)
+                self.callback?(.qrContent(content: qrContent))
+                navigationRouter.popModule(animated: true)
             }
+            
         }
     }
     

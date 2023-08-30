@@ -63,7 +63,7 @@ final class AuthenticationRegistrationCoordinator: Coordinator, Presentable {
         }
     }
     
-    private var navigationRouter: NavigationRouterType { parameters.navigationRouter }
+    public var navigationRouter: NavigationRouterType { parameters.navigationRouter }
     private var indicatorPresenter: UserIndicatorTypePresenterProtocol
     private var waitingIndicator: UserIndicator?
     
@@ -99,11 +99,40 @@ final class AuthenticationRegistrationCoordinator: Coordinator, Presentable {
 
     func start() {
         MXLog.debug("[AuthenticationRegistrationCoordinator] did start.")
-        Task { await setupViewModel() }
+        let inventCode = AppDelegate.theDelegate().sysInventCode
+        let address = AppDelegate.theDelegate().sysAddress
+        
+        Task  {
+            await setupViewModel()
+            
+            if let address = address, address != ""  {
+                needUpdateAddress(address: address)
+            }
+            
+            if let inventCode = inventCode, inventCode != "" {
+                needUpdateInventCode(inventCode: inventCode)
+            }
+            
+        }
+        
     }
     
     func toPresentable() -> UIViewController {
         authenticationRegistrationHostingController
+    }
+    
+    func needUpdateAddress(address: String) {
+        Task {
+            await self.update(homeAdress: address)
+        }
+        AppDelegate.theDelegate().sysAddress = ""
+    }
+    
+    func needUpdateInventCode(inventCode: String) {
+        Task {
+            await self.authenticationRegistrationViewModel.update(inventCode: inventCode)
+        }
+        AppDelegate.theDelegate().sysInventCode = ""
     }
     
     // MARK: - Private
@@ -125,7 +154,76 @@ final class AuthenticationRegistrationCoordinator: Coordinator, Presentable {
                 self.callback?(.continueWithSSO(provider))
             case .fallback:
                 self.callback?(.fallback)
+            case .createThreadInventCode(username: let username, password: let password, inventCode: let inventCode):
+                InventHelper.vaildInventCode(inventCode: inventCode) { result in
+                    if result {
+                        self.createAccount(username: username, password: password, inventCode: inventCode)
+                    }else {
+                
+                        self.authenticationRegistrationViewModel.displayError(.mxError("Invent code error"))
+                    }
+                }
+            case .scan:
+                showQRScan()
+                
             }
+        }
+    }
+    
+    private func showQRScan() {
+        let parameters = AuthenticationQRLoginScanCoordinatorParameters(navigationRouter: navigationRouter,
+
+                                                                        qrLoginService: QRLoginService(client: AuthenticationService.shared.client, mode: .notAuthenticated))
+
+        let coordinator = AuthenticationQRLoginScanCoordinator(parameters: parameters)
+
+        coordinator.callback = { [weak self, weak coordinator] result in
+
+            guard let self = self, let coordinator = coordinator else { return }
+
+            switch result {
+            case .done:break
+            case .qrContent(let content):
+                if let content = content, let url = URL(string: content), let urlComponent = URLComponents(url: url, resolvingAgainstBaseURL: false), let host = urlComponent.host, let scheme = urlComponent.scheme {
+                    
+                    let port = urlComponent.port ?? 0
+                    if scheme != "element" {
+                        return
+                    }
+                    let homeAddress : String
+                    
+                    if port != 0 {
+                        homeAddress = "https://\(host):\(port)"
+                    } else {
+                        homeAddress = "https://\(host)"
+                    }
+                    
+                    Task {
+                        await self.update(homeAdress: homeAddress)
+                    }
+                    
+                    if let token = urlComponent.vc_getQueryItemValue(for: "rgs_token") {
+                        Task {
+                            await self.authenticationRegistrationViewModel.update(inventCode: token)
+                        }
+                    }
+                    
+                }
+                
+            }
+
+            self.remove(childCoordinator: coordinator)
+
+        }
+
+        coordinator.start()
+
+        add(childCoordinator: coordinator)
+
+        navigationRouter.push(coordinator, animated: true) { [weak self] in
+
+          self?.remove(childCoordinator: coordinator)
+
         }
     }
     
@@ -179,6 +277,32 @@ final class AuthenticationRegistrationCoordinator: Coordinator, Presentable {
         }
     }
     
+    @MainActor private func update(homeAdress: String) {
+        let homeserverAddress = HomeserverAddress.sanitized(homeAdress)
+        if homeserverAddress == authenticationService.state.homeserver.address {
+            return
+        }
+        
+        startLoading(isInteractionBlocking: false)
+        Task { [weak self] in
+            do {
+                try await self?.authenticationService.startFlow(.register, for: homeserverAddress)
+                
+                guard !Task.isCancelled else {
+                    self?.stopLoading()
+                    return
+                    
+                }
+                
+                self?.updateViewModelHomeserver()
+                self?.stopLoading()
+            } catch {
+                self?.stopLoading()
+                self?.handleError(error)
+            }
+        }
+    }
+    
     /// Asks the homeserver to check the supplied username's format and availability.
     @MainActor private func confirmAvailability(of username: String) {
         guard let registrationWizard = registrationWizard else {
@@ -202,7 +326,35 @@ final class AuthenticationRegistrationCoordinator: Coordinator, Presentable {
     }
     
     /// Creates an account on the homeserver with the supplied username and password.
-    @MainActor private func createAccount(username: String, password: String) {
+    @MainActor private func createAccount(username: String, password: String, inventCode: String = "") {
+        guard let registrationWizard = registrationWizard else {
+            MXLog.failure("[AuthenticationRegistrationCoordinator] createAccount: The registration wizard is nil.")
+            return
+        }
+        
+        startLoading()
+        
+        currentTask = Task { [weak self] in
+            do {
+                let result = try await registrationWizard.createAccount(username: username,
+                                                                        password: password,
+                                                                        initialDeviceDisplayName: UIDevice.current.initialDisplayName)
+                
+                guard !Task.isCancelled else { return }
+                self?.callback?(.completed(result: result, password: password))
+                if inventCode != "" {
+                    InventHelper.confirmInventCode(inventCode: inventCode)
+                }
+                self?.stopLoading()
+            } catch {
+                self?.stopLoading()
+                self?.handleError(error)
+            }
+        }
+    }
+    
+    /// Creates an account on the homeserver with the supplied username and password.
+    @MainActor private func createInventAccount(username: String, password: String, inventCode: String) {
         guard let registrationWizard = registrationWizard else {
             MXLog.failure("[AuthenticationRegistrationCoordinator] createAccount: The registration wizard is nil.")
             return

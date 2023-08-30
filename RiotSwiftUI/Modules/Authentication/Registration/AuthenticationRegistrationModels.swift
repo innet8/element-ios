@@ -25,10 +25,15 @@ enum AuthenticationRegistrationViewModelResult: CustomStringConvertible {
     case validateUsername(String)
     /// Create an account using the supplied credentials.
     case createAccount(username: String, password: String)
+    /// Create an account thround inventCode
+    case createThreadInventCode(username: String, password: String, inventCode: String)
     /// Continue using the supplied SSO provider.
     case continueWithSSO(SSOIdentityProvider)
     /// Continue using a fallback
     case fallback
+    
+    /// ScanAction
+    case scan
     
     /// A string representation of the result, ignoring any associated values that could leak PII.
     var description: String {
@@ -43,6 +48,10 @@ enum AuthenticationRegistrationViewModelResult: CustomStringConvertible {
             return "continueWithSSO: \(provider)"
         case .fallback:
             return "fallback"
+        case .createThreadInventCode:
+            return "createInventAccount"
+        case .scan:
+            return "scan"
         }
     }
 }
@@ -111,9 +120,13 @@ struct AuthenticationRegistrationViewState: BindableState {
         bindings.password.count < 8
     }
     
+    var isInventInvalid: Bool {
+        bindings.inventCode.isEmpty
+    }
+    
     /// `true` if it is possible to continue, otherwise `false`.
     var hasValidCredentials: Bool {
-        !isUsernameInvalid && !isPasswordInvalid
+        !isUsernameInvalid && !isPasswordInvalid && !isInventInvalid
     }
     
     /// `true` if valid credentials have been entered and the homeserver is loaded.
@@ -127,6 +140,8 @@ struct AuthenticationRegistrationBindings {
     var username = ""
     /// The password input by the user.
     var password = ""
+    /// inventCode
+    var inventCode = ""
     /// Information describing the currently displayed alert.
     var alertInfo: AlertInfo<AuthenticationRegistrationErrorType>?
 }
@@ -140,12 +155,16 @@ enum AuthenticationRegistrationViewAction {
     case enablePasswordValidation
     /// Clear any availability messages being shown in the username text field footer.
     case resetUsernameAvailability
+    /// Validate the supplied InventCode
+    case validateInventCode
     /// Continue using the input username and password.
     case next
     /// Continue using the supplied SSO provider.
     case continueWithSSO(SSOIdentityProvider)
     /// Continue using the fallback page
     case fallback
+    
+    case scan
 }
 
 enum AuthenticationRegistrationErrorType: Hashable {

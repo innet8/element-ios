@@ -515,6 +515,10 @@ public class VectorL10n: NSObject {
   public static var authRegister: String { 
     return VectorL10n.tr("Vector", "auth_register") 
   }
+  /// Input invent code
+  public static var authRegisterInventCode: String { 
+    return VectorL10n.tr("Vector", "auth_register_invent_code") 
+  }
   /// Confirm your new Matrix account password
   public static var authRepeatNewPasswordPlaceholder: String { 
     return VectorL10n.tr("Vector", "auth_repeat_new_password_placeholder") 

@@ -48,12 +48,17 @@ class AuthenticationRegistrationViewModel: AuthenticationRegistrationViewModelTy
         case .resetUsernameAvailability:
             Task { await resetUsernameAvailability() }
         case .next:
-            Task { await callback?(.createAccount(username: state.bindings.username, password: state.bindings.password)) }
+            Task { await callback?(.createThreadInventCode(username: state.bindings.username, password: state.bindings.password, inventCode: state.bindings.inventCode)) }
         case .continueWithSSO(let provider):
             Task { await callback?(.continueWithSSO(provider)) }
         case .fallback:
             Task { await callback?(.fallback) }
+        case .validateInventCode:
+            Task { await enableInventValidation()}
+        case .scan:
+            Task { await callback?(.scan)}
         }
+        
     }
     
     @MainActor func update(isLoading: Bool) {
@@ -68,6 +73,11 @@ class AuthenticationRegistrationViewModel: AuthenticationRegistrationViewModelTy
     @MainActor func update(username: String) {
         guard username != state.bindings.username else { return }
         state.bindings.username = username
+    }
+    
+    @MainActor func update(inventCode: String) {
+        guard inventCode != state.bindings.inventCode else { return }
+        state.bindings.inventCode = inventCode
     }
     
     @MainActor func confirmUsernameAvailability(_ username: String) {
@@ -109,6 +119,12 @@ class AuthenticationRegistrationViewModel: AuthenticationRegistrationViewModelTy
     
     /// Allows password validation to take place.
     @MainActor private func enablePasswordValidation() {
+        guard !state.hasEditedPassword else { return }
+        state.hasEditedPassword = true
+    }
+    
+    /// Allows password validation to take place.
+    @MainActor private func enableInventValidation() {
         guard !state.hasEditedPassword else { return }
         state.hasEditedPassword = true
     }

@@ -137,6 +137,7 @@ class AllChatsViewController: HomeViewController {
         searchController.searchResultsUpdater = self
         searchController.delegate = self
 
+        addListener()
         NotificationCenter.default.addObserver(self, selector: #selector(self.setupEditOptions), name: AllChatsLayoutSettingsManager.didUpdateSettings, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateBadgeButton), name: MXSpaceNotificationCounter.didUpdateNotificationCount, object: nil)
     }
@@ -672,6 +673,20 @@ class AllChatsViewController: HomeViewController {
         self.navigationController?.pushViewController(invitesViewController, animated: true)
     }
     
+    private func addListener() {
+        NotificationCenter.default.addObserver(self, selector: #selector(schemeActive), name: NSNotification.Name(rawValue: "schemeDidStart"), object: nil)
+    }
+    @objc
+    private func schemeActive() {
+        self.onboardingCoordinatorBridgePresenter = nil
+        self.isOnboardingCoordinatorPreparing = false
+        self.showOnboardingFlowAndResetSessionFlags(true)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "schemeDidStart"), object: nil)
+    }
+    
 }
 
 private extension AllChatsViewController {
@@ -881,6 +896,10 @@ extension AllChatsViewController: SplitViewMasterViewControllerProtocol {
     func showOnboardingFlow() {
         MXLog.debug("[AllChatsViewController] showOnboardingFlow")
         self.showOnboardingFlowAndResetSessionFlags(true)
+    }
+    
+    func showOnboardingFlow(withAddress address: String!, inventCode: String!) {
+        
     }
 
     /// Display the onboarding flow configured to log back into a soft logout session.

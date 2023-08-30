@@ -145,6 +145,7 @@ final class AuthenticationCoordinator: NSObject, AuthenticationCoordinatorProtoc
             showServerSelectionScreen(for: flow)
             return
         }
+        // 跳转
 
         switch initialScreen {
         case .registration:
@@ -258,6 +259,7 @@ final class AuthenticationCoordinator: NSObject, AuthenticationCoordinatorProtoc
     }
     
     // MARK: - Login
+    // FIXME: 登陆位置
     
     /// Shows the login screen.
     @MainActor private func showLoginScreen() {
@@ -352,6 +354,7 @@ final class AuthenticationCoordinator: NSObject, AuthenticationCoordinatorProtoc
     }
     
     // MARK: - Registration
+    // FIXME: 注册位置
     
     /// Shows the registration screen.
     @MainActor private func showRegistrationScreen() {

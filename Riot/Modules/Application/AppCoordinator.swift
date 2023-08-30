@@ -56,8 +56,11 @@ final class AppCoordinator: NSObject, AppCoordinatorType {
     private let userSessionsService: UserSessionsService
         
     /// Main user Matrix session
-    private var mainMatrixSession: MXSession? {
+    public var mainMatrixSession: MXSession? {
         return self.userSessionsService.mainUserSession?.matrixSession
+    }
+    private var authorService: AuthenticationService {
+        return AuthenticationService.shared
     }
         
     private var currentSpaceId: String?
@@ -120,13 +123,36 @@ final class AppCoordinator: NSObject, AppCoordinatorType {
         // NOTE: As said in the Apple documentation be careful on security issues with Custom Scheme URL:
         // https://developer.apple.com/documentation/xcode/allowing_apps_and_websites_to_link_to_your_content/defining_a_custom_url_scheme_for_your_app
         
-        do {
-            let deepLinkOption = try self.customSchemeURLParser.parse(url: url, options: options)
-            return self.handleDeepLinkOption(deepLinkOption)
-        } catch {
-            MXLog.debug("[AppCoordinator] Custom scheme URL parsing failed with error: \(error)")
-            return false
+        if let urlComponent = URLComponents(url: url, resolvingAgainstBaseURL: false), let token = urlComponent.vc_getQueryItemValue(for: "rgs_token"), let host = urlComponent.host {
+            var homeAdress = ""
+            homeAdress = "https://\(host)"
+            if let port = urlComponent.port {
+                homeAdress = homeAdress + ":\(port)"
+            }
+            let address = homeAdress
+            
+            let delegate = AppDelegate.theDelegate()
+            delegate.sysAddress = address
+            delegate.sysInventCode = token
+            delegate.isRegister = true
+            
+            if MXKAccountManager.shared().accounts.isEmpty {
+                quitAndShowRegist()
+                
+            } else {
+                showAlert()
+            }
+        
         }
+        
+//        do {
+//            let deepLinkOption = try self.customSchemeURLParser.parse(url: url, options: options)
+//            return self.handleDeepLinkOption(deepLinkOption)
+//        } catch {
+//            MXLog.debug("[AppCoordinator] Custom scheme URL parsing failed with error: \(error)")
+//            return false
+//        }
+        return true
     }
         
     // MARK: - Theme management
@@ -206,6 +232,23 @@ final class AppCoordinator: NSObject, AppCoordinatorType {
         coordinator.start()
         self.add(childCoordinator: coordinator)
         self.sideMenuCoordinator = coordinator
+
+    }
+    
+    private func showAlert() {
+        let alert = UIAlertController(title: "提示", message: "当前账号正在使用是否退出当前账号并注册", preferredStyle: .alert)
+            
+        alert.addAction(UIAlertAction(title: "退出", style: .default, handler: { action in
+            self.quitAndShowRegist()
+        }))
+        alert.addAction(UIAlertAction(title: "取消", style: .cancel))
+        
+        self.splitViewCoordinator?.toPresentable().present(alert, animated: true)
+    }
+    
+    private func quitAndShowRegist() {
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "schemeDidStart"), object: nil)
     }
     
     private func checkAppVersion() {
@@ -214,14 +257,27 @@ final class AppCoordinator: NSObject, AppCoordinatorType {
     
     private func handleDeepLinkOption(_ deepLinkOption: DeepLinkOption) -> Bool {
         
-        let canOpenLink: Bool
+//        let canOpenLink: Bool
         
         switch deepLinkOption {
         case .connect(let loginToken, let transactionID):
-            canOpenLink = AuthenticationService.shared.continueSSOLogin(with: loginToken, and: transactionID)
+            break
+            // canOpenLink = AuthenticationService.shared.continueSSOLogin(with: loginToken, and: transactionID)
+        case .analise(let host, let token):
+            Task { @MainActor in
+                do {
+                    try await AuthenticationService.shared.startFlow(.register, for: host)
+                    showAuthentication()
+                } catch {
+                    
+                }
+            }
+            
+            
+            return true
         }
         
-        return canOpenLink
+        return false
     }
     
     private func setupFlexDebuggerOnWindow(_ window: UIWindow) {

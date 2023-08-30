@@ -32,6 +32,8 @@ protocol AuthenticationRegistrationViewModelProtocol {
     /// - Parameter username: The username to be shown instead.
     @MainActor func update(username: String)
     
+    @MainActor func update(inventCode: String)
+    
     /// Update the view to confirm that the chosen username is available.
     /// - Parameter username: The username that was checked.
     @MainActor func confirmUsernameAvailability(_ username: String)

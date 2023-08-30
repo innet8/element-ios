@@ -72,6 +72,8 @@ final class OnboardingCoordinator: NSObject, OnboardingCoordinatorProtocol {
     /// Whether authentication is complete. `true` once authenticated, verified and the app is ready to be shown.
     private var authenticationFinished = false
     
+    private var slashScreen: OnboardingSplashScreenCoordinator?
+    
     // MARK: Public
 
     // Must be used only internally
@@ -140,6 +142,20 @@ final class OnboardingCoordinator: NSObject, OnboardingCoordinatorProtocol {
         navigationRouter.setRootModule(coordinator) { [weak self] in
             self?.remove(childCoordinator: coordinator)
         }
+        slashScreen = coordinator
+        
+        var destination: OnboardingSplashScreenViewModelResult = .login
+        if AppDelegate.theDelegate().isRegister == true {
+            destination = .register
+        }
+        // 跳转注册 或者登录
+        self.splashScreenCoordinator(coordinator, didCompleteWith: destination)
+        
+        AppDelegate.theDelegate().isRegister = false
+//        Task {
+//            await self.useHomeserver("https://t.5ok.co")
+//
+//        }
     }
 
     /// Show an empty screen when configuring soft logout flow
@@ -157,10 +173,38 @@ final class OnboardingCoordinator: NSObject, OnboardingCoordinatorProtocol {
         
         // Set the auth type early on the legacy auth to allow network requests to finish during display of the use case screen.
         legacyAuthenticationCoordinator.update(authenticationFlow: result.flow)
+        var stop = {
+            self.stopLoading()
+        }
+        switch result {
+        case .register:
+            startLoading()
+            
+            beginAuthentication(with: .registration, onStart: stop)
+//            showUseCaseSelectionScreen()
+        case .login:
+            
+            if BuildSettings.onboardingEnableNewAuthenticationFlow {
+                
+                beginAuthentication(with: .login, onStart: coordinator.stop)
+            } else {
+                coordinator.stop()
+                showLegacyAuthenticationScreen()
+            }
+        }
+    }
+    
+    @MainActor private func sySplashScreenCoordinator(_ coordinator: OnboardingSplashScreenCoordinator, didCompleteWith result: OnboardingSplashScreenViewModelResult) {
+        splashScreenResult = result
+        
+        // Set the auth type early on the legacy auth to allow network requests to finish during display of the use case screen.
+        legacyAuthenticationCoordinator.update(authenticationFlow: result.flow)
         
         switch result {
         case .register:
-            showUseCaseSelectionScreen()
+            startLoading()
+            beginAuthentication(with: .registration, onStart: coordinator.stop)
+//            showUseCaseSelectionScreen()
         case .login:
             if BuildSettings.onboardingEnableNewAuthenticationFlow {
                 beginAuthentication(with: .login, onStart: coordinator.stop)
@@ -611,6 +655,30 @@ final class OnboardingCoordinator: NSObject, OnboardingCoordinatorProtocol {
         })
         
         navigationRouter.present(alertController, animated: true)
+    }
+    
+    @MainActor private func useHomeserver(_ homeserverAddress: String) {
+        startLoading()
+        
+        let homeserverAddress = HomeserverAddress.sanitized(homeserverAddress)
+        
+        Task {
+            do {
+                try await AuthenticationService.shared.startFlow(.register, for: homeserverAddress)
+                self.sySplashScreenCoordinator(slashScreen!, didCompleteWith: .register)
+                stopLoading()
+
+            } catch {
+                stopLoading()
+                
+                if let error = error as? RegistrationError {
+                    // Show the MXError message if possible otherwise use a generic server error
+                    let message = MXError(nsError: error)?.error ?? VectorL10n.authenticationServerSelectionGenericError
+                    
+                }
+                self.sySplashScreenCoordinator(slashScreen!, didCompleteWith: .register)
+            }
+        }
     }
 }
 

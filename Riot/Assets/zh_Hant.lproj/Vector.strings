@@ -70,6 +70,7 @@
 "auth_phone_in_use" = "這個電話號碼已被使用";
 "auth_untrusted_id_server" = "這個身分伺服器不受信任";
 "auth_password_dont_match" = "密碼不相符";
+"auth_register_invent_code" = "輸入邀請碼";
 "auth_username_in_use" = "使用者名稱已被使用";
 "auth_forgot_password" = "忘記 Matrix 帳號的密碼？";
 "auth_email_not_found" = "無法傳送電子郵件：找不到該電子郵件地址";

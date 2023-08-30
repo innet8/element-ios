@@ -99,8 +99,8 @@ final class BuildSettings: NSObject {
     
     /// Force the user to set a homeserver instead of using the default one
     static let forceHomeserverSelection = false
-    // Default servers proposed on the authentication screen https://matrix.org
-    static var serverConfigDefaultHomeserverUrlString = "https://matrix.org"
+    /// Default servers proposed on the authentication screen https://matrix.org   https://synapse.huofu.vip:8009
+    static var serverConfigDefaultHomeserverUrlString = "https://element.gezi.vip"
 
     /// Default identity server
     static let serverConfigDefaultIdentityServerUrlString = "https://vector.im"

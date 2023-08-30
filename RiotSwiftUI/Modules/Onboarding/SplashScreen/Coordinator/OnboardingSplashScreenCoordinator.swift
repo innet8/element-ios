@@ -88,4 +88,5 @@ final class OnboardingSplashScreenCoordinator: OnboardingSplashScreenCoordinator
     private func stopLoading() {
         loadingIndicator = nil
     }
+    
 }

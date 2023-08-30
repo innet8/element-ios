@@ -24,6 +24,7 @@ struct AuthenticationRegistrationScreen: View {
     @Environment(\.theme) private var theme: ThemeSwiftUI
     
     @State private var isPasswordFocused = false
+    @State private var isInventFocused = false
     
     // MARK: Public
     
@@ -32,6 +33,20 @@ struct AuthenticationRegistrationScreen: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 0) {
+                HStack(spacing: 0){
+                    Spacer()
+                    Button(action: scan){
+                        Image("register_scan")
+                            .resizable()
+                            .frame(minWidth: 22, maxWidth: 22, minHeight: 22, maxHeight: 22, alignment: .trailing)
+//                            .padding()
+//                            .background(Color(red: 246 / 255, green: 246 / 255, blue: 246 / 255))
+//                            .clipShape(Circle())
+
+                    }
+                }
+                .background(theme.colors.background.ignoresSafeArea())
+                
                 header
                     .padding(.top, OnboardingMetrics.topPaddingToNavigationBar)
                     .padding(.bottom, 28)
@@ -120,8 +135,20 @@ struct AuthenticationRegistrationScreen: View {
                                    configuration: UIKitTextInputConfiguration(returnKeyType: .done,
                                                                               isSecureTextEntry: true),
                                    onEditingChanged: passwordEditingChanged,
-                                   onCommit: submit)
+                                   onCommit: { isInventFocused = true })
                 .accessibilityIdentifier("passwordTextField")
+            
+            RoundedBorderTextField(title: nil,
+                                   placeHolder: VectorL10n.authRegisterInventCode,
+                                   text: $viewModel.inventCode,
+                                   footerText: VectorL10n.authRegisterInventCode,
+                                   isError: viewModel.viewState.hasEditedPassword && viewModel.viewState.isPasswordInvalid && viewModel.viewState.isInventInvalid,
+                                   isFirstResponder: isInventFocused,
+                                   configuration: UIKitTextInputConfiguration(returnKeyType: .done,
+                                                                              isSecureTextEntry: false),
+                                   onEditingChanged: inventCodeChanged,
+                                   onCommit: submit)
+                .accessibilityIdentifier("inventTextField")
             
             Button(action: submit) {
                 Text(VectorL10n.next)
@@ -169,10 +196,21 @@ struct AuthenticationRegistrationScreen: View {
         viewModel.send(viewAction: .enablePasswordValidation)
     }
     
+    func inventCodeChanged(isEditing: Bool) {
+        guard !isEditing else { return }
+        isInventFocused = false
+        
+    }
+    
     /// Sends the `next` view action so long as valid credentials have been input.
     func submit() {
         guard viewModel.viewState.canSubmit else { return }
         viewModel.send(viewAction: .next)
+    }
+    
+    /// top sacn button action
+    func scan() {
+        viewModel.send(viewAction: .scan)
     }
 
     /// Sends the `fallback` view action.

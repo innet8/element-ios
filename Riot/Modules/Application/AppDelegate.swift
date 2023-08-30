@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: Private
 
-    private var appCoordinator: AppCoordinatorType!
+    public var appCoordinator: AppCoordinatorType!
     private var rootRouter: RootRouterType!
 
     private var legacyAppDelegate: LegacyAppDelegate {
@@ -52,18 +52,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
 
-        DomainGetSocket.shared.getWhoisDomainWith(searchDomain: BuildSettings.whoisSearchDomain, contentDomain: BuildSettings.whoisContentDomain, filterKey: BuildSettings.whoisFilterKey) { result in
-            switch result {
-            case .success(let domain):
-                let trim = domain.trimmingCharacters(in: .whitespacesAndNewlines)
-//                RiotSettings.defaults.set("https://" + trim, forKey: "whoisDomain")
-//                BuildSettings.serverConfigDefaultHomeserverUrlString = "https://" + trim
-//                MXLog.info("getDomainSuccess\(trim)")
-            
-            case .error:
-                MXLog.error("getUrlFail")
-            }
-        }
+//        DomainGetSocket.shared.getWhoisDomainWith(searchDomain: BuildSettings.whoisSearchDomain, contentDomain: BuildSettings.whoisContentDomain, filterKey: BuildSettings.whoisFilterKey) { result in
+//            switch result {
+//            case .success(let domain):
+//                let trim = domain.trimmingCharacters(in: .whitespacesAndNewlines)
+////                RiotSettings.defaults.set("https://" + trim, forKey: "whoisDomain")
+////                BuildSettings.serverConfigDefaultHomeserverUrlString = "https://" + trim
+////                MXLog.info("getDomainSuccess\(trim)")
+//
+//            case .error:
+//                MXLog.error("getUrlFail")
+//            }
+//        }
+        UserDefaults.standard.set(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
 
         return self.legacyAppDelegate.application(application, willFinishLaunchingWithOptions: launchOptions)
     }

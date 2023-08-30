@@ -301,6 +301,7 @@
 "auth_untrusted_id_server" = "The identity server is not trusted";
 "auth_password_dont_match" = "Passwords don't match";
 "auth_username_in_use" = "Username in use";
+"auth_register_invent_code" = "Input invent code";
 "auth_forgot_password" = "Forgot Matrix account password?";
 "auth_forgot_password_error_no_configured_identity_server" = "No identity server is configured: add one to reset your Matrix account password.";
 "auth_email_not_found" = "Failed to send email: This email address was not found";

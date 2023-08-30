@@ -41,6 +41,9 @@
 /// Display the default onboarding flow.
 - (void)showOnboardingFlow;
 
+/// DisPlay the default with address and inventCode
+- (void)showOnboardingFlowWithAddress:(NSString *)address inventCode:(NSString *)inventCode;
+
 /// Display the onboarding flow configured to log back into a soft logout session.
 ///
 /// @param softLogoutCredentials the credentials of the soft logout session.

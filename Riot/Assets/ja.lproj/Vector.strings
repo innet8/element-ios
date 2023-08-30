@@ -70,6 +70,7 @@
 "auth_untrusted_id_server" = "この認証サーバーは信頼されていません";
 "auth_password_dont_match" = "パスワードが一致しません";
 "auth_username_in_use" = "ユーザー名は既に使用されています";
+"auth_register_invent_code" = "招待コードを入力";
 "auth_forgot_password" = "Matrixのアカウントのパスワードを忘れましたか？";
 "auth_email_not_found" = "電子メールの送信に失敗しました：メールアドレスが見つかりません";
 "auth_use_server_options" = "接続先サーバーを指定（高度）";
