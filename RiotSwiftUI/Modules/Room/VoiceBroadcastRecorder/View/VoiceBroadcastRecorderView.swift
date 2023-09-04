@@ -53,7 +53,7 @@ struct VoiceBroadcastRecorderView: View {
                             .foregroundColor(theme.colors.secondaryContent)
                             .font(theme.fonts.caption1)
                     } icon: {
-                        Image(uiImage: Asset.Images.voiceBroadcastTileLive.image)
+                        Image(uiImage: Asset.Images.voicePlayTileLive.image)
                     }
                     
                     Label {
@@ -61,7 +61,7 @@ struct VoiceBroadcastRecorderView: View {
                             .foregroundColor(theme.colors.secondaryContent)
                             .font(theme.fonts.caption1)
                     } icon: {
-                        Image(uiImage: Asset.Images.voiceBroadcastTimeLeft.image)
+                        Image(uiImage: Asset.Images.voicePlayTimeLeft.image)
                     }
                 }.frame(maxWidth: .infinity, alignment: .leading)
                 
@@ -71,7 +71,7 @@ struct VoiceBroadcastRecorderView: View {
                         .foregroundColor(Color.white)
                         .padding(.leading, -4)
                 } icon: {
-                    Image(uiImage: Asset.Images.voiceBroadcastLive.image)
+                    Image(uiImage: Asset.Images.voicePlayLive.image)
                 }
                 .padding(EdgeInsets(top: 2.0, leading: 4.0, bottom: 2.0, trailing: 4.0))
                 .background(RoundedRectangle(cornerRadius: 2, style: .continuous).fill(backgroundColor))

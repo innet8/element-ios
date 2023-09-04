@@ -73,7 +73,7 @@ struct AuthenticationVerifyEmailScreen: View {
     /// The instructions shown whilst waiting for the user to tap the link in the email.
     var waitingHeader: some View {
         VStack(spacing: 8) {
-            OnboardingIconImage(image: Asset.Images.authenticationEmailIcon)
+            OnboardingIconImage(image: Asset.Images.loginEmailIcon)
                 .padding(.bottom, OnboardingMetrics.breakerScreenIconBottomPadding)
             
             OnboardingTintedFullStopText(VectorL10n.authenticationVerifyEmailWaitingTitle)

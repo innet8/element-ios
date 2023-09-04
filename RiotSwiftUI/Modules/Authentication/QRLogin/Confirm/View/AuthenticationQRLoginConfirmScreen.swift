@@ -50,7 +50,7 @@ struct AuthenticationQRLoginConfirmScreen: View {
     /// The screen's title and instructions.
     var titleContent: some View {
         VStack(spacing: 16) {
-            Image(Asset.Images.authenticationQrloginConfirmIcon.name)
+            Image(Asset.Images.loginQrloginConfirmIcon.name)
                 .frame(width: iconSize, height: iconSize)
                 .padding(.bottom, 16)
             

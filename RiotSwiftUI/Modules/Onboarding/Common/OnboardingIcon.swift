@@ -36,6 +36,6 @@ struct OnboardingIconImage: View {
 
 struct OnboardingIconImage_Previews: PreviewProvider {
     static var previews: some View {
-        OnboardingIconImage(image: Asset.Images.authenticationEmailIcon)
+        OnboardingIconImage(image: Asset.Images.loginEmailIcon)
     }
 }

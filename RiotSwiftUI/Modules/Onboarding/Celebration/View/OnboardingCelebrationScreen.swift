@@ -67,7 +67,7 @@ struct OnboardingCelebrationScreen: View {
     /// The main content of the view to be shown in a scroll view.
     var mainContent: some View {
         VStack(spacing: 8) {
-            OnboardingIconImage(image: Asset.Images.onboardingCelebrationIcon)
+            OnboardingIconImage(image: Asset.Images.screenCelebrationIcon)
                 .padding(.bottom, OnboardingMetrics.breakerScreenIconBottomPadding)
             
             Text(VectorL10n.onboardingCelebrationTitle)

@@ -241,7 +241,7 @@ class SpaceDetailViewController: UIViewController {
         let membersString = membersCount == 1 ? VectorL10n.roomTitleOneMember : VectorL10n.roomTitleMembers("\(membersCount)")
         self.spaceTypeLabel.text = "\(joinRuleString) · \(membersString)"
         
-        let joinRuleIcon = parameters.joinRule == .public ? Asset.Images.spaceTypeIcon : Asset.Images.spacePrivateIcon
+        let joinRuleIcon = parameters.joinRule == .public ? Asset.Images.spaceTypeIcon : Asset.Images.mySpacePrivateIcon
         self.spaceTypeIconView.image = joinRuleIcon.image
         
         self.inviterIdLabel.text = parameters.inviterId

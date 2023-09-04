@@ -27,9 +27,9 @@ struct VoiceBroadcastSlider: UIViewRepresentable {
     
     func makeUIView(context: Context) -> UISlider {
         let slider = UISlider(frame: .zero)
-        slider.setThumbImage(Asset.Images.voiceBroadcastSliderThumb.image, for: .normal)
-        slider.setMinimumTrackImage(Asset.Images.voiceBroadcastSliderMinTrack.image, for: .normal)
-        slider.setMaximumTrackImage(Asset.Images.voiceBroadcastSliderMaxTrack.image, for: .normal)
+        slider.setThumbImage(Asset.Images.voicePlaySliderThumb.image, for: .normal)
+        slider.setMinimumTrackImage(Asset.Images.voicePlaySliderMinTrack.image, for: .normal)
+        slider.setMaximumTrackImage(Asset.Images.voicePlaySliderMaxTrack.image, for: .normal)
         slider.minimumValue = Float(minValue)
         slider.maximumValue = Float(maxValue)
         slider.value = Float(value)

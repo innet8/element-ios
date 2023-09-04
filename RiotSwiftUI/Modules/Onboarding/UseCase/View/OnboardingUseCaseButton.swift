@@ -49,7 +49,7 @@ struct OnboardingUseCaseButton: View {
 struct Previews_OnboardingUseCaseButton_Previews: PreviewProvider {
     static var previews: some View {
         OnboardingUseCaseButton(title: VectorL10n.onboardingUseCaseWorkMessaging,
-                                image: Asset.Images.onboardingUseCaseWork,
+                                image: Asset.Images.screenUseCaseWork,
                                 action: { })
             .padding(16)
     }

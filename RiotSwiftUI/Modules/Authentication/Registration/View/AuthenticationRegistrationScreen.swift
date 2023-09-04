@@ -91,7 +91,7 @@ struct AuthenticationRegistrationScreen: View {
     /// The header containing the icon, title and message.
     var header: some View {
         VStack(spacing: 8) {
-            OnboardingIconImage(image: Asset.Images.onboardingCongratulationsIcon)
+            OnboardingIconImage(image: Asset.Images.screenCongratulationsIcon)
                 .padding(.bottom, 8)
             
             Text(VectorL10n.authenticationRegistrationTitle)

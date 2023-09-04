@@ -38,7 +38,7 @@ struct PasswordButtonModifier: ViewModifier {
             
             if !text.isEmpty {
                 Button { isSecureTextVisible.toggle() } label: {
-                    Image(Asset.Images.authenticationRevealPassword.name)
+                    Image(Asset.Images.loginRevealPassword.name)
                         .renderingMode(.template)
                         .resizable()
                         .frame(width: iconSize, height: iconSize)

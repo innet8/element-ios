@@ -218,7 +218,7 @@ final class SpaceListViewModel: SpaceListViewModelType {
     }
     
     private func createHomeViewData(session: MXSession) -> SpaceListItemViewData {
-        let defaultAsset = ThemeService.shared().isCurrentThemeDark() ? Asset.Images.spaceHomeIconDark : Asset.Images.spaceHomeIconLight
+        let defaultAsset = ThemeService.shared().isCurrentThemeDark() ? Asset.Images.mySpaceHomeIconDark : Asset.Images.mySpaceHomeIconLight
         let avatarViewData = AvatarViewData(matrixItemId: Constants.homeSpaceId, displayName: nil, avatarUrl: nil, mediaManager: session.mediaManager, fallbackImage: .image(defaultAsset.image, .center))
         
         let homeNotificationState = session.spaceService.notificationCounter.homeNotificationState
@@ -232,7 +232,7 @@ final class SpaceListViewModel: SpaceListViewModelType {
     }
     
     private func createAddSpaceViewData(session: MXSession) -> SpaceListItemViewData {
-        let defaultAsset = ThemeService.shared().isCurrentThemeDark() ? Asset.Images.spacesAddSpaceDark : Asset.Images.spacesAddSpaceLight
+        let defaultAsset = ThemeService.shared().isCurrentThemeDark() ? Asset.Images.mySpacesAddSpaceDark : Asset.Images.mySpacesAddSpaceLight
         let avatarViewData = AvatarViewData(matrixItemId: Constants.addSpaceId, displayName: nil, avatarUrl: nil, mediaManager: session.mediaManager, fallbackImage: .image(defaultAsset.image, .center))
         
         let homeViewData = SpaceListItemViewData(spaceId: Constants.addSpaceId,

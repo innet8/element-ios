@@ -36,7 +36,7 @@ struct ThemableNavigationBar: View {
     var body: some View {
         HStack {
             Button(action: { backAction() }) {
-                Image(uiImage: Asset.Images.spacesModalBack.image)
+                Image(uiImage: Asset.Images.mySpacesModalBack.image)
                     .renderingMode(.template)
                     .foregroundColor(theme.colors.secondaryContent)
             }
@@ -48,7 +48,7 @@ struct ThemableNavigationBar: View {
             }
             Spacer()
             Button(action: { closeAction() }) {
-                Image(uiImage: Asset.Images.spacesModalClose.image)
+                Image(uiImage: Asset.Images.mySpacesModalClose.image)
                     .renderingMode(.template)
                     .foregroundColor(theme.colors.secondaryContent)
             }

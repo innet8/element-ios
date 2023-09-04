@@ -699,7 +699,7 @@ final class TabBarCoordinator: NSObject, SplitViewMasterCoordinatorProtocol {
             return
         }
         
-        let sideMenuBarButtonItem: MXKBarButtonItem = MXKBarButtonItem(image: Asset.Images.sideMenuIcon.image, style: .plain) { [weak self] in
+        let sideMenuBarButtonItem: MXKBarButtonItem = MXKBarButtonItem(image: Asset.Images.someMenuIcon.image, style: .plain) { [weak self] in
             self?.showSideMenu()
         }
         sideMenuBarButtonItem.accessibilityLabel = VectorL10n.sideMenuRevealActionAccessibilityLabel
@@ -766,7 +766,7 @@ extension TabBarCoordinator: MasterTabBarControllerDelegate {
             return
         }
         
-        let image = displayNotification ? Asset.Images.sideMenuNotifIcon.image : Asset.Images.sideMenuIcon.image
+        let image = displayNotification ? Asset.Images.someMenuNotifIcon.image : Asset.Images.someMenuIcon.image
         let sideMenuBarButtonItem: MXKBarButtonItem = MXKBarButtonItem(image: image, style: .plain) { [weak self] in
             self?.showSideMenu()
         }

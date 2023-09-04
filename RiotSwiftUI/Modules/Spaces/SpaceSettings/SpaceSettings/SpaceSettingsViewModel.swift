@@ -23,8 +23,8 @@ class SpaceSettingsViewModel: SpaceSettingsViewModelType, SpaceSettingsViewModel
     // MARK: - Properties
     
     private static let options: [SpaceSettingsOption] = [
-        SpaceSettingsOption(id: .rooms, icon: Asset.Images.spaceRoomIcon.image, title: VectorL10n.titleRooms, value: nil, isEnabled: true),
-        SpaceSettingsOption(id: .members, icon: Asset.Images.spaceMenuMembers.image, title: VectorL10n.roomDetailsPeople, value: nil, isEnabled: true)
+        SpaceSettingsOption(id: .rooms, icon: Asset.Images.mySpaceRoomIcon.image, title: VectorL10n.titleRooms, value: nil, isEnabled: true),
+        SpaceSettingsOption(id: .members, icon: Asset.Images.mySpaceMenuMembers.image, title: VectorL10n.roomDetailsPeople, value: nil, isEnabled: true)
     ]
 
     // MARK: Private

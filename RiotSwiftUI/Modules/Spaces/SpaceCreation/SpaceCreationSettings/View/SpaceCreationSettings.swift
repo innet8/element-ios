@@ -83,7 +83,7 @@ struct SpaceCreationSettings: View {
                         viewModel.send(viewAction: .pickImage(reader.frame(in: .global)))
                     })
             }
-            Image(uiImage: Asset.Images.spaceCreationCamera.image)
+            Image(uiImage: Asset.Images.mySpaceCreationCamera.image)
                 .renderingMode(.template)
                 .foregroundColor(theme.colors.secondaryContent)
                 .frame(width: 32, height: 32, alignment: .center)

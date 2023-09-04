@@ -48,13 +48,13 @@ extension SideMenuItem {
 
         switch self {
         case .inviteFriends:
-            icon = Asset.Images.sideMenuActionIconShare.image
+            icon = Asset.Images.someMenuActionIconShare.image
         case .settings:
-            icon = Asset.Images.sideMenuActionIconSettings.image
+            icon = Asset.Images.someMenuActionIconSettings.image
         case .help:
-            icon = Asset.Images.sideMenuActionIconHelp.image
+            icon = Asset.Images.someMenuActionIconHelp.image
         case .feedback:
-            icon = Asset.Images.sideMenuActionIconFeedback.image
+            icon = Asset.Images.someMenuActionIconFeedback.image
         }
 
         return icon

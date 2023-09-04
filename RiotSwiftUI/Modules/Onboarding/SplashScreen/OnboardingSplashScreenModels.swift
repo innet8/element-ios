@@ -69,20 +69,20 @@ struct OnboardingSplashScreenViewState: BindableState, CustomDebugStringConverti
         content = [
             OnboardingSplashScreenPageContent(title: VectorL10n.onboardingSplashPage1Title,
                                               message: VectorL10n.onboardingSplashPage1Message,
-                                              image: Asset.Images.onboardingSplashScreenPage1,
-                                              darkImage: Asset.Images.onboardingSplashScreenPage1Dark),
+                                              image: Asset.Images.screenSplashScreenPage1,
+                                              darkImage: Asset.Images.screenSplashScreenPage1Dark),
             OnboardingSplashScreenPageContent(title: VectorL10n.onboardingSplashPage2Title,
                                               message: VectorL10n.onboardingSplashPage2Message,
-                                              image: Asset.Images.onboardingSplashScreenPage2,
-                                              darkImage: Asset.Images.onboardingSplashScreenPage2Dark),
+                                              image: Asset.Images.screenSplashScreenPage2,
+                                              darkImage: Asset.Images.screenSplashScreenPage2Dark),
             OnboardingSplashScreenPageContent(title: VectorL10n.onboardingSplashPage3Title,
                                               message: VectorL10n.onboardingSplashPage3Message,
-                                              image: Asset.Images.onboardingSplashScreenPage3,
-                                              darkImage: Asset.Images.onboardingSplashScreenPage3Dark),
+                                              image: Asset.Images.screenSplashScreenPage3,
+                                              darkImage: Asset.Images.screenSplashScreenPage3Dark),
             OnboardingSplashScreenPageContent(title: page4Title,
                                               message: VectorL10n.onboardingSplashPage4Message,
-                                              image: Asset.Images.onboardingSplashScreenPage4,
-                                              darkImage: Asset.Images.onboardingSplashScreenPage4Dark)
+                                              image: Asset.Images.screenSplashScreenPage4,
+                                              darkImage: Asset.Images.screenSplashScreenPage4Dark)
         ]
         bindings = OnboardingSplashScreenBindings()
     }

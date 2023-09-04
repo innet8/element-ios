@@ -35,7 +35,7 @@ final class SpaceMemberListViewController: RoomParticipantsViewController {
     private var errorPresenter: MXKErrorPresentation!
     private var activityPresenter: ActivityIndicatorPresenter!
     private var titleView: MainTitleView!
-    private let inviteHeaderView = AddItemHeaderView.instantiate(title: VectorL10n.spacesInvitePeople, icon: Asset.Images.spaceInviteUser.image)
+    private let inviteHeaderView = AddItemHeaderView.instantiate(title: VectorL10n.spacesInvitePeople, icon: Asset.Images.mySpaceInviteUser.image)
 
     // MARK: - Setup
     

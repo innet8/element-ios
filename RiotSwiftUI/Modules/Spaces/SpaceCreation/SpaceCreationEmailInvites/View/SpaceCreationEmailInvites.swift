@@ -95,7 +95,7 @@ struct SpaceCreationEmailInvites: View {
                 .font(theme.fonts.caption1)
                 .foregroundColor(theme.colors.secondaryContent)
                 .padding(.bottom)
-            OptionButton(icon: Asset.Images.spacesInviteUsers.image, title: VectorL10n.spacesCreationInviteByUsername, detailMessage: nil) {
+            OptionButton(icon: Asset.Images.mySpacesInviteUsers.image, title: VectorL10n.spacesCreationInviteByUsername, detailMessage: nil) {
                 viewModel.send(viewAction: .inviteByUsername)
             }
             .padding(.bottom)

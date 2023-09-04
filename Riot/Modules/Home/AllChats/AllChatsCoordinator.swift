@@ -379,7 +379,7 @@ class AllChatsCoordinator: NSObject, SplitViewMasterCoordinatorProtocol {
         let avatarInsets: UIEdgeInsets = .init(top: 7, left: 7, bottom: 7, right: 7)
         let button: UIButton = .init(frame: view.bounds)
         button.imageEdgeInsets = avatarInsets
-        button.setImage(Asset.Images.tabPeople.image, for: .normal)
+        button.setImage(Asset.Images.tabbarPeopleIcon.image, for: .normal)
         button.menu = avatarMenu
         button.showsMenuAsPrimaryAction = true
         button.autoresizingMask = [.flexibleHeight, .flexibleWidth]
@@ -410,7 +410,7 @@ class AllChatsCoordinator: NSObject, SplitViewMasterCoordinatorProtocol {
             avatarMenuView?.fill(with: avatar)
             avatarMenuButton?.setImage(nil, for: .normal)
         } else {
-            avatarMenuButton?.setImage(Asset.Images.tabPeople.image, for: .normal)
+            avatarMenuButton?.setImage(Asset.Images.tabbarPeopleIcon.image, for: .normal)
         }
     }
     

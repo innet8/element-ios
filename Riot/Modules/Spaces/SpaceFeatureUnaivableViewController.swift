@@ -86,7 +86,7 @@ final class SpaceFeatureUnaivableViewController: UIViewController {
         
         // Artwork image view
         
-        let artworkImage = ThemeService.shared().isCurrentThemeDark() ?   Asset.Images.featureUnavaibleArtworkDark.image : Asset.Images.featureUnavaibleArtwork.image
+        let artworkImage = ThemeService.shared().isCurrentThemeDark() ?   Asset.Images.featureSpacesUnavaibleArtworkDark.image : Asset.Images.featureSpacesUnavaibleArtwork.image
         
         self.artworkImageView.image = artworkImage
     }

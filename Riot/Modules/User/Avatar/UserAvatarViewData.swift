@@ -27,6 +27,6 @@ struct UserAvatarViewData: AvatarViewDataProtocol {
     }
     
     var fallbackImages: [AvatarFallbackImage]? {
-        [.matrixItem(matrixItemId, displayName), .image(Asset.Images.tabPeople.image, .scaleAspectFill)]
+        [.matrixItem(matrixItemId, displayName), .image(Asset.Images.tabbarPeopleIcon.image, .scaleAspectFill)]
     }
 }

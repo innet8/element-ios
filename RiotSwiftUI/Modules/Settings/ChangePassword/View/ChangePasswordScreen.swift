@@ -51,7 +51,7 @@ struct ChangePasswordScreen: View {
     /// The title and icon at the top of the screen.
     var header: some View {
         VStack(spacing: 8) {
-            OnboardingIconImage(image: Asset.Images.authenticationPasswordIcon)
+            OnboardingIconImage(image: Asset.Images.loginPasswordIcon)
                 .padding(.bottom, 16)
 
             Text(VectorL10n.settingsChangePassword)

@@ -78,17 +78,17 @@ struct AuthenticationSSOButton: View {
     var iconImage: Image? {
         switch provider.brand {
         case Brand.apple.rawValue:
-            return Image(Asset.Images.authenticationSsoIconApple.name)
+            return Image(Asset.Images.loginSsoIconApple.name)
         case Brand.facebook.rawValue:
-            return Image(Asset.Images.authenticationSsoIconFacebook.name)
+            return Image(Asset.Images.loginSsoIconFacebook.name)
         case Brand.github.rawValue:
-            return Image(Asset.Images.authenticationSsoIconGithub.name)
+            return Image(Asset.Images.loginSsoIconGithub.name)
         case Brand.gitlab.rawValue:
-            return Image(Asset.Images.authenticationSsoIconGitlab.name)
+            return Image(Asset.Images.loginSsoIconGitlab.name)
         case Brand.google.rawValue:
-            return Image(Asset.Images.authenticationSsoIconGoogle.name)
+            return Image(Asset.Images.loginSsoIconGoogle.name)
         case Brand.twitter.rawValue:
-            return Image(Asset.Images.authenticationSsoIconTwitter.name)
+            return Image(Asset.Images.loginSsoIconTwitter.name)
         default:
             return nil
         }

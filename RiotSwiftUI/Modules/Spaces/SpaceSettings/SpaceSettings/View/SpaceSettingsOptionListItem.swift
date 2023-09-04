@@ -93,8 +93,8 @@ struct SpaceSettingsOptionListItem_Previews: PreviewProvider {
         VStack(spacing: 8) {
             SpaceSettingsOptionListItem(icon: nil, title: "Some Title", value: nil)
             SpaceSettingsOptionListItem(icon: nil, title: "Some Title", value: "Some value")
-            SpaceSettingsOptionListItem(icon: Asset.Images.spaceRoomIcon.image, title: "Some Title", value: "Some value")
-            SpaceSettingsOptionListItem(icon: Asset.Images.spaceRoomIcon.image, title: "Some Title", value: "Some value")
+            SpaceSettingsOptionListItem(icon: Asset.Images.mySpaceRoomIcon.image, title: "Some Title", value: "Some value")
+            SpaceSettingsOptionListItem(icon: Asset.Images.mySpaceRoomIcon.image, title: "Some Title", value: "Some value")
                 .disabled(true)
         }
     }

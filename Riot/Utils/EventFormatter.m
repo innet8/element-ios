@@ -696,7 +696,7 @@ withVoiceBroadcastInfoStateEvent:lastVoiceBroadcastInfoEvent
     {
         textColor = ThemeService.shared.theme.colors.alert;
         colorIdentifier = @"alert";
-        UIImage *liveImage = AssetImages.voiceBroadcastLive.image;
+        UIImage *liveImage = AssetImages.voicePlayLive.image;
         
         NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
         attachment.image = [liveImage imageWithTintColor:textColor renderingMode:UIImageRenderingModeAlwaysTemplate];

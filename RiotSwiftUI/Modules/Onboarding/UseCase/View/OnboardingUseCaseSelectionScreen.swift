@@ -48,7 +48,7 @@ struct OnboardingUseCaseSelectionScreen: View {
     /// The screen's title and instructions.
     var titleContent: some View {
         VStack(spacing: 8) {
-            OnboardingIconImage(image: Asset.Images.onboardingUseCaseIcon)
+            OnboardingIconImage(image: Asset.Images.screenUseCaseIcon)
                 .padding(.bottom, 8)
             
             Text(VectorL10n.onboardingUseCaseTitle)
@@ -67,17 +67,17 @@ struct OnboardingUseCaseSelectionScreen: View {
     var useCaseButtons: some View {
         VStack(spacing: 8) {
             OnboardingUseCaseButton(title: VectorL10n.onboardingUseCasePersonalMessaging,
-                                    image: theme.isDark ? Asset.Images.onboardingUseCasePersonalDark : Asset.Images.onboardingUseCasePersonal) {
+                                    image: theme.isDark ? Asset.Images.screenUseCasePersonalDark : Asset.Images.screenUseCasePersonal) {
                 viewModel.send(viewAction: .answer(.personalMessaging))
             }
             
             OnboardingUseCaseButton(title: VectorL10n.onboardingUseCaseWorkMessaging,
-                                    image: theme.isDark ? Asset.Images.onboardingUseCaseWorkDark : Asset.Images.onboardingUseCaseWork) {
+                                    image: theme.isDark ? Asset.Images.screenUseCaseWorkDark : Asset.Images.screenUseCaseWork) {
                 viewModel.send(viewAction: .answer(.workMessaging))
             }
             
             OnboardingUseCaseButton(title: VectorL10n.onboardingUseCaseCommunityMessaging,
-                                    image: theme.isDark ? Asset.Images.onboardingUseCaseCommunityDark : Asset.Images.onboardingUseCaseCommunity) {
+                                    image: theme.isDark ? Asset.Images.screenUseCaseCommunityDark : Asset.Images.screenUseCaseCommunity) {
                 viewModel.send(viewAction: .answer(.communityMessaging))
             }
             

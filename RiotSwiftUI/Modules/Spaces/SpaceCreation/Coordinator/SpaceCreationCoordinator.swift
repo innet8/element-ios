@@ -64,8 +64,8 @@ final class SpaceCreationCoordinator: Coordinator {
             title: title,
             detail: message,
             options: [
-                SpaceCreationMenuRoomOption(id: .publicSpace, icon: Asset.Images.spaceCreationPublic.image, title: VectorL10n.public, detail: VectorL10n.spacePublicJoinRuleDetail),
-                SpaceCreationMenuRoomOption(id: .privateSpace, icon: Asset.Images.spaceCreationPrivate.image, title: VectorL10n.private, detail: VectorL10n.spacePrivateJoinRuleDetail)
+                SpaceCreationMenuRoomOption(id: .publicSpace, icon: Asset.Images.mySpaceCreationPublic.image, title: VectorL10n.public, detail: VectorL10n.spacePublicJoinRuleDetail),
+                SpaceCreationMenuRoomOption(id: .privateSpace, icon: Asset.Images.mySpaceCreationPrivate.image, title: VectorL10n.private, detail: VectorL10n.spacePrivateJoinRuleDetail)
             ]
         )
         
@@ -77,8 +77,8 @@ final class SpaceCreationCoordinator: Coordinator {
             title: VectorL10n.spacesCreationSharingTypeTitle,
             detail: VectorL10n.spacesCreationSharingTypeMessage(parameters.creationParameters.name ?? ""),
             options: [
-                SpaceCreationMenuRoomOption(id: .ownedPrivateSpace, icon: Asset.Images.tabPeople.image, title: VectorL10n.spacesCreationSharingTypeJustMeTitle, detail: VectorL10n.spacesCreationSharingTypeJustMeDetail),
-                SpaceCreationMenuRoomOption(id: .sharedPrivateSpace, icon: Asset.Images.tabGroups.image, title: VectorL10n.spacesCreationSharingTypeMeAndTeammatesTitle, detail: VectorL10n.spacesCreationSharingTypeMeAndTeammatesDetail)
+                SpaceCreationMenuRoomOption(id: .ownedPrivateSpace, icon: Asset.Images.tabbarPeopleIcon.image, title: VectorL10n.spacesCreationSharingTypeJustMeTitle, detail: VectorL10n.spacesCreationSharingTypeJustMeDetail),
+                SpaceCreationMenuRoomOption(id: .sharedPrivateSpace, icon: Asset.Images.tabbarGroupsIcon.image, title: VectorL10n.spacesCreationSharingTypeMeAndTeammatesTitle, detail: VectorL10n.spacesCreationSharingTypeMeAndTeammatesDetail)
             ]
         )
     }

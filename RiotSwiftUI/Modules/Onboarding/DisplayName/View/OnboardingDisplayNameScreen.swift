@@ -63,7 +63,7 @@ struct OnboardingDisplayNameScreen: View {
     /// The icon, title and message views.
     var header: some View {
         VStack(spacing: 8) {
-            OnboardingIconImage(image: Asset.Images.onboardingCongratulationsIcon)
+            OnboardingIconImage(image: Asset.Images.screenCongratulationsIcon)
                 .padding(.bottom, 8)
             
             Text(VectorL10n.onboardingDisplayNameTitle)

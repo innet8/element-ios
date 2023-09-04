@@ -111,7 +111,7 @@ class SpaceMenuViewController: UIViewController {
         self.closeButton.tintColor = theme.noticeSecondaryColor
         
         if self.spaceId == SpaceListViewModel.Constants.homeSpaceId {
-            let defaultAsset = ThemeService.shared().isCurrentThemeDark() ? Asset.Images.spaceHomeIconDark : Asset.Images.spaceHomeIconLight
+            let defaultAsset = ThemeService.shared().isCurrentThemeDark() ? Asset.Images.mySpaceHomeIconDark : Asset.Images.mySpaceHomeIconLight
             let avatarViewData = AvatarViewData(matrixItemId: self.spaceId, displayName: nil, avatarUrl: nil, mediaManager: session.mediaManager, fallbackImage: .image(defaultAsset.image, .center))
             self.avatarView.fill(with: avatarViewData)
         }

@@ -45,7 +45,7 @@ struct AuthenticationVerifyMsisdnOTPForm: View {
     /// The title, message and icon at the top of the screen.
     var header: some View {
         VStack(spacing: 8) {
-            OnboardingIconImage(image: Asset.Images.authenticationMsisdnIcon)
+            OnboardingIconImage(image: Asset.Images.loginMsisdnIcon)
                 .padding(.bottom, 8)
             
             Text(VectorL10n.authenticationVerifyMsisdnWaitingTitle)

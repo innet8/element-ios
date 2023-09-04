@@ -59,8 +59,8 @@
                         <view contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rhx-dD-4EJ" userLabel="Content View">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="485"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="horizontal_logo" translatesAutoresizingMaskIntoConstraints="NO" id="d8r-TX-pwX" userLabel="Welcome Image View">
-                                    <rect key="frame" x="82.666666666666686" y="35" width="210" height="100"/>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_screen_logo1" translatesAutoresizingMaskIntoConstraints="NO" id="d8r-TX-pwX" userLabel="Welcome Image View">
+                                    <rect key="frame" x="-28.666666666666657" y="35" width="432.33333333333326" height="100"/>
                                     <accessibility key="accessibilityConfiguration" identifier="AuthenticationVCWelcomeImageView"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="100" id="URJ-HW-UuW"/>
@@ -499,7 +499,7 @@ Clear it if you're finished using this device, or want to sign in to another acc
     </objects>
     <resources>
         <image name="common_selection_untick" width="22" height="22"/>
-        <image name="horizontal_logo" width="210" height="120"/>
+        <image name="launch_screen_logo1" width="432" height="432"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

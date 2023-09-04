@@ -58,7 +58,7 @@ struct AuthenticationServerSelectionScreen: View {
     /// The title, message and icon at the top of the screen.
     var header: some View {
         VStack(spacing: 8) {
-            OnboardingIconImage(image: Asset.Images.authenticationServerSelectionIcon)
+            OnboardingIconImage(image: Asset.Images.loginServerSelectionIcon)
                 .padding(.bottom, 8)
             
             Text(viewModel.viewState.headerTitle)

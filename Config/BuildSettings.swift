@@ -116,7 +116,6 @@ final class BuildSettings: NSObject {
     static let applicationHelpUrlString =
     "https://element.io/help"
     
-    
     // MARK: - Permalinks
     // Hosts/Paths for URLs that will considered as valid permalinks. Those permalinks are opened within the app.
     static let permalinkSupportedHosts: [String: [String]] = [

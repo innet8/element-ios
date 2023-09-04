@@ -42,7 +42,7 @@ struct OnboardingAvatarViewState: BindableState {
     
     /// The image shown in the avatar's button.
     var buttonImage: ImageAsset {
-        avatar == nil ? Asset.Images.onboardingAvatarCamera : Asset.Images.onboardingAvatarEdit
+        avatar == nil ? Asset.Images.screenAvatarCamera : Asset.Images.screenAvatarEdit
     }
 }
 

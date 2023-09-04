@@ -334,7 +334,7 @@ final class SpaceExploreRoomViewModel: SpaceExploreRoomViewModelType {
     
     @available(iOS 13.0, *)
     private func inviteAction(for itemData: SpaceExploreRoomListItemViewData, isJoined: Bool) -> UIAction {
-        let action = UIAction(title: VectorL10n.invite, image: Asset.Images.spaceInviteUser.image) { action in
+        let action = UIAction(title: VectorL10n.invite, image: Asset.Images.mySpaceInviteUser.image) { action in
             self.process(viewAction: .inviteTo(itemData))
         }
         if !isJoined {

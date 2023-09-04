@@ -40,7 +40,7 @@ final class SpaceExploreRoomViewController: UIViewController {
     private var activityPresenter: ActivityIndicatorPresenter!
     private var titleView: MainTitleView!
     private var hasMore: Bool = false
-    private let addRoomHeaderView = AddItemHeaderView.instantiate(title: VectorL10n.spacesAddRoom, icon: Asset.Images.spaceAddRoom.image)
+    private let addRoomHeaderView = AddItemHeaderView.instantiate(title: VectorL10n.spacesAddRoom, icon: Asset.Images.mySpaceAddRoom.image)
 
     private var itemDataList: [SpaceExploreRoomListItemViewData] = [] {
         didSet {

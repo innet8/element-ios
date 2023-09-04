@@ -60,7 +60,7 @@ struct VoiceBroadcastPlaybackView: View {
                             .foregroundColor(theme.colors.secondaryContent)
                             .font(theme.fonts.caption1)
                     } icon: {
-                        Image(uiImage: Asset.Images.voiceBroadcastTileMic.image)
+                        Image(uiImage: Asset.Images.voicePlayTileMic.image)
                     }
                     if viewModel.viewState.playbackState != .buffering {
                         Label {
@@ -68,7 +68,7 @@ struct VoiceBroadcastPlaybackView: View {
                                 .foregroundColor(theme.colors.secondaryContent)
                                 .font(theme.fonts.caption1)
                         } icon: {
-                            Image(uiImage: Asset.Images.voiceBroadcastTileLive.image)
+                            Image(uiImage: Asset.Images.voicePlayTileLive.image)
                         }
                     } else {
                         Label {
@@ -76,7 +76,7 @@ struct VoiceBroadcastPlaybackView: View {
                                 .foregroundColor(theme.colors.secondaryContent)
                                 .font(theme.fonts.caption1)
                         } icon: {
-                            Image(uiImage: Asset.Images.voiceBroadcastSpinner.image)
+                            Image(uiImage: Asset.Images.voicePlaySpinner.image)
                                 .frame(width: 16.0, height: 16.0)
                                 .rotationEffect(Angle.degrees(bufferingSpinnerRotationValue))
                                 .onAppear {
@@ -99,7 +99,7 @@ struct VoiceBroadcastPlaybackView: View {
                             .foregroundColor(Color.white)
                             .padding(.leading, -4)
                     } icon: {
-                        Image(uiImage: Asset.Images.voiceBroadcastLive.image)
+                        Image(uiImage: Asset.Images.voicePlayLive.image)
                     }
                     .padding(EdgeInsets(top: 2.0, leading: 4.0, bottom: 2.0, trailing: 4.0))
                     .background(RoundedRectangle(cornerRadius: 2, style: .continuous).fill(backgroundColor))
@@ -122,7 +122,7 @@ struct VoiceBroadcastPlaybackView: View {
                         Button {
                             viewModel.send(viewAction: .backward)
                         } label: {
-                            Image(uiImage: Asset.Images.voiceBroadcastBackward30s.image)
+                            Image(uiImage: Asset.Images.voicePlayBackward30s.image)
                                 .renderingMode(.original)
                         }
                         .accessibilityIdentifier("backwardButton")
@@ -132,13 +132,13 @@ struct VoiceBroadcastPlaybackView: View {
                     
                     if viewModel.viewState.playbackState == .playing || viewModel.viewState.playbackState == .buffering {
                         Button { viewModel.send(viewAction: .pause) } label: {
-                            Image(uiImage: Asset.Images.voiceBroadcastPause.image)
+                            Image(uiImage: Asset.Images.voicePlayPause.image)
                                 .renderingMode(.original)
                         }
                         .accessibilityIdentifier("pauseButton")
                     } else {
                         Button { viewModel.send(viewAction: .play) } label: {
-                            Image(uiImage: Asset.Images.voiceBroadcastPlay.image)
+                            Image(uiImage: Asset.Images.voicePlayVideo.image)
                                 .renderingMode(.original)
                         }
                         .disabled(viewModel.viewState.playbackState == .buffering)
@@ -149,7 +149,7 @@ struct VoiceBroadcastPlaybackView: View {
                         Button {
                             viewModel.send(viewAction: .forward)
                         } label: {
-                            Image(uiImage: Asset.Images.voiceBroadcastForward30s.image)
+                            Image(uiImage: Asset.Images.voicePlayForward30s.image)
                                 .renderingMode(.original)
                         }
                         .accessibilityIdentifier("forwardButton")

@@ -16,10 +16,10 @@
 
 
 // App identity
-BUNDLE_DISPLAY_NAME = Private talk
-BASE_BUNDLE_IDENTIFIER = com.itable.mobileprivatetalk
-APPLICATION_GROUP_IDENTIFIER = group.im.mobileprivatetalk
-APPLICATION_SCHEME = element
+BUNDLE_DISPLAY_NAME = EimChat
+BASE_BUNDLE_IDENTIFIER = com.itable.mobileeimchat
+APPLICATION_GROUP_IDENTIFIER = group.im.mobileeimchat
+APPLICATION_SCHEME = eimchat
 
 // Team
 DEVELOPMENT_TEAM = NXC9Q5Z23A

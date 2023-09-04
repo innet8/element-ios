@@ -58,7 +58,7 @@ struct AuthenticationReCaptchaScreen: View {
     /// The header containing the icon, title and message.
     var header: some View {
         VStack(spacing: 8) {
-            OnboardingIconImage(image: Asset.Images.authenticationRecaptchaIcon)
+            OnboardingIconImage(image: Asset.Images.loginRecaptchaIcon)
                 .padding(.bottom, 8)
             
             Text(VectorL10n.authenticationRecaptchaTitle)

@@ -58,7 +58,7 @@ struct AuthenticationSoftLogoutScreen: View {
     /// The title, message and icon at the top of the screen.
     var header: some View {
         VStack(alignment: .leading, spacing: 16) {
-            OnboardingIconImage(image: Asset.Images.authenticationPasswordIcon)
+            OnboardingIconImage(image: Asset.Images.loginPasswordIcon)
                 .padding(.bottom, 8)
                 .frame(maxWidth: .infinity, alignment: .center)
 

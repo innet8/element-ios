@@ -97,7 +97,7 @@ struct SpaceSettings: View {
                     }
             }
             if viewModel.viewState.roomProperties?.isAvatarEditable == true {
-                Image(uiImage: Asset.Images.spaceCreationCamera.image)
+                Image(uiImage: Asset.Images.mySpaceCreationCamera.image)
                     .renderingMode(.template)
                     .foregroundColor(theme.colors.secondaryContent)
                     .frame(width: 32, height: 32, alignment: .center)
