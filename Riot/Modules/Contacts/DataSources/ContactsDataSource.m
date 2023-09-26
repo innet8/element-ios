@@ -541,7 +541,7 @@
     if (indexPath.section == searchInputSection)
     {
         // Show what the user is typing in a cell. So that he can click on it
-        contact = [[MXKContact alloc] initMatrixContactWithDisplayName:currentSearchText andMatrixID:nil];
+        contact = [[MXKContact alloc] initMatrixContactWithDisplayName:[self autoAppend:currentSearchText] andMatrixID:[self autoAppend:currentSearchText]];
     }
     else if (indexPath.section == filteredLocalContactsSection)
     {
@@ -590,7 +590,7 @@
         {
             // This is the text entered by the user
             // Check whether the search input is a valid email or a Matrix user ID before adding the accessory view.
-            if (![MXTools isEmailAddress:currentSearchText] && ![MXTools isMatrixUserIdentifier:currentSearchText])
+            if (![MXTools isEmailAddress:currentSearchText] && ![MXTools isMatrixUserIdentifier: [self autoAppend:currentSearchText]])
             {
                 contactCell.contentView.alpha = 0.5;
                 contactCell.userInteractionEnabled = NO;
@@ -677,6 +677,29 @@
 
 #pragma mark -
 
+-(MXKContact *)hook_contactAtIndexPath:(NSIndexPath*)indexPath
+{
+    NSInteger row = indexPath.row;
+    MXKContact *mxkContact;
+    
+    if (indexPath.section == searchInputSection)
+    {
+        
+        mxkContact = [[MXKContact alloc] initMatrixContactWithDisplayName:[self autoAppend:currentSearchText]  andMatrixID:[self autoAppend:currentSearchText]];
+    }
+    else if (indexPath.section == filteredLocalContactsSection && row < filteredLocalContacts.count)
+    {
+        mxkContact = filteredLocalContacts[row];
+    }
+    else if (indexPath.section == filteredMatrixContactsSection && row < filteredMatrixContacts.count)
+    {
+        mxkContact = filteredMatrixContacts[row];
+    }
+    
+    return mxkContact;
+}
+
+
 -(MXKContact *)contactAtIndexPath:(NSIndexPath*)indexPath
 {
     NSInteger row = indexPath.row;
@@ -696,6 +719,34 @@
     }
     
     return mxkContact;
+}
+
+- (NSString *)autoAppend:(NSString *)searchContent {
+    MXKAccount *account = [MXKAccountManager sharedManager].activeAccounts.firstObject;
+    NSString *domian = account.mxCredentials.homeServerName;
+    if (searchContent.length == 0 || [searchContent isEqualToString:@"@"]) {
+        return searchContent;
+    } else {
+        // NSString *inputString = @"Hello, please contact @John or @Jane: for more information.";
+
+        // 创建正则表达式
+        NSString *pattern = @"@([A-Za-z0-9]+)(?=\\s|:|$)";
+        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:0 error:nil];
+
+        // 执行匹配
+        NSArray<NSTextCheckingResult *> *matches = [regex matchesInString:searchContent options:0 range:NSMakeRange(0, searchContent.length)];
+
+        // 遍历匹配结果
+        for (NSTextCheckingResult *match in matches) {
+            // 提取匹配到的部分
+            NSRange nameRange = [match rangeAtIndex:1];
+            NSString *name = [searchContent substringWithRange:nameRange];
+            
+            return [NSString stringWithFormat:@"@%@:%@", name, domian];
+        }
+    }
+    
+    return [NSString stringWithFormat:@"@%@:%@", searchContent, domian];
 }
 
 - (NSIndexPath*)cellIndexPathWithContact:(MXKContact*)contact

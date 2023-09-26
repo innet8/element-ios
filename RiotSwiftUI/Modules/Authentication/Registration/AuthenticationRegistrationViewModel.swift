@@ -57,6 +57,10 @@ class AuthenticationRegistrationViewModel: AuthenticationRegistrationViewModelTy
             Task { await enableInventValidation()}
         case .scan:
             Task { await callback?(.scan)}
+        case .selectLanguage:
+            Task { await callback?(.selectLanguage) }
+        case .linkHome:
+            Task { await callback?(.linkHome)}
         }
         
     }

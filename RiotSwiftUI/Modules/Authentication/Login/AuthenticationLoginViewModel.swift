@@ -52,6 +52,12 @@ class AuthenticationLoginViewModel: AuthenticationLoginViewModelType, Authentica
             Task { await callback?(.continueWithSSO(provider)) }
         case .qrLogin:
             Task { await callback?(.qrLogin) }
+        case .selectLanguage:
+            Task { await callback?(.selectLanguage) }
+        case .linkHome:
+            Task { await callback?(.linkHome)}
+        case .importFile:
+            Task { await callback?(.importFile)}
         }
     }
     

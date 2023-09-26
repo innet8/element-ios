@@ -477,7 +477,7 @@
 {
     if (self.contactsTableViewControllerDelegate)
     {
-        MXKContact *mxkContact = [contactsDataSource contactAtIndexPath:indexPath];
+        MXKContact *mxkContact = [contactsDataSource hook_contactAtIndexPath:indexPath];
         
         if (mxkContact)
         {

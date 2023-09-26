@@ -63,6 +63,12 @@ class VectorHostingController: UIHostingController<AnyView> {
         fatalError("VectorHostingViewController does not currently support init from nibs")
     }
     
+    func reloadView(content: any View) {
+        let rootView = self.rootView
+        self.rootView = AnyView(EmptyView()) 
+        self.rootView = rootView
+    }
+    
     // MARK: - Life cycle
     
     override func viewDidLoad() {

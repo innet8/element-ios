@@ -34,23 +34,25 @@ struct AuthenticationLoginScreen: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 0) {
+                language
+                
                 header
                     .padding(.top, OnboardingMetrics.topPaddingToNavigationBar)
                     .padding(.bottom, 28)
                 
-                serverInfo
-                    .padding(.leading, 12)
-                    .padding(.bottom, 16)
+                //                serverInfo
+                //                    .padding(.leading, 12)
+                //                    .padding(.bottom, 16)
                 
-                Rectangle()
-                    .fill(theme.colors.quinaryContent)
-                    .frame(height: 1)
-                    .padding(.bottom, 22)
+                //                Rectangle()
+                //                    .fill(theme.colors.quinaryContent)
+                //                    .frame(height: 1)
+                //                    .padding(.bottom, 22)
                 
                 if viewModel.viewState.homeserver.showLoginForm {
                     loginForm
                 }
-
+                
                 if viewModel.viewState.homeserver.showQRLogin {
                     qrLoginButton
                 }
@@ -65,7 +67,7 @@ struct AuthenticationLoginScreen: View {
                     ssoButtons
                         .padding(.top, 16)
                 }
-
+                
                 if !viewModel.viewState.homeserver.showLoginForm, !viewModel.viewState.showSSOButtons {
                     fallbackButton
                 }
@@ -73,10 +75,26 @@ struct AuthenticationLoginScreen: View {
             .readableFrame()
             .padding(.horizontal, 16)
             .padding(.bottom, 16)
+            
+            homeLink
         }
         .background(theme.colors.background.ignoresSafeArea())
         .alert(item: $viewModel.alertInfo) { $0.alert }
         .accentColor(theme.colors.accent)
+        
+        
+    }
+    
+    var language : some View {
+        
+        Button { viewModel.send(viewAction: .selectLanguage) } label: {
+            Text(viewModel.language)
+                .font(theme.fonts.body)
+        }
+        .frame(maxWidth: .infinity, alignment: .trailing)
+        .padding(.bottom, 8)
+        .padding(.top, 16)
+        
     }
     
     /// The header containing a Welcome Back title.
@@ -106,8 +124,8 @@ struct AuthenticationLoginScreen: View {
                                                                               autocorrectionType: .no),
                                    onEditingChanged: usernameEditingChanged,
                                    onCommit: { isPasswordFocused = true })
-                .accessibilityIdentifier("usernameTextField")
-                .padding(.bottom, 7)
+            .accessibilityIdentifier("usernameTextField")
+            .padding(.bottom, 7)
             
             RoundedBorderTextField(placeHolder: VectorL10n.authPasswordPlaceholder,
                                    text: $viewModel.password,
@@ -116,7 +134,7 @@ struct AuthenticationLoginScreen: View {
                                                                               isSecureTextEntry: true),
                                    onEditingChanged: passwordEditingChanged,
                                    onCommit: submit)
-                .accessibilityIdentifier("passwordTextField")
+            .accessibilityIdentifier("passwordTextField")
             
             Button { viewModel.send(viewAction: .forgotPassword) } label: {
                 Text(VectorL10n.authenticationLoginForgotPassword)
@@ -133,7 +151,7 @@ struct AuthenticationLoginScreen: View {
             .accessibilityIdentifier("nextButton")
         }
     }
-
+    
     /// A QR login button that can be used for login.
     var qrLoginButton: some View {
         Button(action: qrLogin) {
@@ -155,7 +173,7 @@ struct AuthenticationLoginScreen: View {
             }
         }
     }
-
+    
     /// A fallback button that can be used for login.
     var fallbackButton: some View {
         Button(action: fallback) {
@@ -163,6 +181,16 @@ struct AuthenticationLoginScreen: View {
         }
         .buttonStyle(PrimaryActionButtonStyle())
         .accessibilityIdentifier("fallbackButton")
+    }
+    
+    /// HomeLink
+    var homeLink: some View {
+        Button { viewModel.send(viewAction: .linkHome) } label: {
+            Text("Official website")
+                .underline()
+        }
+        .frame(maxWidth: .infinity, alignment: .center)
+        .padding(.top, 32)
     }
     
     /// Parses the username for a homeserver.

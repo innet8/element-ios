@@ -33,6 +33,12 @@ enum AuthenticationLoginViewModelResult: CustomStringConvertible {
     case fallback
     /// Continue with QR login
     case qrLogin
+    /// Select language
+    case selectLanguage
+    /// Link home
+    case linkHome
+    /// File import
+    case importFile
     
     /// A string representation of the result, ignoring any associated values that could leak PII.
     var description: String {
@@ -51,6 +57,12 @@ enum AuthenticationLoginViewModelResult: CustomStringConvertible {
             return "fallback"
         case .qrLogin:
             return "qrLogin"
+        case .selectLanguage:
+            return "selectLanguage"
+        case .linkHome:
+            return "linkHome"
+        case .importFile:
+            return "importFile"
         }
     }
 }
@@ -88,6 +100,18 @@ struct AuthenticationLoginBindings {
     var password = ""
     /// Information describing the currently displayed alert.
     var alertInfo: AlertInfo<AuthenticationLoginErrorType>?
+    ///
+    var language = {
+        guard let language = Bundle.mxk_language() else {
+            return "Auto"
+        }
+        
+        let locale = NSLocale(localeIdentifier: language)
+        
+        // [locale displayNameForKey:NSLocaleIdentifier value:language];
+        return locale.displayName(forKey: .identifier, value: language) ?? "Auto"
+        
+    }()
 }
 
 enum AuthenticationLoginViewAction {
@@ -105,6 +129,12 @@ enum AuthenticationLoginViewAction {
     case continueWithSSO(SSOIdentityProvider)
     /// Continue using QR login
     case qrLogin
+    /// Select language
+    case selectLanguage
+    /// Link to home
+    case linkHome
+    /// Import file
+    case importFile
 }
 
 enum AuthenticationLoginErrorType: Hashable {

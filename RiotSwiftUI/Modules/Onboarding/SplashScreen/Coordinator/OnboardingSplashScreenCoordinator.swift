@@ -64,6 +64,10 @@ final class OnboardingSplashScreenCoordinator: OnboardingSplashScreenCoordinator
                 self.completion?(result)
             case .register:
                 self.completion?(result)
+            case .linkHome:
+                self.completion?(result)
+            case .selectLanguage:
+                self.completion?(result)
             }
         }
     }

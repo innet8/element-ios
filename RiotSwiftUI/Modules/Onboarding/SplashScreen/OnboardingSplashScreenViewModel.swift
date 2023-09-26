@@ -47,6 +47,10 @@ class OnboardingSplashScreenViewModel: OnboardingSplashScreenViewModelType, Onbo
             register()
         case .login:
             login()
+        case .linkHome:
+            linkHome()
+        case .selectLanguage:
+            completion?(.selectLanguage)
         case .nextPage:
             // Wrap back round to the first page index when reaching the end.
             state.bindings.pageIndex = (state.bindings.pageIndex + 1) % state.content.count
@@ -65,5 +69,9 @@ class OnboardingSplashScreenViewModel: OnboardingSplashScreenViewModelType, Onbo
 
     private func login() {
         completion?(.login)
+    }
+    
+    private func linkHome() {
+        completion?(.linkHome)
     }
 }

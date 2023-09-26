@@ -99,8 +99,8 @@ final class BuildSettings: NSObject {
     
     /// Force the user to set a homeserver instead of using the default one
     static let forceHomeserverSelection = false
-    /// Default servers proposed on the authentication screen https://matrix.org   https://synapse.huofu.vip:8009
-    static var serverConfigDefaultHomeserverUrlString = "https://element.gezi.vip"
+    /// Default servers proposed on the authentication screen https://matrix.org   https://synapse.huofu.vip:8009 "https://cc.eim.chat"
+    static var serverConfigDefaultHomeserverUrlString = "https://cc.eim.chat"
 
     /// Default identity server
     static let serverConfigDefaultIdentityServerUrlString = "https://vector.im"
@@ -113,8 +113,8 @@ final class BuildSettings: NSObject {
     static let applicationCopyrightUrlString = "https://element.io/copyright"
     static let applicationPrivacyPolicyUrlString = "https://element.io/privacy"
     static let applicationAcceptableUsePolicyUrlString = "https://element.io/acceptable-use-policy-terms"
-    static let applicationHelpUrlString =
-    "https://element.io/help"
+    static let applicationHelpUrlString = "https://element.io/help"
+    static let applicationHomeLink = "https://eim.chat"
     
     // MARK: - Permalinks
     // Hosts/Paths for URLs that will considered as valid permalinks. Those permalinks are opened within the app.
@@ -150,6 +150,7 @@ final class BuildSettings: NSObject {
         return false
         #endif
     }
+    // stun.l.google.com:19302 stun:turn.matrix.org
     static let stunServerFallbackUrlString: String? = "stun:turn.matrix.org"
     
     // MARK: -  Public rooms Directory
@@ -181,13 +182,13 @@ final class BuildSettings: NSObject {
     
     #if DEBUG
     /// The configuration to use for analytics during development. Set `isEnabled` to false to disable analytics in debug builds.
-    static let analyticsConfiguration = AnalyticsConfiguration(isEnabled: BuildSettings.baseBundleIdentifier.starts(with: "im.vector.app"),
+    static let analyticsConfiguration = AnalyticsConfiguration(isEnabled: BuildSettings.baseBundleIdentifier.starts(with: "com.itable.mobileeimchat"),
                                                                host: "https://posthog.element.dev",
                                                                apiKey: "phc_VtA1L35nw3aeAtHIx1ayrGdzGkss7k1xINeXcoIQzXN",
                                                                termsURL: URL(string: "https://element.io/cookie-policy")!)
     #else
     /// The configuration to use for analytics. Set `isEnabled` to false to disable analytics.
-    static let analyticsConfiguration = AnalyticsConfiguration(isEnabled: BuildSettings.baseBundleIdentifier.starts(with: "im.vector.app"),
+    static let analyticsConfiguration = AnalyticsConfiguration(isEnabled: BuildSettings.baseBundleIdentifier.starts(with: "com.itable.mobileeimchat"),
                                                                host: "https://posthog.element.io",
                                                                apiKey: "phc_Jzsm6DTm6V2705zeU5dcNvQDlonOR68XvX2sh1sEOHO",
                                                                termsURL: URL(string: "https://element.io/cookie-policy")!)
@@ -406,7 +407,7 @@ final class BuildSettings: NSObject {
     /// Overwritten by the home server's .well-known configuration (if any exists)
     static let defaultTileServerMapStyleURL = URL(string: "https://api.maptiler.com/maps/streets/style.json?key=fU3vlMsMn4Jb6dnEIFsx")!
     
-    static let locationSharingEnabled = true
+    static let locationSharingEnabled = false
     
     // MARK: - Voice Broadcast
     static let voiceBroadcastChunkLength: Int = 120

@@ -24,8 +24,8 @@ final class NavigationRouter: NSObject, NavigationRouterType {
     
     // MARK: Private
     
-    private var completions: [UIViewController : () -> Void]
-    private let navigationController: UINavigationController
+    private var completions: [UIViewController: () -> Void]
+    let navigationController: UINavigationController
     
     /// Stores the association between the added Presentable and his view controller.
     /// They can be the same if the controller is not added via his Coordinator or it is a simple UIViewController.

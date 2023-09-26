@@ -34,6 +34,7 @@ struct AuthenticationRegistrationScreen: View {
         ScrollView {
             VStack(spacing: 0) {
                 HStack(spacing: 0){
+                    language
                     Spacer()
                     Button(action: scan){
                         Image("register_scan")
@@ -51,14 +52,14 @@ struct AuthenticationRegistrationScreen: View {
                     .padding(.top, OnboardingMetrics.topPaddingToNavigationBar)
                     .padding(.bottom, 28)
                 
-                serverInfo
-                    .padding(.leading, 12)
-                    .padding(.bottom, 16)
+//                serverInfo
+//                    .padding(.leading, 12)
+//                    .padding(.bottom, 16)
                 
-                Rectangle()
-                    .fill(theme.colors.quinaryContent)
-                    .frame(height: 1)
-                    .padding(.bottom, 22)
+//                Rectangle()
+//                    .fill(theme.colors.quinaryContent)
+//                    .frame(height: 1)
+//                    .padding(.bottom, 22)
                 
                 if viewModel.viewState.homeserver.showRegistrationForm {
                     registrationForm
@@ -78,14 +79,27 @@ struct AuthenticationRegistrationScreen: View {
                 if !viewModel.viewState.homeserver.showRegistrationForm, !viewModel.viewState.showSSOButtons {
                     fallbackButton
                 }
+                homeLink
             }
             .readableFrame()
             .padding(.horizontal, 16)
             .padding(.bottom, 16)
+            
+            
         }
         .background(theme.colors.background.ignoresSafeArea())
         .alert(item: $viewModel.alertInfo) { $0.alert }
         .accentColor(theme.colors.accent)
+        
+    }
+    
+    var language : some View {
+        Button { viewModel.send(viewAction: .selectLanguage) } label: {
+            Text(viewModel.language)
+                .font(theme.fonts.body)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        
     }
     
     /// The header containing the icon, title and message.
@@ -178,6 +192,17 @@ struct AuthenticationRegistrationScreen: View {
         }
         .buttonStyle(PrimaryActionButtonStyle())
         .accessibilityIdentifier("fallbackButton")
+    }
+    
+    /// HomeLink
+    var homeLink: some View {
+        Button { viewModel.send(viewAction: .linkHome) } label: {
+            Text("Official website")
+                .underline()
+        }
+        .frame(maxWidth: .infinity, alignment: .center)
+        .padding(.top, 32)
+        
     }
     
     /// Validates the username when the text field ends editing.

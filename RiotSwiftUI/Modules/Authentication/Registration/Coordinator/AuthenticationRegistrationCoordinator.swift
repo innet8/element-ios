@@ -66,6 +66,7 @@ final class AuthenticationRegistrationCoordinator: Coordinator, Presentable {
     public var navigationRouter: NavigationRouterType { parameters.navigationRouter }
     private var indicatorPresenter: UserIndicatorTypePresenterProtocol
     private var waitingIndicator: UserIndicator?
+    private var langHelper :LanguagePresentHelper?
     
     /// The authentication service used for the registration.
     private var authenticationService: AuthenticationService { parameters.authenticationService }
@@ -165,6 +166,23 @@ final class AuthenticationRegistrationCoordinator: Coordinator, Presentable {
                 }
             case .scan:
                 showQRScan()
+            case .selectLanguage:
+                let helper = LanguagePresentHelper(navigationRouter: navigationRouter)
+                langHelper = helper
+                helper.compelete = { [weak self] change in
+                    guard let self = self else { return }
+                    AppDelegate.theDelegate().isRegister = true
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "schemeDidStart"), object: nil)
+                    
+                }
+                helper.presentLanguage()
+                break
+            case .linkHome:
+                guard let link = URL(string: BuildSettings.applicationHomeLink) else {
+                    return
+                }
+                UIApplication.shared.open(link)
+                break
                 
             }
         }
@@ -187,7 +205,7 @@ final class AuthenticationRegistrationCoordinator: Coordinator, Presentable {
                 if let content = content, let url = URL(string: content), let urlComponent = URLComponents(url: url, resolvingAgainstBaseURL: false), let host = urlComponent.host, let scheme = urlComponent.scheme {
                     
                     let port = urlComponent.port ?? 0
-                    if scheme != "element" {
+                    if scheme != "eimchat" {
                         return
                     }
                     let homeAddress : String
@@ -261,7 +279,7 @@ final class AuthenticationRegistrationCoordinator: Coordinator, Presentable {
         
         currentTask = Task { [weak self] in
             do {
-                try await authenticationService.startFlow(.register, for: homeserverAddress)
+                try await self?.authenticationService.startFlow(.register, for: homeserverAddress)
                 
                 guard !Task.isCancelled else { return }
                 
@@ -448,6 +466,10 @@ final class AuthenticationRegistrationCoordinator: Coordinator, Presentable {
     
     @MainActor private func updateViewModelHomeserver() {
         let homeserver = authenticationService.state.homeserver
+        
+        UserDefaults.standard.set(homeserver.address, forKey: "editDomain")
+        UserDefaults.standard.synchronize()
+        BuildSettings.serverConfigDefaultHomeserverUrlString = homeserver.address
         authenticationRegistrationViewModel.update(homeserver: homeserver.viewData)
     }
 }

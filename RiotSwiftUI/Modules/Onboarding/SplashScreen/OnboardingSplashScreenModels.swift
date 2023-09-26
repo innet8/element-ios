@@ -31,6 +31,9 @@ struct OnboardingSplashScreenPageContent {
 enum OnboardingSplashScreenViewModelResult {
     case register
     case login
+    case linkHome
+    /// Select language
+    case selectLanguage
 }
 
 // MARK: View
@@ -90,11 +93,24 @@ struct OnboardingSplashScreenViewState: BindableState, CustomDebugStringConverti
 
 struct OnboardingSplashScreenBindings {
     var pageIndex = 0
+    var language = {
+        guard let language = Bundle.mxk_language() else {
+            return "Auto"
+        }
+        
+        let locale = NSLocale(localeIdentifier: language)
+        
+        // [locale displayNameForKey:NSLocaleIdentifier value:language];
+        return locale.displayName(forKey: .identifier, value: language) ?? "Auto"
+        
+    }()
 }
 
 enum OnboardingSplashScreenViewAction {
     case register
     case login
+    case linkHome
+    case selectLanguage
     case nextPage
     case previousPage
     case hiddenPage

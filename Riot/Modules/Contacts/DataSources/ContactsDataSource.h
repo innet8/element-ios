@@ -66,6 +66,9 @@ typedef enum : NSUInteger
  */
 -(MXKContact *)contactAtIndexPath:(NSIndexPath*)indexPath;
 
+// for search auto 
+-(MXKContact *)hook_contactAtIndexPath:(NSIndexPath*)indexPath;
+
 /**
  Get the index path of the cell related to the provided contact.
  

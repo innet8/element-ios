@@ -1,5 +1,5 @@
 // 
-// Copyright 2021 Vector Creations Ltd
+// Copyright 2023 New Vector Ltd
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,6 +14,16 @@
 // limitations under the License.
 //
 
-// Version
-MARKETING_VERSION = 1.0.4
-CURRENT_PROJECT_VERSION = 1.0.4
+import UIKit
+
+class LangPresenter: Presentable {
+    func toPresentable() -> UIViewController {
+        return self.viewController
+    }
+    
+    let viewController: UIViewController
+
+    init(viewController: UIViewController) {
+        self.viewController = viewController
+    }
+}

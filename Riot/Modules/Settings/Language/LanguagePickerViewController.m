@@ -35,6 +35,11 @@
 
 @implementation LanguagePickerViewController
 
+-(instancetype)initWithSwift: (int)empty {
+    return [[[self class] alloc] initWithNibName:NSStringFromClass([MXKLanguagePickerViewController class])
+                                          bundle:[NSBundle bundleForClass:[MXKLanguagePickerViewController class]]];
+}
+
 - (void)finalizeInit
 {
     [super finalizeInit];
@@ -48,14 +53,14 @@
 {
     [super viewDidLoad];
 
-    [self vc_setLargeTitleDisplayMode:UINavigationItemLargeTitleDisplayModeNever];
+     [self vc_setLargeTitleDisplayMode:UINavigationItemLargeTitleDisplayModeNever];
     
     // Hide line separators of empty cells
     self.tableView.tableFooterView = [[UIView alloc] init];
     
     // Add a top view which will be displayed in case of vertical bounce.
     CGFloat height = self.tableView.frame.size.height;
-    topview = [[UIView alloc] initWithFrame:CGRectMake(0,-height,self.tableView.frame.size.width,height)];
+    topview = [[UIView alloc] initWithFrame:CGRectMake(0, -height, self.tableView.frame.size.width,height)];
     topview.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [self.tableView addSubview:topview];
     

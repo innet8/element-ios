@@ -69,6 +69,7 @@ final class AuthenticationLoginCoordinator: Coordinator, Presentable {
     private var indicatorPresenter: UserIndicatorTypePresenterProtocol
     private var waitingIndicator: UserIndicator?
     private var successIndicator: UserIndicator?
+    private var langHelper: LanguagePresentHelper?
     
     /// The authentication service used for the login.
     private var authenticationService: AuthenticationService { parameters.authenticationService }
@@ -132,6 +133,28 @@ final class AuthenticationLoginCoordinator: Coordinator, Presentable {
                 self.callback?(.fallback)
             case .qrLogin:
                 self.showQRLoginScreen()
+            case .selectLanguage:
+                // // Display the language picker
+//                LanguagePickerViewController *languagePickerViewController = [LanguagePickerViewController languagePickerViewController];
+//                languagePickerViewController.selectedLanguage = [NSBundle mxk_language];
+//                languagePickerViewController.delegate = self;
+//                [self pushViewController:languagePickerViewController];
+                let helper = LanguagePresentHelper(navigationRouter: navigationRouter)
+                langHelper = helper
+                helper.compelete = { [weak self] change in
+                    guard let self = self else { return }
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "schemeDidStart"), object: nil)
+                    
+                }
+                helper.presentLanguage()
+                
+            case .linkHome:
+                guard let link = URL(string: BuildSettings.applicationHomeLink) else {
+                    return
+                }
+                UIApplication.shared.open(link)
+            case .importFile:
+                break
             }
         }
     }
@@ -167,7 +190,7 @@ final class AuthenticationLoginCoordinator: Coordinator, Presentable {
                                                           initialDeviceName: UIDevice.current.initialDisplayName)
                 
                 guard !Task.isCancelled else { return }
-                callback?(.success(session: session, password: password))
+                self?.callback?(.success(session: session, password: password))
                 
                 self?.stopLoading()
             } catch {
@@ -209,11 +232,11 @@ final class AuthenticationLoginCoordinator: Coordinator, Presentable {
         
         currentTask = Task { [weak self] in
             do {
-                try await authenticationService.startFlow(.login, for: homeserverAddress)
+                try await self?.authenticationService.startFlow(.login, for: homeserverAddress)
                 
                 guard !Task.isCancelled else { return }
                 
-                updateViewModel()
+                self?.updateViewModel()
                 self?.stopLoading()
             } catch {
                 self?.stopLoading()

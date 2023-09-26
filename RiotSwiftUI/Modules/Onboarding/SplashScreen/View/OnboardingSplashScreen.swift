@@ -42,10 +42,11 @@ struct OnboardingSplashScreen: View {
             VStack(alignment: .leading) {
                 Spacer()
                     .frame(height: OnboardingMetrics.spacerHeight(in: geometry))
-                
+                language
                 // The main content of the carousel
                 HStack(alignment: .top, spacing: 0) {
                     // Add a hidden page at the start of the carousel duplicating the content of the last page
+                    
                     OnboardingSplashScreenPage(content: viewModel.viewState.content[pageCount - 1])
                         .frame(width: geometry.size.width)
                     
@@ -103,9 +104,32 @@ struct OnboardingSplashScreen: View {
                     .font(theme.fonts.body)
                     .padding(12)
             }
+            
+            homeLink
         }
         .padding(.horizontal, 16)
         .readableFrame()
+    }
+    
+    var language : some View {
+        Button { viewModel.send(viewAction: .selectLanguage) } label: {
+            Text(viewModel.language)
+                .font(theme.fonts.body)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.top, 16)
+        .padding(.leading, 16)
+        
+    }
+    
+    /// HomeLink
+    var homeLink: some View {
+        Button { viewModel.send(viewAction: .linkHome) } label: {
+            Text("Official website")
+                .underline()
+        }
+        .frame(maxWidth: .infinity, alignment: .center)
+        
     }
     
     @ViewBuilder

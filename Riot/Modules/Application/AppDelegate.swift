@@ -65,6 +65,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            }
 //        }
         UserDefaults.standard.set(false, forKey: "_UIConstraintBasedLayoutLogUnsatisfiable")
+        if let editDomain = UserDefaults.standard.object(forKey: "editDomain") as? String {
+            BuildSettings.serverConfigDefaultHomeserverUrlString = editDomain
+        }
 
         return self.legacyAppDelegate.application(application, willFinishLaunchingWithOptions: launchOptions)
     }

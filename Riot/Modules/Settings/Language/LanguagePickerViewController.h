@@ -18,4 +18,6 @@
 
 @interface LanguagePickerViewController : MXKLanguagePickerViewController
 
+-(instancetype)initWithSwift:(int)empty;
+
 @end

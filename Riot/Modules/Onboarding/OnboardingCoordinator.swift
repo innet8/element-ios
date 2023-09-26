@@ -66,6 +66,7 @@ final class OnboardingCoordinator: NSObject, OnboardingCoordinatorProtocol {
     
     private var shouldShowDisplayNameScreen = false
     private var shouldShowAvatarScreen = false
+    private var langHelper :LanguagePresentHelper?
     
     /// Whether all of the onboarding steps have been completed or not. `false` if there are more screens to be shown.
     private var onboardingFinished = false
@@ -191,6 +192,22 @@ final class OnboardingCoordinator: NSObject, OnboardingCoordinatorProtocol {
                 coordinator.stop()
                 showLegacyAuthenticationScreen()
             }
+        case .linkHome:
+            guard let link = URL(string: BuildSettings.applicationHomeLink) else {
+                return
+            }
+            UIApplication.shared.open(link)
+            
+        case .selectLanguage:
+            let helper = LanguagePresentHelper(navigationRouter: navigationRouter)
+            langHelper = helper
+            helper.compelete = { [weak self] change in
+                guard let self = self else { return }
+//                AppDelegate.theDelegate().isRegister = true
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "schemeDidStart"), object: nil)
+                
+            }
+            helper.presentLanguage()
         }
     }
     
@@ -212,6 +229,10 @@ final class OnboardingCoordinator: NSObject, OnboardingCoordinatorProtocol {
                 coordinator.stop()
                 showLegacyAuthenticationScreen()
             }
+        case .linkHome:
+            break
+        case .selectLanguage:
+            break
         }
     }
     
@@ -692,6 +713,10 @@ extension OnboardingSplashScreenViewModelResult {
             return .login
         case .register:
             return .register
+        case .linkHome:
+            return .login
+        case .selectLanguage:
+            return .login
         }
     }
 }

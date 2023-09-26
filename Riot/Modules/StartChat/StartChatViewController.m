@@ -476,7 +476,7 @@
     if (_isAddParticipantSearchBarEditing)
     {
         cell = [contactsDataSource tableView:tableView cellForRowAtIndexPath:indexPath];
-        MXKContact* contact = [contactsDataSource contactAtIndexPath:indexPath];
+        MXKContact* contact = [contactsDataSource hook_contactAtIndexPath:indexPath];
         if (![self canAddParticipant:contact])
         {
             // Prevent to add it
@@ -858,6 +858,35 @@
     
     [contactsDataSource searchWithPattern:searchText forceReset:NO];
     self.contactsAreFilteredWithSearch = searchText.length ? YES : NO;
+}
+
+- (NSString *)autoAppend:(NSString *)searchContent {
+    MXKAccount* account = [MXKAccountManager sharedManager].activeAccounts.firstObject;
+    NSString *domian = account.mxCredentials.homeServerName;
+    
+    if (searchContent.length == 0 || [searchContent isEqualToString:@"@"]) {
+        return searchContent;
+    } else {
+        // NSString *inputString = @"Hello, please contact @John or @Jane: for more information.";
+
+        // 创建正则表达式
+        NSString *pattern = @"@([A-Za-z0-9]+)(?=\\s|:|$)";
+        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:0 error:nil];
+
+        // 执行匹配
+        NSArray<NSTextCheckingResult *> *matches = [regex matchesInString:searchContent options:0 range:NSMakeRange(0, searchContent.length)];
+
+        // 遍历匹配结果
+        for (NSTextCheckingResult *match in matches) {
+            // 提取匹配到的部分
+            NSRange nameRange = [match rangeAtIndex:1];
+            NSString *name = [searchContent substringWithRange:nameRange];
+            
+            return [NSString stringWithFormat:@"@%@:%@", name, domian];
+        }
+    }
+    
+    return [NSString stringWithFormat:@"@%@:%@", searchContent, domian];
 }
 
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar

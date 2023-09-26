@@ -34,6 +34,10 @@ enum AuthenticationRegistrationViewModelResult: CustomStringConvertible {
     
     /// ScanAction
     case scan
+    /// Select language
+    case selectLanguage
+    /// Link to home
+    case linkHome
     
     /// A string representation of the result, ignoring any associated values that could leak PII.
     var description: String {
@@ -52,6 +56,10 @@ enum AuthenticationRegistrationViewModelResult: CustomStringConvertible {
             return "createInventAccount"
         case .scan:
             return "scan"
+        case .selectLanguage:
+            return "selectLanguage"
+        case .linkHome:
+            return "linkHome"
         }
     }
 }
@@ -144,6 +152,18 @@ struct AuthenticationRegistrationBindings {
     var inventCode = ""
     /// Information describing the currently displayed alert.
     var alertInfo: AlertInfo<AuthenticationRegistrationErrorType>?
+    /// Language select
+    var language = {
+        guard let language = Bundle.mxk_language() else {
+            return "Auto"
+        }
+        
+        let locale = NSLocale(localeIdentifier: language)
+        
+        // [locale displayNameForKey:NSLocaleIdentifier value:language];
+        return locale.displayName(forKey: .identifier, value: language) ?? "Auto"
+        
+    }()
 }
 
 enum AuthenticationRegistrationViewAction {
@@ -165,6 +185,10 @@ enum AuthenticationRegistrationViewAction {
     case fallback
     
     case scan
+    /// Select language
+    case selectLanguage
+    /// Link to home
+    case linkHome
 }
 
 enum AuthenticationRegistrationErrorType: Hashable {
