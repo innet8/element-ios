@@ -1802,6 +1802,10 @@
 "account_link_email" = "Collegamento email";
 "account_linked_emails" = "Indirizzi email collegati";
 "account_email_validation_title" = "Verifica in corso";
+"account_import_files" = "Import file";
+"account_import_service" = "Server Configuration";
+"account_import_key" = "Enter the key";
+"account_import_key_secury" = "Please enter the decryption passphrase (optional).";
 "account_email_validation_message" = "Controlla l'email e clicca sul collegamento che contiene. Dopo averlo fatto, clicca su continua.";
 "account_email_validation_error" = "Impossibile verificare l'indirizzo email. Controlla l'email e clicca sul collegamento che contiene. Dopo averlo fatto, clicca su continua";
 "account_msisdn_validation_title" = "Verifica in corso";

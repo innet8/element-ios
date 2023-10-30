@@ -149,6 +149,13 @@ struct AuthenticationLoginScreen: View {
             .buttonStyle(PrimaryActionButtonStyle())
             .disabled(!viewModel.viewState.canSubmit)
             .accessibilityIdentifier("nextButton")
+            
+            Button { viewModel.send(viewAction: .importFile) } label: {
+                Text(VectorL10n.accountImportService)
+                    .font(theme.fonts.body)
+            }
+            .frame(maxWidth: .infinity, alignment: .center)
+            .padding(.bottom, 8)
         }
     }
     
@@ -186,7 +193,7 @@ struct AuthenticationLoginScreen: View {
     /// HomeLink
     var homeLink: some View {
         Button { viewModel.send(viewAction: .linkHome) } label: {
-            Text("Official website")
+            Text(VectorL10n.homeLink)
                 .underline()
         }
         .frame(maxWidth: .infinity, alignment: .center)
@@ -204,6 +211,11 @@ struct AuthenticationLoginScreen: View {
     func passwordEditingChanged(isEditing: Bool) {
         guard !isEditing else { return }
         isPasswordFocused = false
+    }
+    
+    /// Sends the `importFile` view action so long as the form is ready to submit.
+    func importFile() {
+        viewModel.send(viewAction: .importFile)
     }
     
     /// Sends the `next` view action so long as the form is ready to submit.

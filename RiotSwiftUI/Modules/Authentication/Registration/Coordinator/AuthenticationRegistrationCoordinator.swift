@@ -202,9 +202,13 @@ final class AuthenticationRegistrationCoordinator: Coordinator, Presentable {
             switch result {
             case .done:break
             case .qrContent(let content):
-                if let content = content, let url = URL(string: content), let urlComponent = URLComponents(url: url, resolvingAgainstBaseURL: false), let host = urlComponent.host, let scheme = urlComponent.scheme {
+                if let content = content, let url = URL(string: content), let urlComponent = URLComponents(url: url, resolvingAgainstBaseURL: false) {
                     
-                    let port = urlComponent.port ?? 0
+                    guard let schemeUrls = urlComponent.vc_getQueryItemValue(for: "open_url"), let parseUrl = URL(string: schemeUrls), let urlSchemeComponent = URLComponents(url: parseUrl, resolvingAgainstBaseURL: false), let host = urlSchemeComponent.host, let scheme = urlSchemeComponent.scheme else {
+                        return
+                    }
+                    
+                    let port = urlSchemeComponent.port ?? 0
                     if scheme != "eimchat" {
                         return
                     }
@@ -220,7 +224,7 @@ final class AuthenticationRegistrationCoordinator: Coordinator, Presentable {
                         await self.update(homeAdress: homeAddress)
                     }
                     
-                    if let token = urlComponent.vc_getQueryItemValue(for: "rgs_token") {
+                    if let token = urlSchemeComponent.vc_getQueryItemValue(for: "rgs_token") {
                         Task {
                             await self.authenticationRegistrationViewModel.update(inventCode: token)
                         }

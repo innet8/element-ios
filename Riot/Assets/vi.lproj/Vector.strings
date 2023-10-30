@@ -1775,6 +1775,10 @@
 "account_link_email" = "Liên kết email";
 "account_linked_emails" = "Email đã được liên kết";
 "account_email_validation_title" = "Xác minh đang chờ xử lí";
+"account_import_files" = "Import file";
+"account_import_service" = "Server Configuration";
+"account_import_key" = "Enter the key";
+"account_import_key_secury" = "Please enter the decryption passphrase (optional).";
 "account_email_validation_message" = "Vui lòng check email của bạn và nhấn vào đường dẫn đính kèm trong đó. Sau khi việc đó hoàn thành, nhấn tiếp tục.";
 "account_email_validation_error" = "Không thể xác minh địa chỉ email. Vui lòng kiểm tra email của bạn và nhấn vào liên kết mà nó được đính kèm. Sau khi việc đó hoàn thành, nhất tiếp tục";
 "account_msisdn_validation_title" = "Xác minh đang chờ xử lí";

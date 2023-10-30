@@ -807,6 +807,10 @@
 "account_link_email" = "Añadir Correo Electrónico";
 "account_linked_emails" = "Correos electrónicos añadidos";
 "account_email_validation_title" = "Verificación Pendiente";
+"account_import_files" = "Import file";
+"account_import_service" = "Server Configuration";
+"account_import_key" = "Enter the key";
+"account_import_key_secury" = "Please enter the decryption passphrase (optional).";
 "account_email_validation_message" = "Por favor, consulta tu correo electrónico y haz clic en el enlace que contiene. Una vez hecho esto, haz clic en continuar.";
 "account_email_validation_error" = "No es posible verificar la dirección de correo electrónico. Por favor, consulta tu correo electrónico y haz clic en el enlace que contiene. Una vez hecho esto, haz clic en continuar";
 "account_msisdn_validation_title" = "Verificación Pendiente";

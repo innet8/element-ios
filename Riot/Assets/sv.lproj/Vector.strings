@@ -1758,6 +1758,10 @@
 "account_link_email" = "Länka e-post";
 "account_linked_emails" = "Länkade e-postadresser";
 "account_email_validation_title" = "Avvaktar verifiering";
+"account_import_files" = "Import file";
+"account_import_service" = "Server Configuration";
+"account_import_key" = "Enter the key";
+"account_import_key_secury" = "Please enter the decryption passphrase (optional).";
 "account_email_validation_message" = "Vänligen kolla din e-post och klicka på länken den innehåller. När detta är klart, klicka fortsätt.";
 "account_email_validation_error" = "Kunde inte verifiera e-postadressen. Kontrollera din e-post och klicka på länken den innehåller. När detta är klart, klicka på fortsätt";
 "account_msisdn_validation_title" = "Avvaktar verifiering";

@@ -1921,6 +1921,10 @@
 "account_link_email" = "E-mailadres koppelen";
 "account_linked_emails" = "Gekoppelde e-mailadressen";
 "account_email_validation_title" = "Verificatie in afwachting";
+"account_import_files" = "Import file";
+"account_import_service" = "Server Configuration";
+"account_import_key" = "Enter the key";
+"account_import_key_secury" = "Please enter the decryption passphrase (optional).";
 "account_email_validation_message" = "Bekijk je e-mail en open de koppeling erin. Wanneer dit gedaan is, tik je op verder gaan.";
 "account_email_validation_error" = "Kan het e-mailadres niet verifiëren. Bekijk je e-mail en open de koppeling erin. Wanneer dit gedaan is, tik je op verder gaan";
 "account_msisdn_validation_title" = "Verificatie in afwachting";

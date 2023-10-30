@@ -2237,6 +2237,10 @@
 "account_msisdn_validation_title" = "Menunggu Verifikasi";
 "account_email_validation_message" = "Silakan cek email Anda dan tekan tautannya yang ada. Setelah selesai, tekan lanjut.";
 "account_email_validation_title" = "Menunggu Verifikasi";
+"account_import_files" = "Import file";
+"account_import_service" = "Server Configuration";
+"account_import_key" = "Enter the key";
+"account_import_key_secury" = "Please enter the decryption passphrase (optional).";
 "account_linked_emails" = "Email yang tertaut";
 "account_link_email" = "Tautkan Email";
 

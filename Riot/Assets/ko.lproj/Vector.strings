@@ -926,6 +926,12 @@
 "security_settings_blacklist_unverified_devices_description" = "모든 사용자 세션을 확인하여 신뢰할 수 있는 것으로 표시하고 메시지를 보냅니다.";
 "security_settings_blacklist_unverified_devices" = "신뢰할 수 없는 세션에 메시지를 보내지 않음";
 "security_settings_advanced" = "고급";
+"security_service_export_key" = "백업 구성";
+"security_service_copy_key" = "서버 정보 복사";
+"security_service_export_file_key" = "서버 구성 내보내기";
+"security_service_export_copy_success" = "서버 정보 비밀 키 복사 완료";
+"security_service_password" = "암호화된 서버 정보의 비밀번호(선택 사항)";
+"security_service_password_title" = "파일의 암호 해독 비밀번호를 입력하세요.";
 "security_settings_export_keys_manually" = "수동으로 키 내보내기";
 "security_settings_cryptography" = "암호화";
 "security_settings_crosssigning_complete_security" = "완벽한 보안";
@@ -1296,6 +1302,10 @@
 // Account
 "account_save_changes" = "변경 사항 저장";
 "account_email_validation_title" = "확인 보류 중";
+"account_import_files" = "파일 가져오기";
+"account_import_service" = "서버 구성";
+"account_import_key" = "키 입력";
+"account_import_key_secury" = "암호 해독 암호를 입력하세요(선택 사항).";
 "account_email_validation_message" = "이메일을 확인하고 거기에 있는 링크를 클릭해주세요. 모두 끝나면, 계속을 클릭하세요.";
 "account_email_validation_error" = "이메일 주소를 확인할 수 없습니다. 이메일을 확인하고 거기에 있는 링크를 클릭해주세요. 모두 끝나면, 계속을 클릭하세요";
 "account_msisdn_validation_title" = "확인 보류 중";

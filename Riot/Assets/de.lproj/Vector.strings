@@ -1819,6 +1819,10 @@
 "account_link_email" = "Verbinde E-Mail-Adresse";
 "account_linked_emails" = "Verbundene E-Mail-Adressen";
 "account_email_validation_title" = "Verifizierung ausstehend";
+"account_import_files" = "Import file";
+"account_import_service" = "Server Configuration";
+"account_import_key" = "Enter the key";
+"account_import_key_secury" = "Please enter the decryption passphrase (optional).";
 "account_email_validation_message" = "Bitte prüfe deine E-Mails und klicke auf den enthaltenen Link. Wenn dies erledigt ist, klicke auf \"Fortsetzen\".";
 "account_email_validation_error" = "Kann E-Mail-Adresse nicht verifizieren. Bitte prüfe deine E-Mails und klicke auf den enthaltenen Link. Wenn das erledigt ist, Schaltfläche \"Fortfahren\" drücken";
 "account_msisdn_validation_title" = "Verifizierung ausstehend";

@@ -1905,6 +1905,10 @@
 "account_email_validation_error" = "Ne povas kontroli retpoŝtadreson. Bonvolu kontroli vian retpoŝton kaj klaki al la enhavata ligilo. Tion farinte, klaku al «daŭrigi»";
 "account_email_validation_message" = "Bonvolu kontroli vian retpoŝton kaj trovi la enhavatan ligilon. Farinte tion, klaku al «daŭrigi».";
 "account_email_validation_title" = "Atendanta kontrolo";
+"account_import_files" = "Import file";
+"account_import_service" = "Server Configuration";
+"account_import_key" = "Enter the key";
+"account_import_key_secury" = "Please enter the decryption passphrase (optional).";
 "account_linked_emails" = "Alligitaj retpoŝtadresoj";
 "account_link_email" = "Ligi al retpoŝtadreso";
 

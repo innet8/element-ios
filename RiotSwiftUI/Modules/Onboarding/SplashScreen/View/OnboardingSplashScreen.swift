@@ -125,7 +125,7 @@ struct OnboardingSplashScreen: View {
     /// HomeLink
     var homeLink: some View {
         Button { viewModel.send(viewAction: .linkHome) } label: {
-            Text("Official website")
+            Text(VectorL10n.homeLink)
                 .underline()
         }
         .frame(maxWidth: .infinity, alignment: .center)

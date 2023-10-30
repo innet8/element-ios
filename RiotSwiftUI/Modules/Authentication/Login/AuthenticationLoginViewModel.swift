@@ -66,6 +66,10 @@ class AuthenticationLoginViewModel: AuthenticationLoginViewModelType, Authentica
         state.isLoading = isLoading
     }
     
+    @MainActor func update(username: String) {
+        state.bindings.username = username
+    }
+    
     @MainActor func update(homeserver: AuthenticationHomeserverViewData) {
         state.homeserver = homeserver
     }

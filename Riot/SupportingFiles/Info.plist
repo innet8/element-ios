@@ -133,6 +133,7 @@
 			<key>UTTypeConformsTo</key>
 			<array>
 				<string>public.text</string>
+                <string>public.data</string>
 			</array>
 			<key>UTTypeDescription</key>
 			<string>Mention Pills</string>

@@ -28,6 +28,10 @@ protocol AuthenticationLoginViewModelProtocol {
     /// - Parameter homeserver: The view data for the homeserver. This can be generated using `AuthenticationService.Homeserver.viewData`.
     @MainActor func update(homeserver: AuthenticationHomeserverViewData)
     
+    /// Update the view with new homeserver information.
+    /// - Parameter homeserver: The view data for the homeserver. This can be generated using `AuthenticationService.Homeserver.viewData`.
+    @MainActor func update(username: String)
+    
     /// Display an error to the user.
     /// - Parameter type: The type of error to be displayed.
     @MainActor func displayError(_ type: AuthenticationLoginErrorType)

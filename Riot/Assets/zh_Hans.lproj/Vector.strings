@@ -757,6 +757,12 @@
 "security_settings_blacklist_unverified_devices" = "永不发送消息到不信任的会话";
 "security_settings_blacklist_unverified_devices_description" = "验证一个用户的所有会话以标记他们为已信任并向他们发送消息。";
 "security_settings_export_keys_manually" = "手动导出密钥";
+"security_service_export_key" = "备份配置";
+"security_service_copy_key" = "复制服务器信息";
+"security_service_export_file_key" = "导出服务器配置";
+"security_service_export_copy_success" = "服务器信息秘钥已复制";
+"security_service_password" = "加密服务器信息的口令（选填）";
+"security_service_password_title" = "请输入文件的解密口令";
 // Manage session
 "manage_session_title" = "管理会话";
 "manage_session_info" = "会话信息";
@@ -1881,6 +1887,10 @@
 "account_link_email" = "邮箱地址";
 "account_linked_emails" = "邮箱地址";
 "account_email_validation_title" = "等待验证中";
+"account_import_files" = "导入文件";
+"account_import_service" = "服务器配置";
+"account_import_key" = "输入密钥";
+"account_import_key_secury" = "请输入解密口令（可选）";
 "account_msisdn_validation_title" = "等待验证中";
 "account_msisdn_validation_error" = "无法验证此手机号。";
 "account_error_picture_change_failed" = "头像修改失败";
@@ -2312,6 +2322,8 @@
 "all_chats_edit_layout_alphabetical_order" = "按照字母顺序排序";
 "all_chats_edit_layout_show_filters" = "显示过滤器";
 "all_chats_edit_layout_show_recents" = "显示最近项目";
+
+"home_link" = "官方网站";
 
 // MARK: - Space Selector
 

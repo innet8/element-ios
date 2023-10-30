@@ -1780,6 +1780,10 @@
 "account_link_email" = "Lidhni Email";
 "account_linked_emails" = "Email-e të lidhur";
 "account_email_validation_title" = "Verifikim Në Pritje të Miratimit";
+"account_import_files" = "Import file";
+"account_import_service" = "Server Configuration";
+"account_import_key" = "Enter the key";
+"account_import_key_secury" = "Please enter the decryption passphrase (optional).";
 "account_msisdn_validation_title" = "Verifikim Në Pritje të Miratimit";
 "account_msisdn_validation_error" = "S’arrihet të verifikohet numër telefoni.";
 "account_error_display_name_change_failed" = "Ndryshimi i emrit të shfaqjes dështoi";

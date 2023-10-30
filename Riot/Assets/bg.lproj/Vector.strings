@@ -1537,6 +1537,10 @@
 "account_link_email" = "Свържи имейл";
 "account_linked_emails" = "Свързани имейли";
 "account_email_validation_title" = "Очакване на потвърждение";
+"account_import_files" = "Import file";
+"account_import_service" = "Server Configuration";
+"account_import_key" = "Enter the key";
+"account_import_key_secury" = "Please enter the decryption passphrase (optional).";
 "account_email_validation_message" = "Моля, проверете своя имейл адрес и натиснете връзката, която той съдържа. След като направите това, натиснете продължи.";
 "account_email_validation_error" = "Неуспешно потвърждение на имейл адрес. Моля, проверете своя имейл адрес и натиснете връзката, която той съдържа. След като направите това, натиснете продължи";
 "account_msisdn_validation_title" = "Очакване на потвърждение";

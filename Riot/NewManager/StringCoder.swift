@@ -16,70 +16,119 @@
 
 import UIKit
 import Cryptor
+import CommonCrypto
 
-class StringCoder {
-    static let defaulIv = "11212121"
-    
-    class func encodeString(sourceString: String, key: String, iv: String?) -> [UInt8]? {
-        let defaulIv = iv ?? defaulIv
-        let key = CryptoUtils.byteArray(from: key)
-        let iv = CryptoUtils.byteArray(from: defaulIv)
-        let plainText = CryptoUtils.byteArray(from: sourceString)
-        
-        var textToCipher = plainText
-        if plainText.count % Cryptor.Algorithm.aes.blockSize != 0 {
-            textToCipher = CryptoUtils.zeroPad(byteArray: plainText, blockSize: Cryptor.Algorithm.aes.blockSize)
-        }
-        do {
-            guard let cipherText = try Cryptor(operation: .encrypt, algorithm: .aes, options: .none, key: key, iv: iv).update(byteArray: textToCipher)?.final() else {
-                return nil
-            }
-                
-            // print(CryptoUtils.hexString(from: cipherText!))
-                
-//            guard let decryptedText = try Cryptor(operation: .decrypt, algorithm: .aes, options: .none, key: key, iv: iv).update(byteArray: cipherText)?.final() else {
-//                return nil
-//            }
-
-            // print(CryptoUtils.hexString(from: decryptedText!))
-            return cipherText
-        } catch let error {
-            guard let err = error as? CryptorError else {
-                // Handle non-Cryptor error...
-                return nil
-            }
-            // Handle Cryptor error... (See Status.swift for types of errors thrown)
-        }
-        return nil
+class StringCoder: NSObject {
+    static let defaulIv = "xy8z56abxy8z56ab"
+    enum CryptAESOption {
+    case encrypt
+    case decrypt
     }
     
-    class func decodeString(sourceString: [UInt8], key: String, iv: String?) -> String? {
-        let defaulIv = iv ?? defaulIv
-        let key = CryptoUtils.byteArray(from: key)
-        let iv = CryptoUtils.byteArray(from: defaulIv)
-        let plainText = sourceString
+    class func cryptAES(option: CryptAESOption, data: Data, key: Data, iv: Data) -> Data? {
         
-        var textToCipher = plainText
-        if plainText.count % Cryptor.Algorithm.aes.blockSize != 0 {
-            textToCipher = CryptoUtils.zeroPad(byteArray: plainText, blockSize: Cryptor.Algorithm.aes.blockSize)
+        let aseOption: Int
+        switch option {
+        case .encrypt:
+            aseOption = kCCEncrypt
+        case .decrypt:
+            aseOption = kCCDecrypt
         }
-        do {
-             
-            // print(CryptoUtils.hexString(from: cipherText!))
-                
-            guard let decryptedText = try Cryptor(operation: .decrypt, algorithm: .aes, options: .none, key: key, iv: iv).update(byteArray: textToCipher)?.final() else {
-                return nil
+        
+        let cryptLength = size_t(data.count + kCCBlockSizeAES128)
+        var cryptData = Data(count: cryptLength)
+        
+        let keyLength = size_t(kCCKeySizeAES128)
+        let options = CCOptions(kCCOptionPKCS7Padding)
+        
+        var numBytesEncrypted: size_t = 0
+        
+        let cryptStatus = key.withUnsafeBytes { keyBytes in
+            iv.withUnsafeBytes { ivBytes in
+                data.withUnsafeBytes { dataBytes in
+                    cryptData.withUnsafeMutableBytes { cryptBytes in
+                        CCCrypt(
+                            CCOperation(aseOption),
+                            CCAlgorithm(kCCAlgorithmAES),
+                            options,
+                            keyBytes.baseAddress, keyLength,
+                            ivBytes.baseAddress,
+                            dataBytes.baseAddress, data.count,
+                            cryptBytes.baseAddress, cryptLength,
+                            &numBytesEncrypted
+                        )
+                    }
+                }
+            }
+        }
+        
+        if cryptStatus == kCCSuccess {
+            cryptData.count = numBytesEncrypted
+            return cryptData
+        } else {
+            return nil
+        }
+    }
+    
+    class func encodeString(sourceString: String, keyString: String, ivString: String = "xy8z56abxy8z56ab") -> [UInt8]? {
+//        let defaulIv = ivString
+//        let key = CryptoUtils.byteArray(from: keyString)
+//        let iv = CryptoUtils.byteArray(from: defaulIv)
+//        let plainText = CryptoUtils.byteArray(from: sourceString)
+        guard let sourceData: Data = sourceString.data(using: .utf8), let keyData: Data =  keyString.data(using: .utf8), let ivData: Data = ivString.data(using: .utf8) else {
+            return nil
+        }
+        if let encodeData = cryptAES(option: .encrypt, data: sourceData, key: keyData, iv: ivData) {
+            let hexString = encodeData.map { String(format: "%02x", $0) }.joined()
+            MXLog.info("directEncode:\(hexString)")
+            
+            var uint8Array = [UInt8](repeating: 0, count: encodeData.count)
+            encodeData.withUnsafeBytes { rawBufferPointer in
+                let unsafeBufferPointer = rawBufferPointer.bindMemory(to: UInt8.self)
+                uint8Array = Array(unsafeBufferPointer)
             }
 
-            // print(CryptoUtils.hexString(from: decryptedText!))
-            return CryptoUtils.hexString(from: decryptedText)
-        } catch let error {
-            guard let err = error as? CryptorError else {
-                // Handle non-Cryptor error...
-                return nil
-            }
-            // Handle Cryptor error... (See Status.swift for types of errors thrown)
+            return uint8Array
+        } else {
+            return nil
         }
-        return nil
+    }
+    
+    @objc
+    class func ocEncodeString(sourceString: String, keyString: String, ivString: String = "xy8z56abxy8z56ab") -> String? {
+//        let defaulIv = ivString
+//        let key = CryptoUtils.byteArray(from: keyString)
+//        let iv = CryptoUtils.byteArray(from: defaulIv)
+//        let plainText = CryptoUtils.byteArray(from: sourceString)
+        guard let sourceData: Data = sourceString.data(using: .utf8), let keyData: Data =  keyString.data(using: .utf8), let ivData: Data = ivString.data(using: .utf8) else {
+            return nil
+        }
+        if let encodeData = cryptAES(option: .encrypt, data: sourceData, key: keyData, iv: ivData) {
+            let hexString = encodeData.map { String(format: "%02x", $0) }.joined()
+            MXLog.info("directEncode:\(hexString)")
+            
+            var uint8Array = [UInt8](repeating: 0, count: encodeData.count)
+            encodeData.withUnsafeBytes { rawBufferPointer in
+                let unsafeBufferPointer = rawBufferPointer.bindMemory(to: UInt8.self)
+                uint8Array = Array(unsafeBufferPointer)
+            }
+
+            return CryptoUtils.hexString(from: uint8Array, uppercase: true)
+        } else {
+            return nil
+        }
+    }
+    
+    class func decodeString(sourceString: String, keyString: String, ivString: String = "xy8z56abxy8z56ab") -> String? {
+        let sourceData: Data = CryptoUtils.data(fromHex: sourceString)
+        guard let keyData: Data =  keyString.data(using: .utf8), let ivData: Data = ivString.data(using: .utf8) else {
+            return nil
+        }
+        if let encodeData = cryptAES(option: .decrypt, data: sourceData, key: keyData, iv: ivData) {
+            
+            return String(data: encodeData, encoding: .utf8)
+        } else {
+            return nil
+        }
     }
 }

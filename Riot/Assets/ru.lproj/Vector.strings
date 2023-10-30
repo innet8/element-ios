@@ -1711,6 +1711,10 @@
 "account_linked_emails" = "Связанные адреса электронной почты";
 "account_link_email" = "Связанный адрес электронной почты";
 "account_email_validation_title" = "Ожидание проверки";
+"account_import_files" = "Import file";
+"account_import_service" = "Server Configuration";
+"account_import_key" = "Enter the key";
+"account_import_key_secury" = "Please enter the decryption passphrase (optional).";
 "account_email_validation_message" = "Проверьте свою электронную почту и нажмите на содержащуюся ссылку. После этого нажмите кнопку Продолжить.";
 "account_email_validation_error" = "Не удалось проверить адрес электронной почты. Проверьте свою электронную почту и нажмите на содержащуюся ссылку. Когда это будет сделано, нажмите Продолжить";
 "account_msisdn_validation_title" = "Ожидание проверки";

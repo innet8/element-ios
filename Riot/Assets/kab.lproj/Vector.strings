@@ -1540,7 +1540,10 @@
 "account_msisdn_validation_title" = "Asenqed yettṛaǧu";
 "account_email_validation_message" = "Ma ulac aɣilif, senqed imayl-ik/im syen sit ɣef useɣwen i yellan. Akken ara yemmed waya, sit ad tkemmleḍ.";
 "account_email_validation_title" = "Asenqed yettṛaǧu";
-
+"account_import_files" = "Import file";
+"account_import_service" = "Server Configuration";
+"account_import_key" = "Enter the key";
+"account_import_key_secury" = "Please enter the decryption passphrase (optional).";
 // Account
 "account_save_changes" = "Sekles ibeddilen";
 "room_event_encryption_verify_ok" = "Senqed";

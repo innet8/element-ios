@@ -15,17 +15,27 @@
 //
 
 import UIKit
+import Cryptor
 
 class FileExportManager: NSObject {
     private enum Constants {
-        static let keyExportFileName = "eimchat-service.txt"
+        static let keyExportFileName = "eimchat-service-key.txt"
     }
+    
+    enum SelectFileResult {
+        case success(String)
+        case failure(Error)
+        case cancel
+    }
+    
+    var completion: ((SelectFileResult) -> Void)?
     
     let destiVC: UIViewController
     private let keyExportFileURL: URL
     
     private var documentInteractionController: UIDocumentInteractionController?
     
+    @objc
     init(destiVC: UIViewController) {
         self.destiVC = destiVC
         self.keyExportFileURL = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(Constants.keyExportFileName)
@@ -33,16 +43,47 @@ class FileExportManager: NSObject {
     }
     
     func exportFileToApp() {
-        let documentInteractionController = UIDocumentInteractionController()
-        documentInteractionController.delegate = self
+        guard FileManager.default.fileExists(atPath: self.keyExportFileURL.path) else {
+            MXLog.info("failFile")
+            return
+        }
+        let avc = UIActivityViewController(activityItems: [self.keyExportFileURL], applicationActivities: nil)
+        destiVC.present(avc, animated: true, completion: nil)
+        
+//        documentInteractionController = UIDocumentInteractionController(url: self.keyExportFileURL)
+//        documentInteractionController?.name = Constants.keyExportFileName
+//        documentInteractionController?.delegate = self
+//        if documentInteractionController?.presentOptionsMenu(from: destiVC.view.bounds, in: destiVC.view, animated: true) == true {
+//
+//        } else {
+//            self.encryptionKeysExportView = nil
+//            self.deleteFile()
+//        }
     }
     
-    func exportFile() {
+    @objc
+    func exportFile(exportContent: String) {
         
+        if let exportData = exportContent.data(using: .utf8) {
+            do {
+                try exportData.write(to: self.keyExportFileURL)
+                MXLog.info("File saved successfully to Downloads folder.")
+            } catch {
+                MXLog.info("Error saving file: \(error.localizedDescription)")
+                return
+            }
+        }
+        
+        exportFileToApp()
     }
     
-    func importFile() {
-        
+    func importFile(completion: ((SelectFileResult) -> Void)?) {
+        let documentPicker = UIDocumentPickerViewController(documentTypes: ["public.data"], in: .import)
+        documentPicker.delegate = self
+        documentPicker.allowsMultipleSelection = false
+        documentPicker.shouldShowFileExtensions = true
+        destiVC.present(documentPicker, animated: true, completion: nil)
+        self.completion = completion
     }
     
     private func deleteFile() {
@@ -63,5 +104,34 @@ extension FileExportManager: UIDocumentInteractionControllerDelegate {
     
     func documentInteractionControllerDidDismissOptionsMenu(_ controller: UIDocumentInteractionController) {
         self.documentInteractionController = nil
+    }
+    
+}
+
+extension FileExportManager: UIDocumentPickerDelegate {
+    // 处理用户选择的文件
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        // 处理选择的文件
+        
+        if let selectedFileURL = urls.first {
+            // 通过 URL 获取文件的内容
+            do {
+                let fileContent = try String(contentsOf: selectedFileURL)
+                completion?(.success(fileContent))
+            } catch {
+                completion?(.failure(error))
+            }
+        } else {
+            completion?(.failure(NSError(domain: "Error file", code: 500)))
+        }
+        
+        
+    }
+
+    // 处理取消选择文件
+    func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
+        // 当用户取消选择文件时的处理
+        // ...
+        completion?(.cancel)
     }
 }

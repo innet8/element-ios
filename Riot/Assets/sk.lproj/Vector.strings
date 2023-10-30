@@ -1777,6 +1777,10 @@
 "room_creation_name_title" = "Názov miestnosti:";
 "account_msisdn_validation_title" = "Čaká sa na overenie";
 "account_email_validation_title" = "Čaká sa na overenie";
+"account_import_files" = "Import file";
+"account_import_service" = "Server Configuration";
+"account_import_key" = "Enter the key";
+"account_import_key_secury" = "Please enter the decryption passphrase (optional).";
 
 // Account
 "account_save_changes" = "Uložiť zmeny";

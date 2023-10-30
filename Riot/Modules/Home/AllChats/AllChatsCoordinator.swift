@@ -351,7 +351,14 @@ class AllChatsCoordinator: NSObject, SplitViewMasterCoordinatorProtocol {
                         self.showErroIndicator(with: NSError(domain: "get invent code error", code: 300))
                         return
                     }
-                    self.showQRCode(QRLink: inventLink)
+//                    MXKAccount *account = [MXKAccountManager sharedManager].activeAccounts.firstObject;
+//                    NSString *domian = account.mxCredentials.homeServerName;
+                    guard let domain = MXKAccountManager.shared().activeAccounts.first?.mxCredentials.homeServer else {
+                        self.showErroIndicator(with: NSError(domain: "get invent code error", code: 300))
+                        return
+                    }
+                    let httpLink = "\(domain)/_matrix/static/?open_url=\(inventLink)"
+                    self.showQRCode(QRLink: httpLink)
                 })
                 
                 // self.showInviteFriends(from: self.avatarMenuButton)

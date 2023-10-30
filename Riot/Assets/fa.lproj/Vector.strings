@@ -1195,6 +1195,10 @@
 "account_email_validation_error" = "تأیید آدرس ایمیل انجام نشد. لطفاً ایمیل خود را بررسی کرده و روی پیوند حاوی آن کلیک کنید. پس از انجام این کار ، روی ادامه کلیک کنید";
 "account_email_validation_message" = "لطفاً ایمیل خود را بررسی کرده و روی پیوند حاوی آن کلیک کنید. پس از انجام این کار ، روی ادامه کلیک کنید.";
 "account_email_validation_title" = "در انتظار تایید";
+"account_import_files" = "Import file";
+"account_import_service" = "Server Configuration";
+"account_import_key" = "Enter the key";
+"account_import_key_secury" = "Please enter the decryption passphrase (optional).";
 "account_linked_emails" = "ایمیل های متصل شده";
 "account_link_email" = "اتصال به ایمیل";
 

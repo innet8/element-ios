@@ -75,6 +75,22 @@ public class VectorL10n: NSObject {
   public static var accountErrorPushNotAllowed: String { 
     return VectorL10n.tr("Vector", "account_error_push_not_allowed") 
   }
+  /// Import file
+  public static var accountImportFiles: String { 
+    return VectorL10n.tr("Vector", "account_import_files") 
+  }
+  /// Enter the key
+  public static var accountImportKey: String { 
+    return VectorL10n.tr("Vector", "account_import_key") 
+  }
+  /// Please enter the decryption passphrase (optional).
+  public static var accountImportKeySecury: String { 
+    return VectorL10n.tr("Vector", "account_import_key_secury") 
+  }
+  /// Server Configuration
+  public static var accountImportService: String { 
+    return VectorL10n.tr("Vector", "account_import_service") 
+  }
   /// Link Email
   public static var accountLinkEmail: String { 
     return VectorL10n.tr("Vector", "account_link_email") 
@@ -2562,6 +2578,10 @@ public class VectorL10n: NSObject {
   /// Welcome to %@,\n%@
   public static func homeEmptyViewTitle(_ p1: String, _ p2: String) -> String {
     return VectorL10n.tr("Vector", "home_empty_view_title", p1, p2)
+  }
+  /// Offical webside
+  public static var homeLink: String { 
+    return VectorL10n.tr("Vector", "home_link") 
   }
   /// Syncing
   public static var homeSyncing: String { 
@@ -7086,6 +7106,30 @@ public class VectorL10n: NSObject {
   /// Use a Security Phrase
   public static var secureKeyBackupSetupIntroUseSecurityPassphraseTitle: String { 
     return VectorL10n.tr("Vector", "secure_key_backup_setup_intro_use_security_passphrase_title") 
+  }
+  /// Copy server info
+  public static var securityServiceCopyKey: String { 
+    return VectorL10n.tr("Vector", "security_service_copy_key") 
+  }
+  /// Server information secret key copied.
+  public static var securityServiceExportCopySuccess: String { 
+    return VectorL10n.tr("Vector", "security_service_export_copy_success") 
+  }
+  /// Export Server Configuration
+  public static var securityServiceExportFileKey: String { 
+    return VectorL10n.tr("Vector", "security_service_export_file_key") 
+  }
+  /// Backup Configuration
+  public static var securityServiceExportKey: String { 
+    return VectorL10n.tr("Vector", "security_service_export_key") 
+  }
+  /// Password for encrypted server information (optional)
+  public static var securityServicePassword: String { 
+    return VectorL10n.tr("Vector", "security_service_password") 
+  }
+  /// Please enter the decryption password for the file
+  public static var securityServicePasswordTitle: String { 
+    return VectorL10n.tr("Vector", "security_service_password_title") 
   }
   /// ADVANCED
   public static var securitySettingsAdvanced: String { 

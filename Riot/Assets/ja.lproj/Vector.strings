@@ -809,6 +809,12 @@
 "security_settings_blacklist_unverified_devices_description" = "全てのセッションを認証し、信頼済としてマークしてメッセージを送信します。";
 "security_settings_blacklist_unverified_devices" = "信頼していないセッションにはメッセージを送信しない";
 "security_settings_advanced" = "高度な設定";
+"security_service_export_key" = "バックアップ設定";
+"security_service_copy_key" = "サーバー情報のコピー";
+"security_service_export_file_key" = "サーバー構成をエクスポートします";
+"security_service_export_copy_success" = "サーバー情報の秘密鍵をコピーします";
+"security_service_password" = "暗号化されたサーバー情報のパスワード（オプション）";
+"security_service_password_title" = "ファイルの復号化パスワードを入力してください。";
 "security_settings_export_keys_manually" = "手動で鍵をエクスポート";
 "security_settings_cryptography" = "暗号化";
 "security_settings_crosssigning_reset" = "クロス署名をリセット";
@@ -1299,6 +1305,10 @@
 "account_link_email" = "電子メールをリンク";
 "account_linked_emails" = "リンクした電子メール";
 "account_email_validation_title" = "認証の保留中";
+"account_import_files" = "ファイルのインポート";
+"account_import_service" = "サーバー設定";
+"account_import_key" = "キーを入力してください";
+"account_import_key_secury" = "復号パスフレーズを入力してください（オプション）";
 "account_email_validation_message" = "電子メールを確認して、本文中のURLをクリックしてください。完了したら「続行」をクリックしてください。";
 "account_email_validation_error" = "メールアドレスを認証できません。メールを確認して、記載されているリンクをクリックしてください。完了したら「続行する」をクリックしてください";
 "account_msisdn_validation_title" = "認証の保留中";
@@ -1604,6 +1614,7 @@
 "settings_contacts_enable_sync_description" = "IDサーバーを使用すると、連絡先を探したり、相手があなたを探したりできるようになります。";
 "home_syncing" = "同期しています";
 "search_filter_placeholder" = "絞り込む";
+"home_link" = "公式ウェブサイト";
 
 // MARK: - Share invite link
 

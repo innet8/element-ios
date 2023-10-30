@@ -50,6 +50,11 @@ enum AuthenticationLoginCoordinatorResult: CustomStringConvertible {
     }
 }
 
+enum AlertPasswordResult {
+    case confirm(String)
+    case cancel
+}
+
 final class AuthenticationLoginCoordinator: Coordinator, Presentable {
     // MARK: - Properties
     
@@ -70,6 +75,8 @@ final class AuthenticationLoginCoordinator: Coordinator, Presentable {
     private var waitingIndicator: UserIndicator?
     private var successIndicator: UserIndicator?
     private var langHelper: LanguagePresentHelper?
+    private var errorCount = 0
+    private var fileExport :FileExportManager?
     
     /// The authentication service used for the login.
     private var authenticationService: AuthenticationService { parameters.authenticationService }
@@ -154,9 +161,210 @@ final class AuthenticationLoginCoordinator: Coordinator, Presentable {
                 }
                 UIApplication.shared.open(link)
             case .importFile:
+                let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+                
+                // 弹出密钥输入框
+                alertController.addAction(UIAlertAction(title: VectorL10n.accountImportKey, style: .default, handler: { (action) in
+                    self.privateEnter()
+                }))
+                
+                // 添加一个确定按钮
+                alertController.addAction(UIAlertAction(title: VectorL10n.accountImportFiles, style: .default, handler: { (action) in
+                    self.importFile()
+                }))
+                
+                // 添加一个取消按钮
+                alertController.addAction(UIAlertAction(title: VectorL10n.cancel, style: .cancel, handler: { (action) in
+                    
+                }))
+                
+                // 显示弹窗
+                toPresentable().present(alertController, animated: true, completion: nil)
+                
                 break
             }
         }
+    }
+    
+    @MainActor private func privateEnter() {
+        // 创建一个 UIAlertController
+        let alertController = UIAlertController(title: VectorL10n.accountImportKey, message: nil, preferredStyle: .alert)
+        
+        // 添加一个密码输入框
+        alertController.addTextField { (textField) in
+            textField.placeholder = VectorL10n.securityServicePassword
+        }
+        
+        // 添加一个取消按钮
+        alertController.addAction(UIAlertAction(title: VectorL10n.cancel, style: .cancel, handler: { (action) in
+            
+            
+        }))
+        
+        // 添加一个确定按钮
+        alertController.addAction(UIAlertAction(title: VectorL10n.confirm, style: .default, handler: { [weak self] (action) in
+            guard let self = self else { return }
+            // 处理用户输入的密码
+            if let privareKey = alertController.textFields?.first?.text {
+                var appendString = ""
+                for _ in 0...15 {
+                    appendString = appendString+"0"
+                }
+                
+                if let decodeString = StringCoder.decodeString(sourceString: privareKey, keyString: appendString) {
+                    if decodeString.count < 4 {
+                        authenticationLoginViewModel.displayError(.mxError("密钥错误"))
+                        return
+                    }
+                    self.handelSuccessDecode(content: decodeString)
+                } else {
+                    authenticationLoginViewModel.displayError(.mxError("密钥错误"))
+                }
+            }
+        }))
+        
+        // 显示弹窗
+        toPresentable().present(alertController, animated: true, completion: nil)
+        
+    }
+    
+    @MainActor private func importFile() {
+        let manager = FileExportManager(destiVC: toPresentable())
+        self.fileExport = manager
+        manager.importFile { result in
+
+            switch result {
+            case .success(let readContent):
+                self.errorCount = 0
+                let trim = readContent.trimmingCharacters(in: .whitespacesAndNewlines)
+                self.decodeString(readContent: trim)
+
+            case .failure(let error):
+                self.handleError(error)
+
+            case .cancel:
+                break
+            }
+            self.fileExport = nil
+        }
+    }
+    
+    @MainActor private func update(homeAdress: String) {
+        let homeserverAddress = HomeserverAddress.sanitized(homeAdress)
+        if homeserverAddress == authenticationService.state.homeserver.address {
+            return
+        }
+        
+        startLoading(isInteractionBlocking: false)
+        Task { [weak self] in
+            do {
+                try await self?.authenticationService.startFlow(.login, for: homeserverAddress)
+                
+                guard !Task.isCancelled else {
+                    self?.stopLoading()
+                    return
+                    
+                }
+                
+                self?.updateViewModelHomeserver()
+                self?.stopLoading()
+            } catch {
+                self?.stopLoading()
+                self?.handleError(error)
+            }
+        }
+    }
+    
+    @MainActor private func decodeString(readContent: String) {
+        showAESPassword { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .confirm(let password):
+                var appendString = password
+                for _ in password.count...15 {
+                    appendString = appendString+"0"
+                }
+                
+                MXLog.info("appendStringLength:\(appendString.count)")
+                
+                if let decodeString = StringCoder.decodeString(sourceString: readContent, keyString: appendString) {
+                    if decodeString.count < 4 {
+                        authenticationLoginViewModel.displayError(.mxError("解析结果错误"))
+                        return
+                    }
+                    self.handelSuccessDecode(content: decodeString)
+                } else {
+                    self.errorCount += 1
+                    if self.errorCount < 3 {
+                        decodeString(readContent: readContent)
+                    } else {
+                        self.errorCount = 0
+                        authenticationLoginViewModel.displayError(.mxError("密码错误，解析失败"))
+                    }
+                }
+                break
+            case .cancel:
+                break
+            }
+        }
+    }
+    
+    @MainActor private func handelSuccessDecode(content: String) {
+        // @XXX:XXX
+        let pattern = "@([A-Za-z0-9]+):([^\n\r]+)"
+            
+        do {
+            let regex = try NSRegularExpression(pattern: pattern, options: [])
+            let range = NSRange(location: 0, length: content.utf16.count)
+            let matches = regex.matches(in: content, options: [], range: range)
+            
+            for match in matches {
+                
+                if let nameRange = Range(match.range(at: 1), in: content), let serviceRange = Range(match.range(at: 2), in: content) {
+                    
+                    let nameString = content[nameRange]
+                    let serviceString = content[serviceRange]
+                    update(username: String(nameString))
+                    update(homeAdress: String(serviceString))
+                } else {
+                    authenticationLoginViewModel.displayError(.mxError("解密信息解析错误"))
+                }
+                
+            }
+            
+        } catch {
+            authenticationLoginViewModel.displayError(.mxError("解密信息解析错误"))
+//            MXLog.info("匹配失败\(error)")
+        }
+    }
+    
+    @MainActor private func showAESPassword(completion: ((AlertPasswordResult) -> Void)?) {
+        // 创建一个 UIAlertController
+        let alertController = UIAlertController(title: VectorL10n.loginPasswordPlaceholder, message: nil, preferredStyle: .alert)
+        
+        // 添加一个密码输入框
+        alertController.addTextField { (textField) in
+            textField.isSecureTextEntry = true
+            textField.placeholder = VectorL10n.loginPasswordPlaceholder
+        }
+        
+        // 添加一个取消按钮
+        alertController.addAction(UIAlertAction(title: VectorL10n.cancel, style: .cancel, handler: { (action) in
+            // 处理用户输入的密码
+            completion?(.cancel)
+            
+        }))
+        
+        // 添加一个确定按钮
+        alertController.addAction(UIAlertAction(title: VectorL10n.confirm, style: .default, handler: { (action) in
+            // 处理用户输入的密码
+            if let password = alertController.textFields?.first?.text {
+                completion?(.confirm(password))
+            }
+        }))
+        
+        // 显示弹窗
+        toPresentable().present(alertController, animated: true, completion: nil)
     }
     
     /// Show a blocking activity indicator whilst saving.
@@ -348,5 +556,18 @@ final class AuthenticationLoginCoordinator: Coordinator, Presentable {
         if homeserver.needsLoginFallback {
             callback?(.fallback)
         }
+    }
+    
+    @MainActor private func update(username: String) {
+        authenticationLoginViewModel.update(username: username)
+    }
+    
+    @MainActor private func updateViewModelHomeserver() {
+        let homeserver = authenticationService.state.homeserver
+        
+        UserDefaults.standard.set(homeserver.address, forKey: "editDomain")
+        UserDefaults.standard.synchronize()
+        BuildSettings.serverConfigDefaultHomeserverUrlString = homeserver.address
+        authenticationLoginViewModel.update(homeserver: homeserver.viewData)
     }
 }

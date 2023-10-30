@@ -1167,6 +1167,10 @@
 "account_link_email" = "Dolen E-bost";
 "account_linked_emails" = "E-byst cysylltiedig";
 "account_email_validation_title" = "Aros am wirio";
+"account_import_files" = "Import file";
+"account_import_service" = "Server Configuration";
+"account_import_key" = "Enter the key";
+"account_import_key_secury" = "Please enter the decryption passphrase (optional).";
 "account_email_validation_message" = "Gwiriwch eich e-bost a chliciwch ar y ddolen sydd ynddo. Ar ôl gwneud hyn, cliciwch parhau.";
 "account_email_validation_error" = "Methu gwirio cyfeiriad e-bost. Gwiriwch eich e-bost a chliciwch ar y ddolen sydd ynddo. Ar ôl gwneud hyn, cliciwch parhau";
 "account_msisdn_validation_title" = "Aros am wirio";

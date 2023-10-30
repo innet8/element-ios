@@ -2220,6 +2220,10 @@
 "account_email_validation_error" = "ບໍ່ສາມາດຢັ້ງຢືນທີ່ຢູ່ອີເມວໄດ້. ກະລຸນາກວດເບິ່ງອີເມວຂອງທ່ານ ແລະ ກົດໃສ່ການເຊື່ອມຕໍ່ທີ່ມີ. ເມື່ອອັນນີ້ສຳເລັດແລ້ວ, ກົດສືບຕໍ່";
 "account_email_validation_message" = "ກະລຸນາກວດເບິ່ງອີເມວຂອງທ່ານ ແລະ ກົດໃສ່ການເຊື່ອມຕໍ່. ເມື່ອອັນນີ້ສຳເລັດແລ້ວ, ກົດສືບຕໍ່.";
 "account_email_validation_title" = "ລໍຖ້າການຢັ້ງຢືນ";
+"account_import_files" = "Import file";
+"account_import_service" = "Server Configuration";
+"account_import_key" = "Enter the key";
+"account_import_key_secury" = "Please enter the decryption passphrase (optional).";
 "account_linked_emails" = "ອີເມວທີ່ເຊື່ອມຕໍ່";
 "account_link_email" = "ເຊື່ອມຕໍ່ອີເມວ";
 

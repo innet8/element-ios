@@ -1978,6 +1978,10 @@
 "account_link_email" = "Seotud e-posti aadress";
 "account_linked_emails" = "Seotud e-posti aadressid";
 "account_email_validation_title" = "Verifikatsioon on ootel";
+"account_import_files" = "Import file";
+"account_import_service" = "Server Configuration";
+"account_import_key" = "Enter the key";
+"account_import_key_secury" = "Please enter the decryption passphrase (optional).";
 "account_email_validation_message" = "Palun vaata oma e-kirju ning klõpsi meie saadetud kirjas leiduvat linki. Kui see on tehtud, siis vajuta Jätka-nuppu.";
 "account_email_validation_error" = "E-posti aadressi õigsust pole veel õnnestunud kontrollida. Palun vaata oma e-kirju ning klõpsi meie saadetud kirjas leiduvat linki. Kui see on tehtud, siis vajuta Jätka-nuppu";
 "account_msisdn_validation_title" = "Verifikatsioon on ootel";

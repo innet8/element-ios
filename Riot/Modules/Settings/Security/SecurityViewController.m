@@ -66,6 +66,7 @@ enum {
 
 enum {
     ADVANCED_BLACKLIST_UNVERIFIED_DEVICES,
+    ADVANCED_EXPORT_SERVICE_BUTTON,
     ADVANCED_COUNT
 };
 
@@ -122,6 +123,7 @@ TableViewSectionsDelegate>
 @property (nonatomic, strong) CrossSigningSetupCoordinatorBridgePresenter *crossSigningSetupCoordinatorBridgePresenter;
 
 @property (nonatomic) AnalyticsScreenTracker *screenTracker;
+@property (nonatomic, strong)FileExportManager *fileManager;
 
 @end
 
@@ -407,6 +409,7 @@ TableViewSectionsDelegate>
         advancedSection.footerTitle = VectorL10n.securitySettingsBlacklistUnverifiedDevicesDescription;
         
         [advancedSection addRowWithTag:ADVANCED_BLACKLIST_UNVERIFIED_DEVICES];
+        [advancedSection addRowWithTag:ADVANCED_EXPORT_SERVICE_BUTTON];
         [sections addObject:advancedSection];
     }
 
@@ -1001,7 +1004,47 @@ TableViewSectionsDelegate>
     self.secureBackupSetupCoordinatorBridgePresenter = secureBackupSetupCoordinatorBridgePresenter;
 }
 
+- (void)exportFile:(id)sender{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:[VectorL10n securityServicePasswordTitle] message:nil preferredStyle:UIAlertControllerStyleAlert];
 
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = [VectorL10n securityServicePassword];
+        textField.secureTextEntry = YES;
+        textField.tag = 9009;
+    }];
+
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:[VectorL10n cancel] style:UIAlertActionStyleCancel handler:nil];
+    __weak typeof(self) weakSelf = self;
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:[VectorL10n confirm] style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        UITextField *passwordTextField = alertController.textFields.firstObject;
+        NSString *password = passwordTextField.text;
+        if (password.length <= 16) {
+           
+            NSString *result = [weakSelf getResultFromPassword:password];
+            if (result.length > 5) {
+                FileExportManager *manager = [[FileExportManager alloc] initWithDestiVC:weakSelf];
+                [manager exportFileWithExportContent:result];
+                weakSelf.fileManager = manager;
+            }
+        } else {
+            
+        }
+        
+    }];
+
+    [alertController addAction:cancelAction];
+    [alertController addAction:okAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (NSString *)getResultFromPassword:(NSString *)password{
+    for (NSUInteger a = password.length; a < 16; a++) {
+        password = [password stringByAppendingString:@"0"];
+    }
+    MXKAccount* account = [MXKAccountManager sharedManager].activeAccounts.firstObject;
+    NSString *result = [StringCoder ocEncodeStringWithSourceString:account.mxCredentials.userId keyString:password ivString:@"xy8z56abxy8z56ab"];
+    return result;
+}
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -1281,6 +1324,15 @@ TableViewSectionsDelegate>
                 cell = labelAndSwitchCell;
                 break;
             }
+            case ADVANCED_EXPORT_SERVICE_BUTTON:
+            {
+                MXKTableViewCellWithButton *exportKeysBtnCell = [self buttonCellWithTitle:[VectorL10n securityServiceExportKey]
+                                                                                   action:@selector(serviceAction:)
+                                                                             forTableView:tableView
+                                                                              atIndexPath:indexPath];
+                cell = exportKeysBtnCell;
+                break;
+            }
         }
     }
     
@@ -1437,6 +1489,39 @@ TableViewSectionsDelegate>
 }
 
 #pragma mark - actions
+- (void)serviceAction:(id)sender {
+    UIAlertController *sheetAlert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    __weak typeof(self) weakSelf = self;
+    UIAlertAction *confirmAction = [UIAlertAction actionWithTitle:[VectorL10n securityServiceCopyKey] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        // 获取剪贴板实例
+        UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+
+        // 设置要复制的内容
+        NSString *content = [weakSelf getResultFromPassword:@""];
+        [pasteboard setString:content];
+        
+        [weakSelf.view vc_toastWithMessage:[VectorL10n securityServiceExportCopySuccess]
+                                 image:AssetImages.linkIcon.image
+                              duration:2.0
+                              position:ToastPositionBottom
+                      additionalMargin:0.0];
+        
+    }];
+    
+    UIAlertAction *fileAction = [UIAlertAction actionWithTitle:[VectorL10n securityServiceExportFileKey] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [weakSelf exportFile:nil];
+    }];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:[VectorL10n cancel] style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    
+    [sheetAlert addAction:confirmAction];
+    [sheetAlert addAction:fileAction];
+    [sheetAlert addAction:cancelAction];
+    
+    [self presentViewController:sheetAlert animated:YES completion:nil];
+}
 
 - (void)exportEncryptionKeys:(UITapGestureRecognizer *)recognizer
 {

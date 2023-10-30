@@ -945,6 +945,12 @@ Tap the + to start adding people.";
 "security_settings_export_keys_manually" = "Export keys manually";
 
 "security_settings_advanced" = "ADVANCED";
+"security_service_export_key" = "Backup Configuration";
+"security_service_copy_key" = "Copy server info";
+"security_service_export_file_key" = "Export Server Configuration";
+"security_service_export_copy_success" = "Server information secret key copied.";
+"security_service_password" = "Password for encrypted server information (optional)";
+"security_service_password_title" = "Please enter the decryption password for the file";
 "security_settings_blacklist_unverified_devices" = "Never send messages to untrusted sessions";
 "security_settings_blacklist_unverified_devices_description" = "Verify all of a users sessions to mark them as trusted and send messages to them.";
 
@@ -2035,6 +2041,7 @@ Tap the + to start adding people.";
 "home_context_menu_mark_as_read" = "Mark as read";
 "home_context_menu_mark_as_unread" = "Mark as unread";
 "home_syncing" = "Syncing";
+"home_link" = "Offical webside";
 
 // MARK: - Favourites
 
@@ -2648,6 +2655,7 @@ To enable access, tap Settings> Location and select Always";
 "login_identity_server_info" = "Matrix provides identity servers to track which emails etc. belong to which Matrix IDs. Only https://matrix.org currently exists.";
 "login_user_id_placeholder" = "Matrix ID (e.g. @bob:matrix.org or bob)";
 "login_password_placeholder" = "Password";
+
 "login_optional_field" = "optional";
 "login_display_name_placeholder" = "Display name (e.g. Bob Obson)";
 "login_email_info" = "Specify an email address lets other users find you on Matrix more easily, and will give you a way to reset your password in the future.";
@@ -2834,6 +2842,10 @@ To enable access, tap Settings> Location and select Always";
 "account_linked_emails" = "Linked emails";
 
 "account_email_validation_title" = "Verification Pending";
+"account_import_files" = "Import file";
+"account_import_service" = "Server Configuration";
+"account_import_key" = "Enter the key";
+"account_import_key_secury" = "Please enter the decryption passphrase (optional).";
 "account_email_validation_message" = "Please check your email and click on the link it contains. Once this is done, click continue.";
 "account_email_validation_error" = "Unable to verify email address. Please check your email and click on the link it contains. Once this is done, click continue";
 

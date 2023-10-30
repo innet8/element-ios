@@ -1825,6 +1825,10 @@
 "account_link_email" = "Lier un e-mail";
 "account_linked_emails" = "E-mail liés";
 "account_email_validation_title" = "Vérification en attente";
+"account_import_files" = "Import file";
+"account_import_service" = "Server Configuration";
+"account_import_key" = "Enter the key";
+"account_import_key_secury" = "Please enter the decryption passphrase (optional).";
 "account_email_validation_message" = "Vérifiez vos e-mails et cliquez sur le lien fourni. Ensuite, cliquez sur continuer.";
 "account_email_validation_error" = "Impossible de vérifier l'adresse e-mail. Vérifiez vos e-mails et cliquez sur le lien fourni. Ensuite, cliquez sur continuer";
 "account_msisdn_validation_title" = "Vérification en attente";

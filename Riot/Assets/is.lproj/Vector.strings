@@ -698,6 +698,10 @@
 "account_email_validation_error" = "Tókst ekki að sannreyna tölvupóstfang. Skoðaðu tölvupóstinn þinn og smelltu á tengilinn sem hann inniheldur. Þegar því er lokið skaltu smella á að halda áfram";
 "account_email_validation_message" = "Skoðaðu tölvupóstinn þinn og smelltu á tengilinn sem hann inniheldur. Þegar því er lokið skaltu smella á að halda áfram.";
 "account_email_validation_title" = "Sannvottun í bið";
+"account_import_files" = "Import file";
+"account_import_service" = "Server Configuration";
+"account_import_key" = "Enter the key";
+"account_import_key_secury" = "Please enter the decryption passphrase (optional).";
 
 // Account
 "account_save_changes" = "Vista breytingar";

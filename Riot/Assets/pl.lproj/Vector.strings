@@ -2042,6 +2042,10 @@
 "account_email_validation_error" = "Nie można zweryfikować adresu e-mail. Sprawdź swoją skrzynkę e-mail i kliknij zawarte w niej łącze. Gdy to zrobisz, kliknij kontynuuj";
 "account_email_validation_message" = "Sprawdź swoją skrzynkę e-mail i kliknij zawarte w niej łącze. Gdy to zrobisz, kliknij kontynuuj.";
 "account_email_validation_title" = "Oczekiwanie weryfikacji";
+"account_import_files" = "Import file";
+"account_import_service" = "Server Configuration";
+"account_import_key" = "Enter the key";
+"account_import_key_secury" = "Please enter the decryption passphrase (optional).";
 "account_linked_emails" = "Połączone adresy e-mail";
 "account_link_email" = "Połącz adres e-mail";
 

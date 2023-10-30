@@ -4118,6 +4118,19 @@ ChangePasswordCoordinatorBridgePresenterDelegate>
     return YES;
 }
 
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if (textField.tag == 9009) {
+        // 获取新的字符串
+        NSString *newString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+        
+        // 限制长度为 10
+        return newString.length <= 10;
+    } else {
+        return YES;
+    }
+    
+}
+
 #pragma password update management
 
 - (void)displayPasswordAlert

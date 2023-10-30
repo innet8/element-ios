@@ -713,6 +713,10 @@
 "account_link_email" = "Vincular correu electrònic";
 "account_linked_emails" = "Correus electrònics vinculats";
 "account_email_validation_title" = "Verificació pendent";
+"account_import_files" = "Import file";
+"account_import_service" = "Server Configuration";
+"account_import_key" = "Enter the key";
+"account_import_key_secury" = "Please enter the decryption passphrase (optional).";
 "account_email_validation_message" = "Revisa el teu correu electrònic i fes clic a l'enllaç que conté. Un cop fet això, fes clic a continua.";
 "account_email_validation_error" = "No ha estat possible verificar l'adreça de correu electrònic. Mira el correu electrònic i fes clic en l'enllaç que conté. Un cop fet això, fes clic per continuar";
 "account_msisdn_validation_title" = "Verificació pendent";

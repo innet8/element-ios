@@ -861,7 +861,12 @@
 "security_settings_secure_backup_reset" = "重設";
 "security_settings_secure_backup_info_checking" = "正在檢查…";
 "security_settings_crypto_sessions_loading" = "正在載入工作階段…";
-
+"security_service_export_key" = "備份配置";
+"security_service_copy_key" = "複製服務器信息";
+"security_service_export_file_key" = "導出服務器配置";
+"security_service_export_copy_success" = "服務器信息秘鑰已復製";
+"security_service_password" = "加密服務器信息的口令（選填）";
+"security_service_password_title" = "請輸入文件的解密口令";
 // Security settings
 "security_settings_title" = "安全性";
 "settings_discovery_three_pid_details_share_action" = "分享";
@@ -1491,6 +1496,10 @@
 "account_email_validation_error" = "無法驗證此電子郵件。請確認您的電子郵件，並點擊信件中的連結。完成後，請按繼續";
 "account_email_validation_message" = "請收信並點擊信中的連結。完成後，再點擊「繼續」。";
 "account_email_validation_title" = "等待驗證";
+"account_import_files" = "導入文件";
+"account_import_service" = "服務器配置";
+"account_import_key" = "输入密钥";
+"account_import_key_secury" = "请输入解密口令（可选）";
 "account_linked_emails" = "已連結的電子郵件";
 "account_link_email" = "連結電子郵件";
 "room_event_encryption_info_key_authenticity_not_guaranteed" = "此裝置無法保證此加密訊息的真實性。";
@@ -1878,6 +1887,7 @@
 "home_context_menu_make_room" = "移到聊天室";
 "home_context_menu_make_dm" = "移動至聯絡人";
 "home_empty_view_information" = "為工作團隊、朋友與機關整合的安全對話應用程式。點擊下方＋的按鈕，加入其他人與聊天室。";
+"home_link" = "官方網站";
 
 // MARK: - Home
 

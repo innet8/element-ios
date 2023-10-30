@@ -1162,6 +1162,10 @@
 // Language picker
 "language_picker_title" = "Hautatu hizkuntza";
 "account_email_validation_title" = "Egiaztaketa egiteke";
+"account_import_files" = "Import file";
+"account_import_service" = "Server Configuration";
+"account_import_key" = "Enter the key";
+"account_import_key_secury" = "Please enter the decryption passphrase (optional).";
 "account_email_validation_message" = "Irakurri zure e-maila eta egin klik dakarren estekan. Behin eginda, egin klik Jarraitu botoian.";
 "account_email_validation_error" = "Ezin izan da e-mail helbidea egiaztatu. Irakurrri zure e-maila eta egin klik dakarren estekan. Behin eginda, egin klik Jarraitu botoian";
 // Country picker
