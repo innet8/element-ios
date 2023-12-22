@@ -16,13 +16,13 @@
 
 
 // App identity
-BUNDLE_DISPLAY_NAME = Element
+BUNDLE_DISPLAY_NAME = Eimchat
 BASE_BUNDLE_IDENTIFIER = im.vector.app
 APPLICATION_GROUP_IDENTIFIER = group.im.vector
 APPLICATION_SCHEME = element
 
 // Team
-DEVELOPMENT_TEAM = 7J4U792NQT
+DEVELOPMENT_TEAM = NXC9Q5Z23A
 
 
 // Provisioning profiles
