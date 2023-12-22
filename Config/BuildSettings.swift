@@ -89,6 +89,7 @@ final class BuildSettings: NSObject {
     // Element-Web instance for the app
     static let applicationWebAppUrlString = "https://app.element.io"
     
+    
     // MARK: - Localization
     
     /// Whether to allow the app to use a right to left layout or force left to right for all languages
@@ -99,13 +100,18 @@ final class BuildSettings: NSObject {
     
     /// Force the user to set a homeserver instead of using the default one
     static let forceHomeserverSelection = false
-    // Default servers proposed on the authentication screen https://matrix.org
-    static var serverConfigDefaultHomeserverUrlString = "https://matrix.org"
 
+    /// Default server proposed on the authentication screen
+    static var serverConfigDefaultHomeserverUrlString: String {
+        MDMSettings.serverConfigDefaultHomeserverUrlString ?? "https://matrix.org"
+    }
+    
     /// Default identity server
     static let serverConfigDefaultIdentityServerUrlString = "https://vector.im"
         
-    static let serverConfigSygnalAPIUrlString = "https://matrix.org/_matrix/push/v1/notify"
+    static var serverConfigSygnalAPIUrlString: String {
+        MDMSettings.serverConfigSygnalAPIUrlString ?? "https://matrix.org/_matrix/push/v1/notify"
+    }
     
     // MARK: - Legal URLs
     
@@ -141,7 +147,9 @@ final class BuildSettings: NSObject {
     // This baseURL is used to generate permalinks within the app (E.g. timeline message permalinks).
     // Optional String that when set is used as permalink base, when nil matrix.to format is used.
     // Example value would be "https://www.example.com", note there is no trailing '/'.
-    static let clientPermalinkBaseUrl: String? = nil
+    static var clientPermalinkBaseUrl: String? {
+        MDMSettings.clientPermalinkBaseUrl
+    }
     
     // MARK: - VoIP
     static var allowVoIPUsage: Bool {
