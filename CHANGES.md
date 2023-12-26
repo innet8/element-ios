@@ -1,3 +1,88 @@
+## Changes in 1.11.5 (2023-11-28)
+
+🙌 Improvements
+
+- Upgrade MatrixSDK version ([v0.27.4](https://github.com/matrix-org/matrix-ios-sdk/releases/tag/v0.27.4)).
+- Upgrade Rich Text Editor version. ([v2.18.0](https://github.com/matrix-org/matrix-rich-text-editor/releases/tag/2.18.0))
+
+🐛 Bugfixes
+
+- Call destroy in dealloc to remove all observers of SettingsViewController ([#7697](https://github.com/vector-im/element-ios/pull/7697))
+- Editing a message that ends with an emoji now works as expected. ([#7681](https://github.com/vector-im/element-ios/issues/7681))
+- The "Quote" action has been removed from the menu of the selected message. ([#7691](https://github.com/vector-im/element-ios/issues/7691))
+- The slide to end call for everyone button for the Jitsi widget now also ends the call for the current user. ([#7704](https://github.com/vector-im/element-ios/issues/7704))
+- If a Jitsi call in a room is ongoing when the Jitsi widget is removed from such room the call ends. ([#7706](https://github.com/vector-im/element-ios/issues/7706))
+- If a moderator ends a Jitsi call for everyone the call is now dismissed. ([#7709](https://github.com/vector-im/element-ios/issues/7709))
+
+⚠️ API Changes
+
+- Drop support for iOS 14, raising the deployment target to iOS 15 to support the latest Rich Text Editor version. ([#7711](https://github.com/vector-im/element-ios/pull/7711))
+
+
+## Changes in 1.11.4 (2023-10-04)
+
+🙌 Improvements
+
+- Upgrade MatrixSDK version ([v0.27.3](https://github.com/matrix-org/matrix-ios-sdk/releases/tag/v0.27.3)).
+- Allow the use of Jitsi for 1:1 calls via a well-known configuration flag. ([#7684](https://github.com/vector-im/element-ios/issues/7684))
+
+
+## Changes in 1.11.3 (2023-09-13)
+
+🐛 Bugfixes
+
+- Show OIDC account management UI using embedded browser instead of system browser. ([#7671](https://github.com/vector-im/element-ios/issues/7671))
+- Hide Sign Out X/All Sessions buttons in the Device Manager when using OIDC. ([#7672](https://github.com/vector-im/element-ios/issues/7672))
+
+
+## Changes in 1.11.2 (2023-09-12)
+
+🙌 Improvements
+
+- Upgrade MatrixSDK version ([v0.27.2](https://github.com/matrix-org/matrix-ios-sdk/releases/tag/v0.27.2)).
+
+🐛 Bugfixes
+
+- Fix an issue where rooms were not correctly sorted after forwarding a message. ([#7641](https://github.com/vector-im/element-ios/issues/7641))
+- Add phone number UI and explanatory text is hidden if the 3 pid changes capability is disabled. ([#7670](https://github.com/vector-im/element-ios/issues/7670))
+
+
+## Changes in 1.11.1 (2023-08-29)
+
+✨ Features
+
+- New settings cell to manage your account through MAS if the home server allows it. ([#7653](https://github.com/vector-im/element-ios/issues/7653))
+
+🙌 Improvements
+
+- Upgrade MatrixSDK version ([v0.27.1](https://github.com/matrix-org/matrix-ios-sdk/releases/tag/v0.27.1)).
+
+🐛 Bugfixes
+
+- Prevent mention crashes when room members are missing display names (objc interop) ([#7649](https://github.com/vector-im/element-ios/pull/7649))
+- Add email UI is hidden if the 3 pid changes capability is disabled. ([#7645](https://github.com/vector-im/element-ios/issues/7645))
+- You can now log out from other sessions using MAS on supported OIDC home servers. ([#7646](https://github.com/vector-im/element-ios/issues/7646))
+- Deactivate account is hidden for servers with OIDC auth. ([#7648](https://github.com/vector-im/element-ios/issues/7648))
+- Prevent pill crashes when room members are missing display names (objc interop) ([#7651](https://github.com/vector-im/element-ios/issues/7651))
+
+
+## Changes in 1.11.0 (2023-08-15)
+
+✨ Features
+
+- Integrate Device Dehydration v2 through the Crypto SDK ([#7630](https://github.com/vector-im/element-ios/pull/7630))
+
+🙌 Improvements
+
+- Upgrade MatrixSDK version ([v0.27.0](https://github.com/matrix-org/matrix-ios-sdk/releases/tag/v0.27.0)).
+- Disable Siri, Share and Reply (from NSE) Extensions. ([#7618](https://github.com/vector-im/element-ios/issues/7618))
+
+🐛 Bugfixes
+
+- Fix bug in SSO URL generation that was non-compliant with the spec. ([#7639](https://github.com/vector-im/element-ios/pull/7639))
+- Fix a crash when opening v11 rooms. ([#7633](https://github.com/vector-im/element-ios/issues/7633))
+
+
 ## Changes in 1.10.14 (2023-06-21)
 
 🙌 Improvements

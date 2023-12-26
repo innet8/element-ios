@@ -1942,7 +1942,9 @@ static CGSize kThreadListBarButtonItemImageSize;
             
             if (self.supportCallOption)
             {
-                if (self.roomDataSource.room.summary.membersCount.joined == 2 && self.roomDataSource.room.isDirect)
+                if (self.roomDataSource.room.summary.membersCount.joined == 2
+                    && self.roomDataSource.room.isDirect
+                    && !self.mainSession.vc_homeserverConfiguration.jitsi.useFor1To1Calls)
                 {
                     //  voice call button for Matrix call
                     UIBarButtonItem *itemVoice = [[UIBarButtonItem alloc] initWithImage:AssetImages.voiceCallHangonIcon.image
@@ -3119,15 +3121,16 @@ static CGSize kThreadListBarButtonItemImageSize;
 
 - (void)displayNewDirectChatWithTargetUser:(nonnull MXUser*)directChatTargetUser session:(nonnull MXSession*)session
 {
+    // `[displayRoom:]` may require the session, setting it here before calling it
+    [self addMatrixSession:session];
+
     // Release existing room data source or preview
     [self displayRoom:nil];
     
     self.directChatTargetUser = directChatTargetUser;
     
     self.eventsAcknowledgementEnabled = NO;
-    
-    [self addMatrixSession:session];
-    
+
     [self refreshRoomTitle];
     [self refreshRoomInputToolbar];
 }
@@ -4053,26 +4056,6 @@ static CGSize kThreadListBarButtonItemImageSize;
                 [self cancelEventSelection];
             }]];
         }
-
-        if (!isJitsiCallEvent && !selectedEvent.isTimelinePollEvent &&
-            selectedEvent.eventType != MXEventTypeBeaconInfo)
-        {
-            [self.eventMenuBuilder addItemWithType:EventMenuItemTypeQuote
-                                            action:[UIAlertAction actionWithTitle:[VectorL10n roomEventActionQuote]
-                                                                            style:UIAlertActionStyleDefault
-                                                                          handler:^(UIAlertAction * action) {
-                MXStrongifyAndReturnIfNil(self);
-                
-                [self cancelEventSelection];
-
-                // Quote the message a la Markdown into the input toolbar composer
-                NSString *prefix = [self.inputToolbarView.textMessage length] ? [NSString stringWithFormat:@"%@\n", self.inputToolbarView.textMessage] : @"";
-                self.inputToolbarView.textMessage = [NSString stringWithFormat:@"%@>%@\n\n", prefix, selectedComponent.textMessage];
-                
-                // And display the keyboard
-                [self.inputToolbarView becomeFirstResponder];
-            }]];
-        }
         
         if (selectedEvent.sentState == MXEventSentStateSent &&
             !selectedEvent.isTimelinePollEvent &&
@@ -4577,7 +4560,8 @@ static CGSize kThreadListBarButtonItemImageSize;
 {
     ForwardingShareItemSender *shareItemSender = [[ForwardingShareItemSender alloc] initWithEvent:selectedEvent];
     self.shareManager = [[ShareManager alloc] initWithShareItemSender:shareItemSender
-                                                                 type:ShareManagerTypeForward];
+                                                                 type:ShareManagerTypeForward
+                                                              session:self.mainSession];
     
     MXWeakify(self);
     [self.shareManager setCompletionCallback:^(ShareManagerResult result) {
@@ -5037,7 +5021,9 @@ static CGSize kThreadListBarButtonItemImageSize;
     }
     else
     {
-        if (self.roomDataSource.room.summary.membersCount.joined == 2 && self.roomDataSource.room.isDirect)
+        if (self.roomDataSource.room.summary.membersCount.joined == 2
+            && self.roomDataSource.room.isDirect
+            && !self.mainSession.vc_homeserverConfiguration.jitsi.useFor1To1Calls)
         {
             //  Matrix call
             [self.roomDataSource.room placeCallWithVideo:video success:nil failure:nil];
@@ -8047,7 +8033,7 @@ static CGSize kThreadListBarButtonItemImageSize;
         self.removeJitsiWidgetView.delegate = nil;
         
         //  end active call if exists
-        if ([self isRoomHavingAJitsiCallForWidgetId:jitsiWidget.widgetId])
+        if ([self isRoomHavingAJitsiCall])
         {
             [self endActiveJitsiCall];
         }
